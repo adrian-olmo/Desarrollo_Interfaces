@@ -8,8 +8,7 @@ package componentes;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class TextFieldNumeros extends JTextField
-        implements KeyListener, FocusListener {
+public class TextFieldNumeros extends JTextField implements KeyListener, FocusListener {
 
     String hint;
 
