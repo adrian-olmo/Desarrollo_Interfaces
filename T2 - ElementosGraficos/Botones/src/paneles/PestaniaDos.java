@@ -9,9 +9,9 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class PestaniaDos extends JPanel implements ChangeListener{
+public class PestaniaDos extends JPanel implements ChangeListener {
 
-   JCheckBox cNormal;
+    JCheckBox cNormal;
     JRadioButton rNormal, rUno, rDos, rTres;
     ButtonGroup grupoRadios;
 
@@ -69,4 +69,3 @@ public class PestaniaDos extends JPanel implements ChangeListener{
         }
     }
 }
-
