@@ -51,7 +51,7 @@ public class PestaniaUno extends JPanel implements ActionListener, ChangeListene
         botonImagen = new JButton();
         //botonImagen.setPreferredSize(new Dimension(32,32));
         botonImagen.setIcon(new ImageIcon(getClass().getResource("../recursos" +
-                "/button_ok.png")));
+                "/button_ok.png"))); //Pone imagen a un bton
 
         botonImagen.setPressedIcon(new ImageIcon(getClass().getResource("../recursos/button_cancel.png")));
         botonImagen.setRolloverIcon(new ImageIcon(getClass().getResource("../recursos/button_power.png")));
