@@ -16,6 +16,8 @@ import javax.swing.event.ChangeListener;
  * @author Usuario DAM 2
  */
 public class PestaniaUno extends JPanel implements ActionListener, ChangeListener{
+    
+    
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
