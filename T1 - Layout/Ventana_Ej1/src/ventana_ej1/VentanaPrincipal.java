@@ -33,6 +33,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         this.setTitle("Ejemplo inicial");
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //this.setExtendedState(MAXIMIZED_BOTH);
+        
         //this.setExtendedState(MAXIMIZED_HORIZ);
         //this.setExtendedState(MAXIMIZED_VERT);
         //this.setExtendedState(ICONIFIED);
