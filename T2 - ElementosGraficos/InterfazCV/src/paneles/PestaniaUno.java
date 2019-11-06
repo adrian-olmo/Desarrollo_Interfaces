@@ -80,10 +80,11 @@ public class PestaniaUno extends JPanel implements ActionListener{
         constraints.weighty = py;
         constraints.anchor = anchor;
         constraints.fill = fill;
-        this.add(c, constraints);
+        panelCentro.add(c, constraints);
     }
     
-    private void configurarContainer() {
+    private void configurarContainer() { 
+        this.setLayout(new BorderLayout());
         panelCentro.setLayout(new GridBagLayout());
         configurarConstrait(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, etiquetaPrincipal);
         configurarConstrait(0, 1, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, etiquetaNombre);
@@ -103,7 +104,7 @@ public class PestaniaUno extends JPanel implements ActionListener{
         configurarConstrait(0, 8, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textoDireccion);
         configurarConstrait(1, 8, 1, 2, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, botonInsertarDatos);
         configurarConstrait(2, 8, 2, 2, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, botonSalir);
-        
+        this.add(panelCentro, BorderLayout.CENTER);
     }
     
     @Override

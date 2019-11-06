@@ -26,7 +26,7 @@ public class Ventana extends JFrame {
 
         instancias();
         configurarContainer();
-        this.setSize(new Dimension(700, 700));
+        this.setSize(new Dimension(700, 250));
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
