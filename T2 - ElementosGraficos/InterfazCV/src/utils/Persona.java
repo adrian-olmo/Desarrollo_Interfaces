@@ -10,50 +10,80 @@ package utils;
  * @author Adri
  */
 public class Persona {
-     String nombre, dni;
-    int nDi, nPmdm, nPsp, nAd;
-    double media;
-
-    public Persona(String nombre, String dni, int nDi, int nPmdm, int nPsp, int nAd) {
+    private String nombre;
+    private String telefono;
+    private String DNI;
+    private String direccion;
+    private String estadoCivil;
+    private String profesion;
+    private String aniosExperiencia;
+    
+      public Persona(String nombre, String telefono, String DNI, String direccion, String estadoCivil, String profesion, String aniosExperiencia) {
         this.nombre = nombre;
-        this.dni = dni;
-        this.nDi = nDi;
-        this.nPmdm = nPmdm;
-        this.nPsp = nPsp;
-        this.nAd = nAd;
-        this.media = (double) (nDi+nPmdm+nPsp+nAd)/(double)4;
+        this.telefono = telefono;
+        this.DNI = DNI;
+        this.direccion = direccion;
+        this.estadoCivil = estadoCivil;
+        this.profesion = profesion;
+        this.aniosExperiencia = aniosExperiencia;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getDni() {
-        return dni;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public int getnDi() {
-        return nDi;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public int getnPmdm() {
-        return nPmdm;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
-    public int getnPsp() {
-        return nPsp;
+    public String getDNI() {
+        return DNI;
     }
 
-    public int getnAd() {
-        return nAd;
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
     }
 
-    public double getMedia() {
-        return media;
+    public String getDireccion() {
+        return direccion;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%s - %s", getNombre(),getDni());
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
+
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
+
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
+    }
+
+    public String getProfesion() {
+        return profesion;
+    }
+
+    public void setProfesion(String profesion) {
+        this.profesion = profesion;
+    }
+
+    public String getAniosExperiencia() {
+        return aniosExperiencia;
+    }
+
+    public void setAniosExperiencia(String aniosExperiencia) {
+        this.aniosExperiencia = aniosExperiencia;
+    }
+      
+      
+    
 }

@@ -5,19 +5,17 @@
  */
 package paneles;
 
-import java.awt.*;
+import interfazcv.Ventana;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 /**
  *
- * @author Usuario DAM 2
+ * @author irone
  */
-public class PestaniaDos extends JPanel implements ActionListener, ChangeListener {
+public class PestaniaDos extends JPanel implements ActionListener {
 
     JLabel telf, dni, aniosEx, estudios, resulBus;
     JTextField txtTelf, txtDni, txtEstudios, txtResult;
@@ -37,9 +35,11 @@ public class PestaniaDos extends JPanel implements ActionListener, ChangeListene
     private void initGUI() {
         instancias();
         configurarPanel();
+        acciones();
     }
 
     private void instancias() {
+
         telf = new JLabel("Teléfono");
         dni = new JLabel("DNI");
         aniosEx = new JLabel("Años de experiencia");
@@ -52,7 +52,7 @@ public class PestaniaDos extends JPanel implements ActionListener, ChangeListene
         resultados = new JTextArea();
         btnBuscar = new JButton("Buscar");
         btnSalir = new JButton("Salir");
-        modeloAnios = new SpinnerNumberModel(0, 0, 50, 1);
+        modeloAnios = new SpinnerNumberModel(1, 1, 50, 1);
         aniosExperiencia = new JSpinner(modeloAnios);
         trabajos = new JComboBox();
         trabajos.addItem("Ingenieria Informatica");
@@ -108,13 +108,57 @@ public class PestaniaDos extends JPanel implements ActionListener, ChangeListene
         return panelInf;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-       
+    private void acciones() {
+        btnBuscar.setActionCommand("Buscar");
+        btnSalir.setActionCommand("Salir");
+        btnBuscar.addActionListener(this);
+        btnSalir.addActionListener(this);
+        txtDni.addActionListener(this);
+        txtEstudios.addActionListener(this);
+        txtResult.addActionListener(this);
+        txtTelf.addActionListener(this);
+
     }
 
     @Override
-    public void stateChanged(ChangeEvent e) {
-        
+    public void actionPerformed(ActionEvent e) {
+        switch (e.getActionCommand()) {
+            case "Salir":
+                System.exit(0);
+                break;
+            case "Buscar":
+                buscarPersona();
+
+                break;
+
+        }
+    }
+
+    public void buscarPersona() {
+
+        String cadena = "";
+        String experiencia = aniosExperiencia.getModel().getValue().toString();
+        String telefono = txtTelf.getText();
+        String DNI = txtDni.getText();
+        String profesion = trabajos.getSelectedItem().toString();
+
+        for (int i = 0; i < Ventana.listadoPersonas.size(); i++) {
+            String experiencia1 = Ventana.listadoPersonas.get(i).getAniosExperiencia();
+            String telefono1 = Ventana.listadoPersonas.get(i).getTelefono();
+            String DNI1 = Ventana.listadoPersonas.get(i).getTelefono();
+            String profesion1 = Ventana.listadoPersonas.get(i).getTelefono();
+
+            if (experiencia.equals(experiencia1) || telefono.equals(telefono1) || DNI.equals(DNI1) || profesion.equals(profesion1)) {
+                cadena += Ventana.listadoPersonas.get(i).getNombre() + ", " + experiencia1 + ", " + telefono1 + ", " + DNI1 + ", " + profesion + "\n";
+
+            }
+
+        }
+
+        if (cadena.equals("")) {
+            JOptionPane.showMessageDialog(null, "No encontro personas con los criterios de busqueda propocionados");
+        } else {
+            resultados.setText(cadena);
+        }
     }
 }
