@@ -5,73 +5,42 @@
  */
 package paneles;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import utils.Persona;
+
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
-/**
- *
- * @author Usuario DAM 2
- */
-public class PestaniaUno extends JPanel implements ActionListener{
+public class PestaniaUno extends JPanel {
 
-    JLabel etiquetaPrincipal, etiquetaNombre, etiquetaDireccion, etiquetaTelefono, etiquetaDNI, seleccionEstudios, añosExperiencia;
-    JTextField textoDireccion, textoNombre, textoTelefono, textoDNI;
-    JButton botonInsertarDatos, botonSalir;
-    JPanel panelCentro, panelTitulo;
-    JSpinner aniosExperiencia;
-    JComboBox<String> trabajos;
-    Container container;
-    JRadioButton radioButton1;
-    JRadioButton radioButton2;
-    JRadioButton radioButton3;
-    
-     public PestaniaUno() {
+    DefaultComboBoxModel modeloCombo;
+    JLabel labelMedia;
+    JComboBox comboBox;
+
+    public PestaniaUno(){
         initGUI();
     }
 
     private void initGUI() {
         instancias();
-        configurarContainer();
+        configurarPanel();
+        acciones();
     }
-    
-    private void instancias() {
-        etiquetaPrincipal = new JLabel("POR FAVOR, RELLENA LOS DATOS DE TU CURRIULUM");
-        etiquetaNombre = new JLabel("Nombre");
-        etiquetaDireccion = new JLabel("Direccion");
-        etiquetaTelefono = new JLabel("Telefono");
-        etiquetaDNI = new JLabel("DNI");
-        seleccionEstudios = new JLabel("Selecciona sus estudios");
-        añosExperiencia = new JLabel("Años de experiencia");
-        textoNombre = new JTextField();
-        textoTelefono = new JTextField();
-        textoDNI = new JTextField();
-        textoDireccion = new JTextField(); 
-        botonInsertarDatos = new JButton("Insertar datos");
-        botonSalir = new JButton("Salir");
-        panelCentro = new JPanel();
-        panelTitulo = new JPanel();
-        aniosExperiencia = new JSpinner();
-        radioButton1 = new JRadioButton("Soltero", false);
-        radioButton2 = new JRadioButton("Casado", true);
-        radioButton3 = new JRadioButton("Divorciado", false);
-        trabajos = new JComboBox();
-        trabajos.addItem("Ingenieria Informatica");
-        trabajos.addItem("Ingenieria Industrial");
-        trabajos.addItem("Ingenieria Telecomunicaciones");
-        trabajos.addItem("Arquitectura");
-        trabajos.addItem("Derecho");
+
+    private void configurarPanel() {
+        this.setLayout(new GridBagLayout());
+        configurarConstrait(0,0,1,1,0.5,0,GridBagConstraints.CENTER, GridBagConstraints.NONE, new JLabel("Alumno"));
+        configurarConstrait(1,0,1,1,0.5,0,GridBagConstraints.CENTER, GridBagConstraints.NONE, comboBox);
+        configurarConstrait(0,1,2,1,1,0,GridBagConstraints.CENTER, GridBagConstraints.NONE, labelMedia);
+
     }
-    
-    private void configurarConstrait(int x, int y, int tx, int ty, double px, double py, int anchor, int fill, Component c) {
+
+
+    private void configurarConstrait(int x, int y, int tx, int ty, double px, double py , int anchor, int fill, Component c){
+
         GridBagConstraints constraints = new GridBagConstraints();
+
         constraints.gridx = x;
         constraints.gridy = y;
         constraints.gridwidth = tx;
@@ -80,53 +49,30 @@ public class PestaniaUno extends JPanel implements ActionListener{
         constraints.weighty = py;
         constraints.anchor = anchor;
         constraints.fill = fill;
-        panelCentro.add(c, constraints);
-    }
-    
-    private void configurarContainer() { 
-        this.setLayout(new BorderLayout());
-        panelCentro.setLayout(new GridBagLayout());
-        configurarConstrait(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, etiquetaPrincipal);
-        configurarConstrait(0, 1, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, etiquetaNombre);
-        configurarConstrait(1, 1, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, seleccionEstudios);
-        configurarConstrait(0, 2, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textoNombre);        
-        configurarConstrait(1, 2, 3, 1, 2, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, trabajos);
-        configurarConstrait(0, 3, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, etiquetaTelefono);
-        configurarConstrait(0, 4, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textoTelefono);
-        configurarConstrait(0, 5, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, etiquetaDNI);
-        configurarConstrait(1, 5, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, radioButton1);
-        configurarConstrait(2, 5, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, radioButton2);
-        configurarConstrait(3, 5, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, radioButton3);
-        configurarConstrait(0, 6, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textoDNI);
-        configurarConstrait(1, 6, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, añosExperiencia);
-        configurarConstrait(2, 6, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, aniosExperiencia);
-        configurarConstrait(0, 7, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, etiquetaDireccion);
-        configurarConstrait(0, 8, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textoDireccion);
-        configurarConstrait(1, 8, 1, 2, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, botonInsertarDatos);
-        configurarConstrait(2, 8, 2, 2, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, botonSalir);
-        this.add(panelCentro, BorderLayout.CENTER);
-    }
-    
-    @Override
-    public void actionPerformed(ActionEvent e) {
-//        switch (e.getActionCommand()) {
-//            case :
-//                break;
-//            case "textoNombre":
-//                break;
-//            case "textoTelefono":
-//                break;
-//            case "textoDNI":
-//                break;
-//        }
+        this.add(c,constraints);
     }
 
+
     private void acciones() {
-    textoDireccion.addActionListener(this);
-    textoNombre.addActionListener(this);
-    textoTelefono.addActionListener(this);   
-    textoDNI.addActionListener(this);
-    
-    
+        comboBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (comboBox.getModel().getSelectedItem().getClass()== Persona.class){
+                    Persona entontrada = (Persona) comboBox.getModel().getSelectedItem();
+                    labelMedia.setText(String.format("La media del alumno es %.2f",entontrada.getMedia()));
+                }
+            }
+        });
+    }
+
+    private void instancias() {
+        modeloCombo = new DefaultComboBoxModel();
+        modeloCombo.addElement("Selecciona un alumno");
+        comboBox  = new JComboBox(modeloCombo);
+        labelMedia = new JLabel("Selecciona un alumno");
+    }
+
+    public DefaultComboBoxModel getModeloCombo() {
+        return modeloCombo;
     }
 }
