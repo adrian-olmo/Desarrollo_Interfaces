@@ -128,9 +128,7 @@ public class PestaniaDos extends JPanel implements ActionListener {
                 break;
             case "Buscar":
                 buscarPersona();
-
                 break;
-
         }
     }
 
