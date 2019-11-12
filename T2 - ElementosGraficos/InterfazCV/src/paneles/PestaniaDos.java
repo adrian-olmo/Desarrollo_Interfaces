@@ -13,7 +13,7 @@ import javax.swing.*;
 
 /**
  *
- * @author irone
+ * @author Adri
  */
 public class PestaniaDos extends JPanel implements ActionListener {
 

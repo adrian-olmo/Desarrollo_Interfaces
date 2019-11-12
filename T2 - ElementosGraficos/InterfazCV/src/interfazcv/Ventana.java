@@ -14,7 +14,7 @@ import utils.Persona;
 
 /**
  *
- * @author Usuario DAM 2
+ * @author Adri
  */
 public class Ventana extends JFrame {
 

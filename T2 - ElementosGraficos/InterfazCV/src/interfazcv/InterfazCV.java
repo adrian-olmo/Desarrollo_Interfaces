@@ -9,7 +9,7 @@ import javax.swing.SwingUtilities;
 
 /**
  *
- * @author Usuario DAM 2
+ * @author Adri
  */
 public class InterfazCV {
 
