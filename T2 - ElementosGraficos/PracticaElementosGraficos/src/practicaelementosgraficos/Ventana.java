@@ -9,8 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
+
 
 /**
  *
@@ -102,6 +101,10 @@ public class Ventana extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        if (e.getSource() == itemBuscar){
+            cardLayout.show(container, "Buscar");
+        }
 
         if (e.getSource() == btnaddnombre) {
             String datoIntro = JOptionPane.showInputDialog(Ventana.this, "Introduce Nombre",
