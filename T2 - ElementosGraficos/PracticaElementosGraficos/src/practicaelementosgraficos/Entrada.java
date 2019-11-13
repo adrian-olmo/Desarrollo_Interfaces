@@ -21,8 +21,10 @@ public class Entrada {
             @Override
             public void run() {
                 Ventana v = new Ventana();
+                v.initGUI();
             }
         });
+         
     }
     
 }
