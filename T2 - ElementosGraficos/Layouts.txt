@@ -1,0 +1,106 @@
+GridBagLayout
+
+private void configurarConstrait(int x, int y, int tx, int ty, double px, double py, int anchor, int fill, Component c) {
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = x;
+        constraints.gridy = y;
+        constraints.gridwidth = tx;
+        constraints.gridheight = ty;
+        constraints.weightx = px;
+        constraints.weighty = py;
+        constraints.anchor = anchor;
+        constraints.fill = fill;
+        panelCentro.add(c, constraints);
+    }
+    
+    private void configurarContainer() { 
+        this.setLayout(new BorderLayout());
+        panelCentro.setLayout(new GridBagLayout());
+        configurarConstrait(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, etiquetaPrincipal);
+        configurarConstrait(0, 1, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, etiquetaNombre);
+        configurarConstrait(1, 1, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, seleccionEstudios);
+        configurarConstrait(0, 2, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textoNombre);        
+        configurarConstrait(1, 2, 3, 1, 2, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, trabajos);
+        configurarConstrait(0, 3, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, etiquetaTelefono);
+        configurarConstrait(0, 4, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textoTelefono);
+        configurarConstrait(0, 5, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, etiquetaDNI);
+        configurarConstrait(1, 5, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, radioButton1);
+        configurarConstrait(2, 5, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, radioButton2);
+        configurarConstrait(3, 5, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, radioButton3);
+        configurarConstrait(0, 6, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textoDNI);
+        configurarConstrait(1, 6, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, añosExperiencia);
+        configurarConstrait(2, 6, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, aniosExperiencia);
+        configurarConstrait(0, 7, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, etiquetaDireccion);
+        configurarConstrait(0, 8, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textoDireccion);
+        configurarConstrait(1, 8, 1, 2, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, botonInsertarDatos);
+        configurarConstrait(2, 8, 2, 2, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, botonSalir);
+        this.add(panelCentro, BorderLayout.CENTER);
+    }
+--------------------------------------------------------------------------------------------------------------------------------------
+GridLayout
+
+public JPanel configurarPanelCentral() {
+        this.setLayout(new GridLayout(10, 3));
+        this.add(new JLabel("Nombre"));
+        this.add(nombre);
+        this.add(new JLabel("Apellido"));
+        this.add(apellido);
+        this.add(new JLabel("DNI"));
+        this.add(dni);
+        this.add(new JLabel("Edad"));
+        this.add(edad);
+        return pCentro;
+    }
+
+ private void configurarPanel() {
+        this.setLayout(new GridLayout(5, 0));
+
+        this.add(btnnombre);
+        this.add(btnape);
+        this.add(btnnota);
+        this.add(btnfct);
+        this.add(btnvalidar);
+    }
+---------------------------------------------------------------------------------------------------------------------------------------
+CardLayout
+
+ private JPanel configurarPanelCentral() {
+        pCentro.setLayout(cardlayout);
+        pCentro.add(panelRegistro, TAG_REGISTRO);
+        pCentro.add(panelBuscar, TAG_BUSCAR);
+        return pCentro;
+    }
+
+cardLayout.show(panelCentro, "panel2");
+        // ((CardLayout)panelCentro.getLayout()).show();
+---------------------------------------------------------------------------------------------------------------------------------------
+FlowLayout
+
+panelSuperior = new JPanel(new FlowLayout(FlowLayout.LEFT));
+panelSuperior.setBackground(Color.cyan);
+panelSuperior.add(new JButton("Sup.1"));
+panelSuperior.add(new JButton("Sup.2"));
+---------------------------------------------------------------------------------------------------------------------------------------
+BoxLayout
+
+panelIzquierdo = new JPanel();
+panelIzquierdo.setLayout(new BoxLayout(panelIzquierdo, BoxLayout.Y_AXIS / X_AXIS));
+panelIzquierdo.setBackground(Color.red);
+panelIzquierdo.add(new JButton("1"));
+panelIzquierdo.add(new JButton("2"));
+panelIzquierdo.add(new JButton("3"));
+
+---------------------------------------------------------------------------------------------------------------------------------------
+BorderLayout
+
+v.getContentPane().setLayout(new BorderLayout());
+v.getContentPane().add(scroll,BorderLayout.CENTER);
+v.getContentPane().add(panelSuperior,BorderLayout.NORTH);
+v.getContentPane().add(panelInferior,BorderLayout.SOUTH);
+v.getContentPane().add(panelIzquierdo,BorderLayout.WEST);
+v.getContentPane().add(panelDerecho,BorderLayout.EAST);
+---------------------------------------------------------------------------------------------------------------------------------------
+JFrame --> BorderLayout
+JPanel --> FlowLayout
+
+
