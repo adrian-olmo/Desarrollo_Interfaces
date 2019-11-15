@@ -7,10 +7,7 @@ package practicaexamen_di;
 
 import javax.swing.SwingUtilities;
 
-/**
- *
- * @author irone
- */
+
 public class Main {
 
     /**
