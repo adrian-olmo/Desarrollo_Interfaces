@@ -97,7 +97,7 @@ public class Ventana extends JFrame implements ActionListener{
             panelPestanias.setSelectedIndex(1);
             
         } else if (e.getSource() == itemadjuntar){
-            JOptionPane.showMessageDialog(this, "Busca CV en el PC", "Adjuntar", JOptionPane.INFORMATION_MESSAGE, null);
+            JOptionPane.showConfirmDialog(this,"¿Desea agregar su Curriculum","Adjuntar Archivos",JOptionPane.YES_NO_CANCEL_OPTION);
         }
     }
     
