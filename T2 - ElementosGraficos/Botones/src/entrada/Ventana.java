@@ -38,13 +38,13 @@ public class Ventana extends JFrame implements ActionListener, ChangeListener {
 
     ButtonGroup grupoRadios;
 
-    public void initGUI(){
+    public void initGUI() throws ClassNotFoundException{
 
         instancias();
         configurarMenu();
         configurarContainer();
         acciones();
-        this.setSize(new Dimension(300,300));
+        this.setSize(new Dimension(700,250));
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -96,7 +96,7 @@ public class Ventana extends JFrame implements ActionListener, ChangeListener {
         panelPestanias.addTab("Personalizacion", pestaniaOcho);
     }
 
-    private void instancias() {
+    private void instancias() throws ClassNotFoundException {
         container = this.getContentPane();
         panelPestanias = new JTabbedPane(SwingConstants.TOP);
         pestaniaUno = new PestaniaUno();
