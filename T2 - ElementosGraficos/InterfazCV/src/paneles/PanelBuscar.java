@@ -6,16 +6,29 @@
 package paneles;
 
 import interfazcv.Ventana;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 
 /**
  *
  * @author Adri
  */
-public class PestaniaDos extends JPanel implements ActionListener {
+public class PanelBuscar extends JPanel implements ActionListener {
 
     JLabel telf, dni, aniosEx, estudios, resulBus;
     JTextField txtTelf, txtDni, txtEstudios, txtResult;
@@ -28,7 +41,7 @@ public class PestaniaDos extends JPanel implements ActionListener {
     JPanel panelCentro, panelInf;
     Container container;
 
-    public PestaniaDos() {
+    public PanelBuscar() {
         initGUI();
     }
 
@@ -50,8 +63,8 @@ public class PestaniaDos extends JPanel implements ActionListener {
         txtEstudios = new JTextField();
         txtResult = new JTextField();
         resultados = new JTextArea();
-        btnBuscar = new JButton("Buscar");
-        btnSalir = new JButton("Salir");
+        btnBuscar = new JButton(new ImageIcon("src/resources/buscar.png"));
+        btnSalir = new JButton(new ImageIcon("src/resources/salida.png"));
         modeloAnios = new SpinnerNumberModel(1, 1, 50, 1);
         aniosExperiencia = new JSpinner(modeloAnios);
         trabajos = new JComboBox();
