@@ -27,6 +27,7 @@ public class Ventana extends JFrame implements ActionListener, ChangeListener {
     PestaniaCinco pestaniaCinco;
     PestaniaSeis pestaniaSeis;
     PestaniaSiete pestaniaSiete;
+    PestaniaOcho pestaniaOcho;
     JTabbedPane panelPestanias;
 
     JMenuBar barraMenu;
@@ -92,6 +93,7 @@ public class Ventana extends JFrame implements ActionListener, ChangeListener {
         panelPestanias.addTab("Elementos datos",pestaniaCinco);
         panelPestanias.addTab("Elementos lista",pestaniaSeis);
         panelPestanias.addTab("Barra progreso",pestaniaSiete);
+        panelPestanias.addTab("Personalizacion", pestaniaOcho);
     }
 
     private void instancias() {
@@ -104,6 +106,7 @@ public class Ventana extends JFrame implements ActionListener, ChangeListener {
         pestaniaCinco = new PestaniaCinco();
         pestaniaSeis = new PestaniaSeis();
         pestaniaSiete = new PestaniaSiete();
+        pestaniaOcho = new PestaniaOcho();
 
         barraMenu = new JMenuBar();
         menuItems1 = new JMenu("Pestañas 1 a 3");
