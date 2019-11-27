@@ -8,6 +8,8 @@ package interfazcv;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.*;
 import paneles.*;
@@ -22,7 +24,7 @@ public class Ventana extends JFrame implements ActionListener {
     Container container; //*
     JMenuBar barraMenu; //*
     JMenu menuprincipal; //*
-    JMenuItem itemregistrar, itembuscar, itemadjuntar; //*
+    JMenuItem itemregistrar, itembuscar, itemadjuntar, itemsalir; //*
     CardLayout cardLayout; //*
     PanelBuscar pBuscar; //*
     PanelRegistro pRegistro; //*
@@ -48,9 +50,23 @@ public class Ventana extends JFrame implements ActionListener {
         container = this.getContentPane();
         barraMenu = new JMenuBar();
         menuprincipal = new JMenu("Menu Empleados");
+        
         itemregistrar = new JMenuItem("Registrar Empleado");
+        itemregistrar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, InputEvent.CTRL_DOWN_MASK));
+        itemregistrar.setToolTipText("Pulsar Ctl + 1");
+        
         itembuscar = new JMenuItem("Buscar Empleado");
+        itembuscar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, InputEvent.CTRL_DOWN_MASK));
+        itembuscar.setToolTipText("Pulsar Ctl + 2");
+        
         itemadjuntar = new JMenuItem("Adjuntar Archivos");
+        itemadjuntar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, InputEvent.CTRL_DOWN_MASK));
+        itemadjuntar.setToolTipText("Pulsar Ctl + 3");
+        
+        itemsalir = new JMenuItem("Salir");
+        itemsalir.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_4, InputEvent.ALT_DOWN_MASK));
+        itemsalir.setToolTipText("Pulsar Alt + 4");
+        
         cardLayout = new CardLayout();
         pBuscar = new PanelBuscar();
         pRegistro = new PanelRegistro();
@@ -65,6 +81,7 @@ public class Ventana extends JFrame implements ActionListener {
         menuprincipal.add(itemregistrar);
         menuprincipal.add(itembuscar);
         menuprincipal.add(itemadjuntar);
+        menuprincipal.add(itemsalir);
         this.setJMenuBar(barraMenu);
     }
 
@@ -84,6 +101,7 @@ public class Ventana extends JFrame implements ActionListener {
         itembuscar.addActionListener(this);
         itemregistrar.addActionListener(this);
         itemadjuntar.addActionListener(this);
+        itemsalir.addActionListener(this);
     }
 
     @Override
@@ -104,7 +122,8 @@ public class Ventana extends JFrame implements ActionListener {
                 System.out.println(ex);
             } else if (i == JFileChooser.CANCEL_OPTION) {
             }
-        }
+        } else if (e.getSource() == itemsalir)
+            System.exit(0);
 
     }
 }
