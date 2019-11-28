@@ -5,6 +5,8 @@
  */
 package entrada;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 
 /**
@@ -18,7 +20,11 @@ public class Entrada {
             @Override
             public void run() {
                 Ventana v = new Ventana();
-                v.initGUI();
+                try {
+                    v.initGUI();
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
