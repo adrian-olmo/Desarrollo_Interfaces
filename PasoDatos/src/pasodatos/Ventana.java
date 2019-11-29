@@ -10,25 +10,28 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 
 /**
  *
  * @author Usuario DAM 2
  */
-public class Ventana extends JFrame implements ActionListener{
+public class Ventana extends JFrame implements ActionListener {
 
-    PanelUno panelUno;
-    PanelDos panelDos;
-    
-    JMenuBar barra;
-    JMenu menu;
-    JMenuItem item1, item2;
-    
-    Container container;
-    CardLayout cardLayout;
-    
-    Ventana(){
+    private PanelUno panelUno;
+    private PanelDos panelDos;
+
+    private JMenuBar barra;
+    private JMenu menu;
+    private JMenuItem item1, item2;
+
+    private Container container;
+    private CardLayout cardLayout;
+
+    private ArrayList listadatos;
+
+    Ventana() {
         initGUI();
     }
 
@@ -44,17 +47,22 @@ public class Ventana extends JFrame implements ActionListener{
 
     }
 
+    public ArrayList getListadatos() {
+        return listadatos;
+    }
+
     private void instancias() {
-        panelUno = new PanelUno();
+        
         panelDos = new PanelDos();
-        barra =  new JMenuBar();
+        panelUno = new PanelUno(panelDos);
+        barra = new JMenuBar();
         menu = new JMenu("Menu");
         item1 = new JMenuItem("Item1");
         item2 = new JMenuItem("Item2");
         container = this.getContentPane();
         cardLayout = new CardLayout();
+        listadatos = new ArrayList();
     }
-
 
     private void configurarmenu() {
         barra.add(menu);
@@ -67,7 +75,7 @@ public class Ventana extends JFrame implements ActionListener{
         container.setLayout(cardLayout);
         container.add(panelUno, "pane1");
         container.add(panelDos, "pane2");
-     
+
     }
 
     private void acciones() {
@@ -77,12 +85,12 @@ public class Ventana extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       
-        if (e.getSource() == item1){
+
+        if (e.getSource() == item1) {
             cardLayout.show(container, "pane1");
-        } else if (e.getSource() == item2){
+        } else if (e.getSource() == item2) {
             cardLayout.show(container, "pane2");
         }
-        
+
     }
 }

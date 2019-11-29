@@ -15,41 +15,39 @@ import javax.swing.JPanel;
  *
  * @author Usuario DAM 2
  */
-public class PanelUno extends JPanel implements ActionListener{
-    
+public class PanelUno extends JPanel implements ActionListener {
+
     JButton boton;
+    PanelDos pDos;
 
-    public PanelUno() {
-        
+    public PanelUno(Ventana v) {
+        this.pDos = pDos;
         intiGUI();
-        
-    }
-
-    private void intiGUI() {
-        
-        instancias();
         acciones();
         configurarpanel();
     }
 
+    private void intiGUI() {
+        instancias();
+
+    }
+
     private void instancias() {
-        
-        boton = new JButton("BOTON");
+        boton = new JButton("AGREGAR");
     }
 
     private void configurarpanel() {
         this.add(boton);
     }
+
     private void acciones() {
-       boton.addActionListener(this);
+        boton.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-       
+        
         
     }
 
-    
-    
 }
