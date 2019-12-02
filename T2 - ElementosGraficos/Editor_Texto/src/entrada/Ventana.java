@@ -20,10 +20,10 @@ import javax.swing.WindowConstants;
  *
  * @author Adri
  */
-public class Ventana extends JFrame{
+public class Ventana extends JFrame {
 
-    Container container;
-    JMenuBar barraMenu;
+    //Container container;
+    JMenuBar menuEditor;
     JMenu menuArchivo, menuEdicion, menuEstilo;
     JMenuItem itemNuevo, itemAbrir, itemCerrar, itemGuardar,
             itemGuardarcomo, itemImprimir, itemCopiar, itemCortar, itemPegar,
@@ -32,20 +32,44 @@ public class Ventana extends JFrame{
     public void initGUI() {
         instancias();
         configmenu();
-        this.setSize(new Dimension(700,250));
+        this.setSize(new Dimension(700, 400));
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 
+    private void configmenu() {
+        menuEditor.add(menuArchivo);
+        
+        menuArchivo.add(itemNuevo);
+        menuArchivo.add(itemAbrir);
+        menuArchivo.add(itemCerrar);
+        menuArchivo.add(itemGuardar);
+        menuArchivo.add(itemGuardarcomo);
+        menuArchivo.add(itemImprimir);
+        
+        menuEditor.add(menuEdicion);
+        
+        menuEdicion.add(itemCopiar);
+        menuEdicion.add(itemCortar);
+        menuEdicion.add(itemPegar);
+        
+        menuEdicion.add(menuEstilo);
+        menuEstilo.add(itemBold);
+        menuEstilo.add(itemNormal);
+        menuEstilo.add(itemCursiva);
+        
+        this.setJMenuBar(menuEditor);
+    }
+
     private void instancias() {
 
-        container = this.getContentPane();
-        barraMenu = new JMenuBar();
+        //container = this.getContentPane();
+        menuEditor = new JMenuBar();
         /*---------------------------------------------------------------------*/
-        
+
         menuArchivo = new JMenu("Archivo");
-       
+
         itemNuevo = new JMenuItem("Nuevo");
         itemNuevo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
         itemNuevo.setToolTipText("Ctrl + N");
@@ -55,7 +79,7 @@ public class Ventana extends JFrame{
         itemAbrir.setToolTipText("Ctrl + A");
 
         itemCerrar = new JMenuItem("Cerrar");
-        itemCerrar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, InputEvent.ALT_DOWN_MASK));
+        itemCerrar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_DOWN_MASK));
         itemCerrar.setToolTipText("Alt + F4");
 
         itemGuardar = new JMenuItem("Guardar");
@@ -67,18 +91,18 @@ public class Ventana extends JFrame{
 
         /*---------------------------------------------------------------------*/
         menuEdicion = new JMenu("Edicion");
-        
+
         itemCopiar = new JMenuItem("Copiar");
         itemCopiar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK));
         itemCopiar.setToolTipText("Ctrl + C");
-        
+
         itemCortar = new JMenuItem("Cortar");
-        itemCopiar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.CTRL_DOWN_MASK));
-        itemCopiar.setToolTipText("Ctrl + X");
-        
+        itemCortar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.CTRL_DOWN_MASK));
+        itemCortar.setToolTipText("Ctrl + X");
+
         itemPegar = new JMenuItem("Pegar");
-        itemCopiar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, InputEvent.CTRL_DOWN_MASK));
-        itemCopiar.setToolTipText("Ctrl + V");
+        itemPegar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, InputEvent.CTRL_DOWN_MASK));
+        itemPegar.setToolTipText("Ctrl + V");
 
         /*---------------------------------------------------------------------*/
         menuEstilo = new JMenu("Estilo de la fuente");
@@ -88,26 +112,4 @@ public class Ventana extends JFrame{
 
     }
 
-    private void configmenu() {
-        barraMenu.add(menuArchivo);
-        
-        itemNuevo.add(menuArchivo);
-        itemAbrir.add(menuArchivo);
-        itemCerrar.add(menuArchivo);
-        itemGuardar.add(menuArchivo);
-        itemGuardarcomo.add(menuArchivo);
-        itemImprimir.add(menuArchivo);
-        
-        barraMenu.add(menuEdicion);
-        itemCopiar.add(menuEdicion);
-        itemCortar.add(menuEdicion);
-        itemPegar.add(menuEdicion);
-        
-        menuEstilo.add(menuEdicion);
-        itemBold.add(menuEstilo);
-        itemNormal.add(menuEstilo);
-        itemCursiva.add(menuEstilo);
-        
-        this.setJMenuBar(barraMenu);
-    }
 }
