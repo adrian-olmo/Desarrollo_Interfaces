@@ -4,26 +4,27 @@
  * and open the template in the editor.
  */
 package entrada;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 
 /**
  *
- * @author Usuario DAM 2
+ * @author Adri
  */
 public class Entrada {
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 Ventana v = new Ventana();
-                try {
-                    v.initGUI();
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                v.initGUI();
+
             }
         });
     }
