@@ -9,6 +9,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
@@ -90,11 +91,11 @@ public class Ventana extends JFrame {
 
     private void configVentana() {
         container.add(configurarPanelSuperior(), BorderLayout.NORTH);
-        container.add(configurarPanelCentro(), BorderLayout.CENTER);
+        container.add(texto, BorderLayout.CENTER);
     }
 
     private Component configurarPanelSuperior() {
-        this.setLayout(new GridLayout(2, 1));
+        panelSuperior.setLayout(new FlowLayout());
         panelSuperior.add(btnnuevo);
         panelSuperior.add(btnabrir);
         panelSuperior.add(btnguardar);
@@ -108,10 +109,7 @@ public class Ventana extends JFrame {
         return panelSuperior;
     }
 
-    private Component configurarPanelCentro() {
-        panelCentro.add(texto);
-        return panelCentro;
-    }
+   
 
     private void cambiarletras() {
         Font fuente = new Font((String) modeloLetra.getSelectedItem(),
@@ -148,7 +146,6 @@ public class Ventana extends JFrame {
         panelCentro = new JPanel();
         panelSuperior = new JPanel();
         texto = new JTextPane();
-        //texto.setPreferredSize(new Dimension(700, 400));
         menuEditor = new JMenuBar();
         /*---------------------------------------------------------------------*/
 
@@ -157,21 +154,27 @@ public class Ventana extends JFrame {
         itemNuevo = new JMenuItem("Nuevo");
         itemNuevo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
         itemNuevo.setToolTipText("Ctrl + N");
+        itemNuevo.setIcon(new ImageIcon(getClass().getResource("../resources/new-file.png")));
+        
 
         itemAbrir = new JMenuItem("Abrir");
         itemAbrir.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_DOWN_MASK));
         itemAbrir.setToolTipText("Ctrl + A");
+        itemAbrir.setIcon(new ImageIcon(getClass().getResource("../resources/open-file.png")));
 
         itemCerrar = new JMenuItem("Cerrar");
         itemCerrar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_DOWN_MASK));
         itemCerrar.setToolTipText("Alt + F4");
+        itemCerrar.setIcon(new ImageIcon(getClass().getResource("../resources/cerrar.png")));
 
         itemGuardar = new JMenuItem("Guardar");
         itemGuardar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, InputEvent.CTRL_DOWN_MASK));
         itemGuardar.setToolTipText("Ctrl + G");
+        itemGuardar.setIcon(new ImageIcon(getClass().getResource("../resources/save.png")));
 
         itemGuardarcomo = new JMenuItem("Guardar como...");
         itemImprimir = new JMenuItem("Imprimir");
+        itemImprimir.setIcon(new ImageIcon(getClass().getResource("../resources/imprimir.png")));
 
         /*---------------------------------------------------------------------*/
         menuEdicion = new JMenu("Edicion");
@@ -179,20 +182,28 @@ public class Ventana extends JFrame {
         itemCopiar = new JMenuItem("Copiar");
         itemCopiar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK));
         itemCopiar.setToolTipText("Ctrl + C");
+        itemCopiar.setIcon(new ImageIcon(getClass().getResource("../resources/copiar.png")));
 
         itemCortar = new JMenuItem("Cortar");
         itemCortar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.CTRL_DOWN_MASK));
         itemCortar.setToolTipText("Ctrl + X");
+        itemCortar.setIcon(new ImageIcon(getClass().getResource("../resources/cortar.png")));
 
         itemPegar = new JMenuItem("Pegar");
         itemPegar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, InputEvent.CTRL_DOWN_MASK));
         itemPegar.setToolTipText("Ctrl + V");
+        itemPegar.setIcon(new ImageIcon(getClass().getResource("../resources/pegar.png")));
 
         /*---------------------------------------------------------------------*/
         menuEstilo = new JMenu("Estilo de la fuente");
         itemBold = new JMenuItem("Negrita");
+        itemBold.setIcon(new ImageIcon(getClass().getResource("../resources/negrita.png")));
+        
         itemNormal = new JMenuItem("Normal");
+        itemNormal.setIcon(new ImageIcon(getClass().getResource("../resources/normal.png")));
+        
         itemCursiva = new JMenuItem("Cursiva");
+        itemCursiva.setIcon(new ImageIcon(getClass().getResource("../resources/cursiva.png")));
 
         /*---------------------------------------------------------------------*/
         modeloLetra = new DefaultComboBoxModel();
