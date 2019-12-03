@@ -5,37 +5,15 @@
  */
 package entrada;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GraphicsEnvironment;
-import java.awt.GridLayout;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.KeyStroke;
-import javax.swing.WindowConstants;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 /**
  *
  * @author Adri
  */
-public class Ventana extends JFrame {
+public class Ventana extends JFrame implements ActionListener {
 
     Container container;
     JPanel panelSuperior, panelCentro;
@@ -59,6 +37,7 @@ public class Ventana extends JFrame {
         rellenartamanio();
         rellenartipo();
         cambiarletras();
+        acciones();
         this.setSize(new Dimension(700, 400));
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -109,7 +88,13 @@ public class Ventana extends JFrame {
         return panelSuperior;
     }
 
-   
+    private void acciones() {
+        itemGuardar.addActionListener(this);
+        btnguardar.addActionListener(this);
+        itemCerrar.addActionListener(this);
+        itemAbrir.addActionListener(this);
+        btnabrir.addActionListener(this);
+    }
 
     private void cambiarletras() {
         Font fuente = new Font((String) modeloLetra.getSelectedItem(),
@@ -155,7 +140,6 @@ public class Ventana extends JFrame {
         itemNuevo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
         itemNuevo.setToolTipText("Ctrl + N");
         itemNuevo.setIcon(new ImageIcon(getClass().getResource("../resources/new-file.png")));
-        
 
         itemAbrir = new JMenuItem("Abrir");
         itemAbrir.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_DOWN_MASK));
@@ -198,10 +182,10 @@ public class Ventana extends JFrame {
         menuEstilo = new JMenu("Estilo de la fuente");
         itemBold = new JMenuItem("Negrita");
         itemBold.setIcon(new ImageIcon(getClass().getResource("../resources/negrita.png")));
-        
+
         itemNormal = new JMenuItem("Normal");
         itemNormal.setIcon(new ImageIcon(getClass().getResource("../resources/normal.png")));
-        
+
         itemCursiva = new JMenuItem("Cursiva");
         itemCursiva.setIcon(new ImageIcon(getClass().getResource("../resources/cursiva.png")));
 
@@ -249,4 +233,33 @@ public class Ventana extends JFrame {
 
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource() == itemNuevo || e.getSource() == btnnuevo) {
+
+        } else if (e.getSource() == itemAbrir || e.getSource() == btnabrir) {
+            JFileChooser fileChooser = new JFileChooser();
+            int i = fileChooser.showOpenDialog(this);
+            if (i == JFileChooser.APPROVE_OPTION) {
+                String f = fileChooser.getSelectedFile().getName();
+                String ex = f.substring(f.indexOf(".") + 1);
+                System.out.println(ex);
+            }
+
+        } else if (e.getSource() == itemGuardar || e.getSource() == btnguardar) {
+            JFileChooser fileChooser = new JFileChooser();
+            int i = fileChooser.showSaveDialog(this);
+            if (i == JFileChooser.APPROVE_OPTION) {
+                String f = fileChooser.getSelectedFile().getName();
+                String ex = f.substring(f.indexOf(".") + 1);
+                System.out.println(ex);
+            }
+
+        } else if (e.getSource() == itemCerrar) {
+            System.exit(0);
+
+        }
+
+    }
 }
