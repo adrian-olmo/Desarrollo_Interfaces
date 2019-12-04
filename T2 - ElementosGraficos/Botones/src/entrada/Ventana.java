@@ -28,6 +28,7 @@ public class Ventana extends JFrame implements ActionListener, ChangeListener {
     PestaniaSeis pestaniaSeis;
     PestaniaSiete pestaniaSiete;
     PestaniaOcho pestaniaOcho;
+    PestaniaNueve pestaniaNueve;
     JTabbedPane panelPestanias;
 
     JMenuBar barraMenu;
@@ -44,7 +45,7 @@ public class Ventana extends JFrame implements ActionListener, ChangeListener {
         configurarMenu();
         configurarContainer();
         acciones();
-        this.setSize(new Dimension(700,250));
+        this.setSize(new Dimension(600,400));
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -94,6 +95,7 @@ public class Ventana extends JFrame implements ActionListener, ChangeListener {
         panelPestanias.addTab("Elementos lista",pestaniaSeis);
         panelPestanias.addTab("Barra progreso",pestaniaSiete);
         panelPestanias.addTab("Personalizacion", pestaniaOcho);
+        panelPestanias.addTab("Tablas",pestaniaNueve);
     }
 
     private void instancias() throws ClassNotFoundException {
@@ -107,6 +109,7 @@ public class Ventana extends JFrame implements ActionListener, ChangeListener {
         pestaniaSeis = new PestaniaSeis();
         pestaniaSiete = new PestaniaSiete();
         pestaniaOcho = new PestaniaOcho();
+        pestaniaNueve = new PestaniaNueve();
 
         barraMenu = new JMenuBar();
         menuItems1 = new JMenu("Pestañas 1 a 3");
