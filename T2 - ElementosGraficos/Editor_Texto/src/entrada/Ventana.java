@@ -13,11 +13,11 @@ import javax.swing.*;
  *
  * @author Adri
  */
-public class Ventana extends JFrame implements ActionListener {
+public class Ventana extends JFrame implements ActionListener, ItemListener {
 
     Container container;
     JPanel panelSuperior, panelCentro;
-    JTextPane texto;
+    JTextArea texto;
     JMenuBar menuEditor;
     JMenu menuArchivo, menuEdicion, menuEstilo;
     JMenuItem itemNuevo, itemAbrir, itemCerrar, itemGuardar,
@@ -29,9 +29,18 @@ public class Ventana extends JFrame implements ActionListener {
     JLabel labelLetra, labelTamanio, labelTipo, labelEstilo;
     JButton btnpegar, btncopiar, btncortar, btnimprimir, btnnuevo, btnabrir, btnguardar;
 
+    JPopupMenu menuEmergente;
+
+    public Ventana() {
+        initGUI();
+    }
+    
+    
+
     public void initGUI() {
         instancias();
         configmenu();
+        configpopup();
         configVentana();
         rellenarLetras();
         rellenartamanio();
@@ -39,9 +48,12 @@ public class Ventana extends JFrame implements ActionListener {
         cambiarletras();
         acciones();
         this.setSize(new Dimension(700, 400));
+        this.setTitle("Bloc de notas");
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        Image icon = new ImageIcon(getClass().getResource("../resources/notas.png")).getImage();
+        setIconImage(icon);
     }
 
     private void configmenu() {
@@ -68,9 +80,20 @@ public class Ventana extends JFrame implements ActionListener {
         this.setJMenuBar(menuEditor);
     }
 
+    private void configpopup() {
+        menuEmergente.add(itemCopiar);
+        menuEmergente.add(itemCortar);
+        menuEmergente.add(itemPegar);
+        menuEmergente.addSeparator();
+        menuEmergente.add(itemBold);
+        menuEmergente.add(itemNormal);
+        menuEmergente.add(itemCursiva);
+    }
+
     private void configVentana() {
         container.add(configurarPanelSuperior(), BorderLayout.NORTH);
         container.add(texto, BorderLayout.CENTER);
+        //container.add(menuEmergente);
     }
 
     private Component configurarPanelSuperior() {
@@ -88,22 +111,12 @@ public class Ventana extends JFrame implements ActionListener {
         return panelSuperior;
     }
 
-    private void acciones() {
-        itemGuardar.addActionListener(this);
-        btnguardar.addActionListener(this);
-        itemCerrar.addActionListener(this);
-        itemAbrir.addActionListener(this);
-        btnabrir.addActionListener(this);
-    }
-
     private void cambiarletras() {
         Font fuente = new Font((String) modeloLetra.getSelectedItem(),
                 comboTipo.getSelectedIndex(),
                 (int) modeloTamanio.getSelectedItem());
         Component[] components = this.getComponents();
-        for (Component item : components) {
-            item.setFont(fuente);
-        }
+        texto.setFont(fuente);
     }
 
     private void rellenarLetras() {
@@ -114,7 +127,7 @@ public class Ventana extends JFrame implements ActionListener {
     }
 
     private void rellenartamanio() {
-        for (int i = 8; i <= 30; i++) {
+        for (int i = 8; i <= 80; i++) {
             modeloTamanio.addElement(i);
         }
     }
@@ -124,14 +137,30 @@ public class Ventana extends JFrame implements ActionListener {
         modeloTipo.addElement("BOLD");
         modeloTipo.addElement("ITALIC");
     }
+    
+    private void acciones() {
+        itemNuevo.addActionListener(this);
+        btnnuevo.addActionListener(this);
+        itemGuardar.addActionListener(this);
+        btnguardar.addActionListener(this);
+        itemCerrar.addActionListener(this);
+        itemAbrir.addActionListener(this);
+        btnabrir.addActionListener(this);
+        texto.addMouseListener(new ManejoRaton());
+        comboLetra.addItemListener(this);
+        comboTamanio.addItemListener(this);
+        comboTipo.addItemListener(this);
+
+    }
 
     private void instancias() {
 
         container = this.getContentPane();
         panelCentro = new JPanel();
         panelSuperior = new JPanel();
-        texto = new JTextPane();
+        texto = new JTextArea();
         menuEditor = new JMenuBar();
+        menuEmergente = new JPopupMenu();
         /*---------------------------------------------------------------------*/
 
         menuArchivo = new JMenu("Archivo");
@@ -237,7 +266,9 @@ public class Ventana extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == itemNuevo || e.getSource() == btnnuevo) {
-
+                
+            System.exit(0);
+            Ventana v2 = new Ventana();
         } else if (e.getSource() == itemAbrir || e.getSource() == btnabrir) {
             JFileChooser fileChooser = new JFileChooser();
             int i = fileChooser.showOpenDialog(this);
@@ -259,6 +290,31 @@ public class Ventana extends JFrame implements ActionListener {
         } else if (e.getSource() == itemCerrar) {
             System.exit(0);
 
+        }
+
+    }
+
+    class ManejoRaton extends MouseAdapter {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            super.mouseClicked(e);
+
+            if (e.getButton() == MouseEvent.BUTTON3) {
+                menuEmergente.show(texto, e.getX(), e.getY());
+            }
+
+        }
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        if (e.getSource() == comboLetra) {
+            cambiarletras();
+        } else if (e.getSource() == comboTamanio) {
+            cambiarletras();
+        } else if (e.getSource() == comboTipo) {
+            cambiarletras();
         }
 
     }
