@@ -267,8 +267,6 @@ public class Ventana extends JFrame implements ActionListener, ItemListener {
 
         if (e.getSource() == itemNuevo || e.getSource() == btnnuevo) {
                 
-            System.exit(0);
-            Ventana v2 = new Ventana();
         } else if (e.getSource() == itemAbrir || e.getSource() == btnabrir) {
             JFileChooser fileChooser = new JFileChooser();
             int i = fileChooser.showOpenDialog(this);
