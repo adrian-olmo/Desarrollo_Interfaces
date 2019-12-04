@@ -5,10 +5,7 @@
  */
 package utils;
 
-/**
- *
- * @author Adri
- */
+
 public class Persona {
     private String nombre;
     private String telefono;

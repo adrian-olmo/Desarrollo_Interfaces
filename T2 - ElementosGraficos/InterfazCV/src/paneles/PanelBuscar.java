@@ -24,10 +24,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
-/**
- *
- * @author Adri
- */
+
 public class PanelBuscar extends JPanel implements ActionListener {
 
     JLabel telf, dni, aniosEx, estudios, resulBus;

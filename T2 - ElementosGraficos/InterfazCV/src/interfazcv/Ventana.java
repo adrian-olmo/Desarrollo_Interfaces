@@ -15,10 +15,7 @@ import javax.swing.*;
 import paneles.*;
 import utils.Persona;
 
-/**
- *
- * @author Adri
- */
+
 public class Ventana extends JFrame implements ActionListener {
 
     Container container; //*

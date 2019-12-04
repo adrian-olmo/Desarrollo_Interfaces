@@ -27,10 +27,6 @@ import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 import utils.Persona;
 
-/**
- *
- * @author Adri
- */
 public class PanelRegistro extends JPanel implements ActionListener {
 
     JLabel etiquetaPrincipal, etiquetaNombre, etiquetaDireccion, etiquetaTelefono, etiquetaDNI, seleccionEstudios, añosExperiencia;
