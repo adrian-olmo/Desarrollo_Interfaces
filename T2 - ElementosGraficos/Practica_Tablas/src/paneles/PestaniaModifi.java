@@ -5,12 +5,12 @@
  */
 package paneles;
 
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Adri
  */
-public class PestaniaModifi extends JFrame{
+public class PestaniaModifi extends JPanel{
     
 }

@@ -5,12 +5,12 @@
  */
 package paneles;
 
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Adri
  */
-public class PestaniaResumen extends JFrame{
+public class PestaniaResumen extends JPanel{
     
 }
