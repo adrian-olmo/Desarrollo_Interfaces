@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package entrada;
+
 import javax.swing.SwingUtilities;
 
 public class Entrada {
