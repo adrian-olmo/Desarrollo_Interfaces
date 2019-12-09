@@ -22,7 +22,7 @@ public class Entrada {
                 try {
                     v.initGUI();
                 } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+                    //Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
