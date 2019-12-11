@@ -6,21 +6,31 @@
 package paneles;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
+import modelos.ModeloSimple;
+import util.Persona;
 
 /**
  *
  * @author Adri
  */
 public class PestaniaResumen extends JPanel {
+    
+    ArrayList<Persona> personas;
+    
+    
 
     JLabel clave, nombre, apellidos, edad, calle, numero, CP;
     JTextField txtclave, txtnombre, txtapellidos, txtedad, txtcalle,
@@ -31,6 +41,9 @@ public class PestaniaResumen extends JPanel {
 
     Border bordeDatos;
     JTable tabla;
+    ModeloSimple modeloSimple;
+    
+    JScrollPane scroll;
 
     public PestaniaResumen() {
         initGUI();
@@ -43,18 +56,15 @@ public class PestaniaResumen extends JPanel {
 
     private void configurarPanel() {
         this.setLayout(new BorderLayout());
-        this.add(configSuperior(), BorderLayout.NORTH);
+        this.add(scroll, BorderLayout.NORTH);
         this.add(configCentro(), BorderLayout.CENTER);
         this.add(configInferior(), BorderLayout.SOUTH);
     }
 
-    private JPanel configSuperior() {
-
-        return pSuperior;
-    }
+    
 
     private JPanel configCentro() {
-        pCentro.setLayout(new GridLayout(3, 2));
+        pCentro.setLayout(new GridLayout(7, 2));
         pCentro.setBorder(bordeDatos);
         pCentro.add(clave);
         pCentro.add(txtclave);
@@ -81,7 +91,9 @@ public class PestaniaResumen extends JPanel {
     }
 
     private void instancias() {
-
+        
+        ArrayList personas = new ArrayList();
+        personas.add(new Persona(12,12,12,12,"a","a","a"));
         clave = new JLabel("Clave");
         nombre = new JLabel("Nombre:");
         apellidos = new JLabel("Apellidos:");
@@ -106,7 +118,13 @@ public class PestaniaResumen extends JPanel {
 
         bordeDatos = new TitledBorder(new EtchedBorder(), "Datos Personales");
         
-        String columnas[] = {"Nombre","Apellido","Telefono"};
+        
+        modeloSimple = new ModeloSimple(personas);
+        tabla = new JTable(modeloSimple);
+        
+        scroll = new JScrollPane(tabla);
+        scroll.setPreferredSize(new Dimension(100,100));
+        
         
 
     }
