@@ -1,5 +1,5 @@
-int pX = gridx = Columna 
-int pY = gridy = Fila
+int posX = gridx = Columna 
+int posY = gridy = Fila
 int tX = gridwidth = Número de columnas que ocupará el elemento
 int tY = gridheight = Número de filas que ocupará el elemento
 double peX = weightx  = peso en la columna
