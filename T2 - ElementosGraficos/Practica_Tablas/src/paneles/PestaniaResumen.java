@@ -87,6 +87,7 @@ public class PestaniaResumen extends JPanel {
 
     private JPanel configInferior() {
         pInferior.add(btnAlta);
+        pInferior.add(btnBaja);
         return pInferior;
     }
 
@@ -111,6 +112,7 @@ public class PestaniaResumen extends JPanel {
         txtCP = new JTextField();
 
         btnAlta = new JButton("Dar de Alta");
+        btnBaja = new JButton("Dar de Baja");
 
         pCentro = new JPanel();
         pInferior = new JPanel();

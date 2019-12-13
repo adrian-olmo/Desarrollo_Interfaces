@@ -85,11 +85,18 @@ public class PestaniaBaja extends JPanel {
         pCentroDireccion.setLayout(new GridLayout(3, 2));
         pCentroDireccion.setBorder(bordeDireccion);
         pCentroDireccion.add(calle);
+
         pCentroDireccion.add(txtcalle);
+        txtcalle.setEditable(false);
+
         pCentroDireccion.add(numero);
+
         pCentroDireccion.add(txtnumero);
+        txtnumero.setEditable(false);
+
         pCentroDireccion.add(CP);
         pCentroDireccion.add(txtCP);
+        txtCP.setEditable(false);
 
         return pCentroDireccion;
     }
