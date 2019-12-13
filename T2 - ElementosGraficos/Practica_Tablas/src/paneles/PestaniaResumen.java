@@ -8,6 +8,8 @@ package paneles;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -27,10 +29,8 @@ import util.Persona;
  * @author Adri
  */
 public class PestaniaResumen extends JPanel {
-    
+
     ArrayList<Persona> personas;
-    
-    
 
     JLabel clave, nombre, apellidos, edad, calle, numero, CP;
     JTextField txtclave, txtnombre, txtapellidos, txtedad, txtcalle,
@@ -42,7 +42,7 @@ public class PestaniaResumen extends JPanel {
     Border bordeDatos;
     JTable tabla;
     ModeloSimple modeloSimple;
-    
+
     JScrollPane scroll;
 
     public PestaniaResumen() {
@@ -51,6 +51,7 @@ public class PestaniaResumen extends JPanel {
 
     private void initGUI() {
         instancias();
+        acciones();
         configurarPanel();
     }
 
@@ -60,8 +61,6 @@ public class PestaniaResumen extends JPanel {
         this.add(configCentro(), BorderLayout.CENTER);
         this.add(configInferior(), BorderLayout.SOUTH);
     }
-
-    
 
     private JPanel configCentro() {
         pCentro.setLayout(new GridLayout(7, 2));
@@ -91,10 +90,17 @@ public class PestaniaResumen extends JPanel {
         return pInferior;
     }
 
+    private void acciones() {
+        txtclave.addKeyListener(new ManejoTeclas());
+        txtedad.addKeyListener(new ManejoTeclas());
+        txtnumero.addKeyListener(new ManejoTeclas());
+        txtCP.addKeyListener(new ManejoTeclas());
+    }
+
     private void instancias() {
-        
+
         ArrayList personas = new ArrayList();
-        personas.add(new Persona(12,12,12,12,"a","a","a"));
+        personas.add(new Persona(12, 12, 12, 12, "a", "a", "a"));
         clave = new JLabel("Clave");
         nombre = new JLabel("Nombre:");
         apellidos = new JLabel("Apellidos:");
@@ -119,16 +125,54 @@ public class PestaniaResumen extends JPanel {
         pSuperior = new JPanel();
 
         bordeDatos = new TitledBorder(new EtchedBorder(), "Datos Personales");
-        
-        
+
         modeloSimple = new ModeloSimple(personas);
         tabla = new JTable(modeloSimple);
-        
-        scroll = new JScrollPane(tabla);
-        scroll.setPreferredSize(new Dimension(100,100));
-        
-        
 
+        scroll = new JScrollPane(tabla);
+        scroll.setPreferredSize(new Dimension(100, 100));
+
+    }
+    
+    class ManejoTeclas extends KeyAdapter {
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char tecla = e.getKeyChar();
+            if (e.getSource() == txtclave) {
+                if (!Character.isDigit(tecla)) {
+                    e.consume();
+                } else {
+                    if (txtclave.getText().length() > 4) {
+                        e.consume();
+                    }
+                }
+            } else if (e.getSource() == txtedad) {
+                if (!Character.isDigit(tecla)) {
+                    e.consume();
+                } else {
+                    if (txtedad.getText().length() > 2) {
+                        e.consume();
+                    }
+                }
+            } else if (e.getSource() == txtnumero){
+                if (!Character.isDigit(tecla)) {
+                    e.consume();
+                } else {
+                    if (txtnumero.getText().length() > 8) {
+                        e.consume();
+                    }
+                }
+            } else if (e.getSource() == txtCP){
+                if (!Character.isDigit(tecla)) {
+                    e.consume();
+                } else {
+                    if (txtCP.getText().length() > 4) {
+                        e.consume();
+                    }
+                }
+            }
+        }
     }
 
 }

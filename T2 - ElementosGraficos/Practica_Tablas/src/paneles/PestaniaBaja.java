@@ -72,8 +72,11 @@ public class PestaniaBaja extends JPanel {
         pCentroDatos.setBorder(bordeDatos);
         pCentroDatos.add(nombre);
         pCentroDatos.add(txtnombre);
+        txtnombre.setEditable(false);
+        
         pCentroDatos.add(apellidos);
         pCentroDatos.add(txtapellidos);
+        txtapellidos.setEditable(false);
         pCentroDatos.add(edad);
         pCentroDatos.add(txtedad);
 

@@ -7,6 +7,10 @@ package paneles;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -21,7 +25,8 @@ import javax.swing.border.TitledBorder;
  *
  * @author Adri
  */
-public class PestaniaModifi extends JPanel{
+public class PestaniaModifi extends JPanel implements ActionListener{
+
     JLabel clave, nombre, apellidos, edad, calle, numero, CP;
     JTextField txtnombre, txtapellidos, txtedad, txtcalle,
             txtnumero, txtCP;
@@ -39,6 +44,7 @@ public class PestaniaModifi extends JPanel{
     private void initGUI() {
 
         instancias();
+        acciones();
         configurarPanel();
     }
 
@@ -98,6 +104,13 @@ public class PestaniaModifi extends JPanel{
         return pInferior;
     }
 
+    private void acciones() {
+        btnlimpiar.addActionListener(this);
+        txtedad.addKeyListener(new ManejoTeclas());
+        txtnumero.addKeyListener(new ManejoTeclas());
+        txtCP.addKeyListener(new ManejoTeclas());
+    }
+
     private void instancias() {
 
         clave = new JLabel("Clave");
@@ -129,6 +142,52 @@ public class PestaniaModifi extends JPanel{
         bordeDatos = new TitledBorder(new EtchedBorder(), "Datos Personales");
         bordeDireccion = new TitledBorder(new EtchedBorder(), "Direccion");
         bordeSeleccion = new TitledBorder(new EtchedBorder(), "Selección clave");
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btnlimpiar){
+            txtnombre.setText("");
+            txtapellidos.setText("");
+            txtedad.setText("");
+            txtcalle.setText("");
+            txtnombre.setText("");
+            txtnumero.setText("");
+            txtCP.setText("");
+        }
+    }
+
+    class ManejoTeclas extends KeyAdapter {
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char tecla = e.getKeyChar();
+            if (e.getSource() == txtedad) {
+                if (!Character.isDigit(tecla)) {
+                    e.consume();
+                } else {
+                    if (txtedad.getText().length() > 2) {
+                        e.consume();
+                    }
+                }
+            } else if (e.getSource() == txtnumero) {
+                if (!Character.isDigit(tecla)) {
+                    e.consume();
+                } else {
+                    if (txtnumero.getText().length() > 8) {
+                        e.consume();
+                    }
+                }
+            }else if (e.getSource() == txtCP) {
+                if (!Character.isDigit(tecla)) {
+                    e.consume();
+                } else {
+                    if (txtCP.getText().length() > 4) {
+                        e.consume();
+                    }
+                }
+            }
+        }
     }
 
 }
