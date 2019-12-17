@@ -46,7 +46,7 @@ public class Entrada {
         
         for (int i = 0; i < jsonArray.length(); i++){
             JSONObject object = (JSONObject) jsonArray.get(i);
-            String titulo = object.getString("original_title");
+            String titulo = object.getString("original_title"); //preguntamos lo que queremos mostrar
             System.out.println(titulo);
         }
         
