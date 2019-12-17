@@ -34,8 +34,6 @@ public class Ventana extends JFrame implements ActionListener, ItemListener {
     public Ventana() {
         initGUI();
     }
-    
-    
 
     public void initGUI() {
         instancias();
@@ -137,7 +135,7 @@ public class Ventana extends JFrame implements ActionListener, ItemListener {
         modeloTipo.addElement("BOLD");
         modeloTipo.addElement("ITALIC");
     }
-    
+
     private void acciones() {
         itemNuevo.addActionListener(this);
         btnnuevo.addActionListener(this);
@@ -266,7 +264,9 @@ public class Ventana extends JFrame implements ActionListener, ItemListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == itemNuevo || e.getSource() == btnnuevo) {
-                
+            Ventana v = new Ventana();
+            v.initGUI();
+
         } else if (e.getSource() == itemAbrir || e.getSource() == btnabrir) {
             JFileChooser fileChooser = new JFileChooser();
             int i = fileChooser.showOpenDialog(this);
@@ -286,10 +286,8 @@ public class Ventana extends JFrame implements ActionListener, ItemListener {
             }
 
         } else if (e.getSource() == itemCerrar) {
-            System.exit(0);
-
+            this.dispose();
         }
-
     }
 
     class ManejoRaton extends MouseAdapter {
