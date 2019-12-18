@@ -5,6 +5,7 @@
  */
 package ejemplo_json;
 
+import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -46,8 +47,9 @@ public class Entrada {
         
         for (int i = 0; i < jsonArray.length(); i++){
             JSONObject object = (JSONObject) jsonArray.get(i);
-            String titulo = object.getString("original_title"); //preguntamos lo que queremos mostrar
-            System.out.println(titulo);
+            Gson gson = new Gson();
+            Pelicula p = gson.fromJson(object.toString(), Pelicula.class);
+            System.out.println(p.getOriginal_title());
         }
         
         
