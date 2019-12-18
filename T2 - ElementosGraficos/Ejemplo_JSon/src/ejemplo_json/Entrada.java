@@ -60,10 +60,7 @@ public class Entrada {
                // v.initGUI();
             }
         });
-        
-        
-        
-        
+
     }
     
 }

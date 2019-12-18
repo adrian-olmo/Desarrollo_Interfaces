@@ -96,7 +96,7 @@ public class Ventana extends JFrame {
         URL url;
         HttpURLConnection connection;
         BufferedReader lector;
-        StringBuilder builder;
+        StringBuilder builder = new StringBuilder();
         
         @Override
         protected Boolean doInBackground() throws Exception {
@@ -124,6 +124,7 @@ public class Ventana extends JFrame {
                 JSONObject objeto = jsonArray.getJSONObject(i);
                 Gson gson = new Gson();
                 Pelicula pelicula = gson.fromJson(objeto.toString(), Pelicula.class);
+                modelolista.addElement(pelicula);
             }
             return true;
         }
