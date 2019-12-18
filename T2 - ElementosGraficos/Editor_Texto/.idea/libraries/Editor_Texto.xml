@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Editor_Texto">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/Editor_Texto.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
