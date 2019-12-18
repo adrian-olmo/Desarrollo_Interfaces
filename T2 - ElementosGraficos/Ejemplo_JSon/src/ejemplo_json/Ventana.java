@@ -27,6 +27,8 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.SwingWorker;
 import javax.swing.WindowConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -85,50 +87,66 @@ public class Ventana extends JFrame {
     private void acciones() {
         boton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
-               
+            public void actionPerformed(ActionEvent e) {
+                modelolista.clear();
+                new MiWorker().execute();
+            }
+        });
+        lista.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+               Pelicula peliculaseleccionada = (Pelicula) modelolista.getElementAt(lista.getSelectedIndex());
+               String ruta = String.format("%s%s","https://image.tmdb.org/t/p/w500/");
+                System.out.println(peliculaseleccionada.getPoster_path());
             }
         });
     }
     
-    class miWorker extends SwingWorker<Boolean, Void>{
+    class MiWorker extends SwingWorker<Boolean, Void> {
 
         URL url;
         HttpURLConnection connection;
         BufferedReader lector;
         StringBuilder builder = new StringBuilder();
-        
+
         @Override
         protected Boolean doInBackground() throws Exception {
-             //TODO PARA LEER LA URL
-            try{
-                url  = new URL("https://api.themoviedb.org/3/movie/now_playing?api_key=4ef66e12cddbb8fe9d4fd03ac9632f6e&language=en-US&page=1");
+
+            // TODO para leer la url
+            System.out.println("ejecutado");
+
+            try {
+                url = new URL("https://api.themoviedb.org/3/movie/now_playing?api_key=4ef66e12cddbb8fe9d4fd03ac9632f6e&language=en-US&page=1");
                 connection = (HttpURLConnection) url.openConnection();
                 lector = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            } catch(MalformedURLException e){
+
+            } catch (MalformedURLException e) {
                 e.printStackTrace();
-                
-            } catch(IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
-            
+
             String linea;
-            while((linea = lector.readLine())!= null){
+            while ((linea = lector.readLine())!=null){
                 builder.append(linea);
             }
-            
+
+
             JSONObject jsonEntero = new JSONObject(builder.toString());
-            JSONArray jsonArray = jsonEntero.getJSONArray("results: ");
-            
-            for (int i = 0; i < jsonArray.length(); i++){
-                JSONObject objeto = jsonArray.getJSONObject(i);
+            JSONArray jsonArrayResultados = jsonEntero.getJSONArray("results");
+            for (int i=0;i<jsonArrayResultados.length();i++){
+               
+                JSONObject objeto = jsonArrayResultados.getJSONObject(i);
                 Gson gson = new Gson();
-                Pelicula pelicula = gson.fromJson(objeto.toString(), Pelicula.class);
+                Pelicula pelicula = gson.fromJson(objeto.toString(),Pelicula.class);
                 modelolista.addElement(pelicula);
+                Thread.sleep(100);
             }
+
+
+
             return true;
         }
-        
     }
-
 }
+
