@@ -142,7 +142,7 @@ public class Ventana extends JFrame implements ActionListener, ItemListener {
         /*---------------------ACCIONES MENU-----------------------*/
         itemNuevo.addActionListener(this);
         itemCerrar.addActionListener(this);
-        //itemAbrir.addActionListener(this);
+        itemAbrir.addActionListener(this);
         itemGuardar.addActionListener(this);
         itemCopiar.addActionListener(this);
         itemCortar.addActionListener(this);
@@ -150,7 +150,7 @@ public class Ventana extends JFrame implements ActionListener, ItemListener {
         /*---------------------ACCIONES BOTONES-----------------------*/
         btnguardar.addActionListener(this);
         btnnuevo.addActionListener(this);
-        //btnabrir.addActionListener(this);
+        btnabrir.addActionListener(this);
         btncopiar.addActionListener(this);
         btncortar.addActionListener(this);
         btnpegar.addActionListener(this);
