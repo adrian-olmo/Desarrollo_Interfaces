@@ -2,21 +2,13 @@ package entrada;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.StringSelection;
-import java.awt.datatransfer.Transferable;
 import java.awt.event.*;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class Ventana extends JFrame implements ActionListener, ItemListener {
 
+    static JTextArea texto;
     Container container;
     JPanel pCentro, pSuperior;
-    static JTextArea texto;
     JButton btnnuevo, btnabrir, btnguardar, btnimprimir, btncortar, btnpegar, btncopiar;
     JPopupMenu menuEmergente;
     JMenuBar menuEditor;
@@ -25,10 +17,11 @@ public class Ventana extends JFrame implements ActionListener, ItemListener {
             itemImprimir, itemBold, itemNormal, itemCursiva, itemCopiar, itemCortar, itemPegar;
 
 
-    JComboBox comboLetra, comboTamanio, comboTipo;
-    DefaultComboBoxModel modeloLetra, modeloTamanio, modeloTipo;
+    static JComboBox comboLetra, comboTamanio, comboTipo;
+    static DefaultComboBoxModel modeloLetra, modeloTamanio, modeloTipo;
 
     Funciones funciones = new Funciones();
+    //Instancia instancias = new Instancia();
 
 
     public Ventana() {
@@ -160,7 +153,34 @@ public class Ventana extends JFrame implements ActionListener, ItemListener {
         comboTipo.addItemListener(this);
     }
 
-    private void instancias() {
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == itemNuevo || e.getSource() == btnnuevo) {
+            Ventana v = new Ventana();
+            v.initGUI();
+
+        } else if (e.getSource() == itemAbrir || e.getSource() == btnabrir) {
+            funciones.abrirArchivo();
+
+        } else if (e.getSource() == itemGuardar || e.getSource() == btnguardar) {
+            funciones.guardarArchivo();
+
+        } else if (e.getSource() == itemCortar || e.getSource() == btncortar) {
+            funciones.cortartexto();
+
+        } else if (e.getSource() == itemCopiar || e.getSource() == btncopiar) {
+            funciones.copiartexto();
+
+        } else if (e.getSource() == itemPegar || e.getSource() == btnpegar) {
+            funciones.pegartexto();
+
+        } else if (e.getSource() == itemCerrar) {
+            this.dispose();
+        }
+    }
+
+    public void instancias() {
 
         container = this.getContentPane();
         pCentro = new JPanel();
@@ -263,32 +283,6 @@ public class Ventana extends JFrame implements ActionListener, ItemListener {
         btnpegar.setPreferredSize(new Dimension(24, 24));
         btnpegar.setIcon(new ImageIcon(getClass().getResource("../resources/pegar.png")));
 
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == itemNuevo || e.getSource() == btnnuevo) {
-            Ventana v = new Ventana();
-            v.initGUI();
-
-        } else if (e.getSource() == itemAbrir || e.getSource() == btnabrir) {
-            funciones.abrirArchivo();
-
-        } else if (e.getSource() == itemGuardar || e.getSource() == btnguardar) {
-            funciones.guardarArchivo();
-
-        } else if (e.getSource() == itemCortar || e.getSource() == btncortar) {
-            funciones.cortartexto();
-
-        } else if (e.getSource() == itemCopiar || e.getSource() == btncopiar) {
-            funciones.copiartexto();
-
-        } else if (e.getSource() == itemPegar || e.getSource() == btnpegar) {
-            funciones.pegartexto();
-
-        } else if (e.getSource() == itemCerrar) {
-            this.dispose();
-        }
     }
 
     @Override
