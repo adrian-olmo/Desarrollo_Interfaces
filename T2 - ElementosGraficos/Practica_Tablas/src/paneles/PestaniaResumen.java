@@ -100,7 +100,7 @@ public class PestaniaResumen extends JPanel {
     private void instancias() {
 
         ArrayList personas = new ArrayList();
-        personas.add(new Persona(12, 12, 12, 12, "a", "a", "a"));
+        //personas.add(new Persona(12, 12, 12, 12, "a", "a", "a"));
         clave = new JLabel("Clave");
         nombre = new JLabel("Nombre:");
         apellidos = new JLabel("Apellidos:");

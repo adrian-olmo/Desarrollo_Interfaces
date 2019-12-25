@@ -6,8 +6,10 @@
 package entrada;
 
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.*;
 import paneles.*;
+import util.Persona;
 
 /**
  *
@@ -46,5 +48,10 @@ public class Ventana extends JFrame {
         panelPestanias.addTab("Bajas", pestaniaBaja);
         panelPestanias.addTab("Modificaciones", pestaniaModifi);
         panelPestanias.addTab("Resumen", pestaniaResumen);
+    }
+    
+
+    public ArrayList<Persona> getListaEmpleados() {
+        return getListaEmpleados();
     }
 }

@@ -5,6 +5,9 @@
  */
 package paneles;
 
+import entrada.Ventana;
+import util.Persona;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JButton;
@@ -30,6 +33,9 @@ public class PestaniaAlta extends JPanel implements ActionListener {
     JPanel pCentro, pInferior, pSuperior;
 
     Border bordeDatos, bordeDireccion;
+
+    static Persona persona_registro;
+    Ventana ventana;
 
     public PestaniaAlta() {
         initGUI();
@@ -123,15 +129,27 @@ public class PestaniaAlta extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        String nombre_anadido, apellido_anadido;
-        int clave_anadida, edad_anadida;
+        if (!txtclave.getText().toString().isEmpty() && !txtnombre.getText().toString().isEmpty()
+                && !txtapellidos.getText().toString().isEmpty() && !txtedad.getText().toString().isEmpty()
+                && !txtcalle.getText().toString().isEmpty() && !txtnumero.getText().toString().isEmpty() && !txtCP.getText().toString().isEmpty()){
 
-        if (e.getSource() == btnAlta) {
-            if (txtclave.getText().isEmpty() || txtnombre.getText().isEmpty() || txtapellidos.getText().isEmpty() || txtedad.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(PestaniaAlta.this, "Campos Vacios", "Error", JOptionPane.ERROR_MESSAGE, null);
-            } else {
+            if (e.getSource() == btnAlta){
+                int clave_alta = Integer.valueOf(txtclave.getText().toString());
+                String nombre_alta = txtnombre.getText().toString();
+                String apellido_alta = txtapellidos.getText().toString();
+                int edad_alta = Integer.valueOf(txtedad.getText().toString());
+                String calle_alta = txtcalle.getText().toString();
+                int numero_alta = Integer.valueOf(txtnumero.getText().toString());
+                int CP_alta  = Integer.valueOf(txtCP.getText().toString());
+
+                persona_registro = new Persona(clave_alta, nombre_alta, apellido_alta, edad_alta, calle_alta, numero_alta, CP_alta);
+                //System.out.println(persona_registro.toString());
+
 
             }
+        } else {
+            JOptionPane.showMessageDialog(PestaniaAlta.this,"Atención, faltan datos", "Advertencia",JOptionPane.WARNING_MESSAGE, null);
+
         }
 
     }

@@ -6,22 +6,24 @@
 package util;
 
 /**
- *
  * @author Usuario DAM 2
  */
 public class Persona {
-    
-    Integer clave, edad, numero, CP;
-    String nombre, apellidos, calle;
 
-    public Persona(Integer clave, Integer edad, Integer numero, Integer CP, String nombre, String apellidos, String calle) {
+    Integer clave;
+    String nombre, apellidos;
+    Integer edad;
+    String calle;
+    Integer numero, codpostal;
+
+    public Persona(Integer clave, String nombre, String apellidos, Integer edad, String calle, Integer numero, Integer codpostal) {
         this.clave = clave;
-        this.edad = edad;
-        this.numero = numero;
-        this.CP = CP;
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.edad = edad;
         this.calle = calle;
+        this.numero = numero;
+        this.codpostal = codpostal;
     }
 
     public Integer getClave() {
@@ -30,30 +32,6 @@ public class Persona {
 
     public void setClave(Integer clave) {
         this.clave = clave;
-    }
-
-    public Integer getEdad() {
-        return edad;
-    }
-
-    public void setEdad(Integer edad) {
-        this.edad = edad;
-    }
-
-    public Integer getNumero() {
-        return numero;
-    }
-
-    public void setNumero(Integer numero) {
-        this.numero = numero;
-    }
-
-    public Integer getCP() {
-        return CP;
-    }
-
-    public void setCP(Integer CP) {
-        this.CP = CP;
     }
 
     public String getNombre() {
@@ -72,6 +50,14 @@ public class Persona {
         this.apellidos = apellidos;
     }
 
+    public Integer getEdad() {
+        return edad;
+    }
+
+    public void setEdad(Integer edad) {
+        this.edad = edad;
+    }
+
     public String getCalle() {
         return calle;
     }
@@ -79,8 +65,33 @@ public class Persona {
     public void setCalle(String calle) {
         this.calle = calle;
     }
-    
-    
-    
-    
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
+
+    public Integer getCodpostal() {
+        return codpostal;
+    }
+
+    public void setCodpostal(Integer codpostal) {
+        this.codpostal = codpostal;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "clave=" + clave +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", edad=" + edad +
+                ", calle='" + calle + '\'' +
+                ", numero=" + numero +
+                ", codpostal=" + codpostal +
+                '}';
+    }
 }
