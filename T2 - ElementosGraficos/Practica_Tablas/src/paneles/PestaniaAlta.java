@@ -143,6 +143,9 @@ public class PestaniaAlta extends JPanel implements ActionListener {
                 int CP_alta  = Integer.valueOf(txtCP.getText().toString());
 
                 persona_registro = new Persona(clave_alta, nombre_alta, apellido_alta, edad_alta, calle_alta, numero_alta, CP_alta);
+                ventana.getListaEmpleados().add(persona_registro);
+                ventana.getModeloClaves().addElement(persona_registro);
+                ventana.getComboClaves().setModel(ventana.getModeloClaves());
                 //System.out.println(persona_registro.toString());
 
 

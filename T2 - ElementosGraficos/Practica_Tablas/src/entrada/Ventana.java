@@ -5,9 +5,14 @@
  */
 package entrada;
 
-import java.awt.*;
+import java.awt.Container;
+import java.awt.Dimension;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 import paneles.*;
 import util.Persona;
 
@@ -23,15 +28,20 @@ public class Ventana extends JFrame {
     PestaniaModifi pestaniaModifi;
     PestaniaResumen pestaniaResumen;
     JTabbedPane panelPestanias;
+    JComboBox comboClaves;
+    DefaultComboBoxModel modeloClaves;
+    ArrayList<Persona> listaPersonas;
 
     public void initGUI() {
         instancias();
         configurarContainer();
+        //acciones();
         this.setSize(new Dimension(450, 500));
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
+
 
     private void instancias() {
         container = this.getContentPane();
@@ -40,6 +50,10 @@ public class Ventana extends JFrame {
         pestaniaBaja = new PestaniaBaja();
         pestaniaModifi = new PestaniaModifi();
         pestaniaResumen = new PestaniaResumen();
+        modeloClaves = new DefaultComboBoxModel();
+        comboClaves = new JComboBox();
+        listaPersonas = new ArrayList();
+        //pestaniaBaja.();
     }
 
     private void configurarContainer() {
@@ -48,6 +62,18 @@ public class Ventana extends JFrame {
         panelPestanias.addTab("Bajas", pestaniaBaja);
         panelPestanias.addTab("Modificaciones", pestaniaModifi);
         panelPestanias.addTab("Resumen", pestaniaResumen);
+    }
+
+    public DefaultComboBoxModel getModeloClaves() {
+        return modeloClaves;
+    }
+
+    public void ModeloClaves(DefaultComboBoxModel modeloClaves) {
+        this.modeloClaves = modeloClaves;
+    }
+
+    public JComboBox getComboClaves() {
+        return comboClaves;
     }
     
 
