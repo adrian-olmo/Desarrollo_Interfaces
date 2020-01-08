@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 public class VentanaUno extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        
+
         Parent root = FXMLLoader.load(getClass().getResource("../layout/LayoutVentanaUno.fxml"));
         Scene scene = new Scene(root, 600, 400);
         primaryStage.setTitle("Pestañas JavaFx");
