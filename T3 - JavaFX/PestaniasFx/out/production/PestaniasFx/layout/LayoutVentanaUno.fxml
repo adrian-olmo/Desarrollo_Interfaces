@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -45,12 +46,35 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label text="Boton Normal" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                         <Button fx:id="btnNormal" mnemonicParsing="false" text="Boton Normal" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                         <Button fx:id="btnImagen" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                         <Label text="Boton Imagen" GridPane.rowIndex="1" />
+                        <Label text="Check" GridPane.rowIndex="2" />
+                        <CheckBox fx:id="checkBox" mnemonicParsing="false" text="CheckBox" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Radios" GridPane.rowIndex="3" />
+                        <FlowPane alignment="CENTER" hgap="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                           <children>
+                              <RadioButton fx:id="radio1" mnemonicParsing="false" text="Opc1" textAlignment="CENTER">
+                                 <FlowPane.margin>
+                                    <Insets />
+                                 </FlowPane.margin>
+                              </RadioButton>
+                              <RadioButton fx:id="radio2" mnemonicParsing="false" text="Opc2">
+                                 <FlowPane.margin>
+                                    <Insets />
+                                 </FlowPane.margin>
+                              </RadioButton>
+                              <RadioButton fx:id="radio3" mnemonicParsing="false" text="Opc3">
+                                 <FlowPane.margin>
+                                    <Insets />
+                                 </FlowPane.margin>
+                              </RadioButton>
+                           </children>
+                        </FlowPane>
                      </children>
                   </GridPane>
                </content>
