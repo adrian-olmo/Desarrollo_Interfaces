@@ -18,15 +18,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- *
- * @author Usuario DAM 2
- */
 public class Entrada {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws IOException, JSONException {
         
 //        String linkurl = "https://api.themoviedb.org/3/movie/now_playing?api_key=4ef66e12cddbb8fe9d4fd03ac9632f6e&language=en-US&page=1";
