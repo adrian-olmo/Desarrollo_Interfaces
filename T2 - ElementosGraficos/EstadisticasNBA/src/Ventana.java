@@ -3,11 +3,7 @@ import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -16,14 +12,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.SwingWorker;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -33,8 +22,13 @@ public class Ventana extends JFrame {
     JButton btnequipos;
     JList lista;
     DefaultListModel modelolista;
-    JLabel equipo, lider_asist, app, lider_punt, ppp, lider_reb, rpp;
-    JPanel pSuperior, pCentro;
+    JPanel pSuperior, pCentro, pInf;
+    JLabel equipo;
+    JLabel lider_asist, app, lider_punt, ppp, lider_reb, rpp; //Situados pSuperior
+
+    JComboBox combo_liderA, combo_app, combo_liderP, combo_ppp, combo_liderR, combo_rpp;
+    DefaultComboBoxModel modelo_liderA, modelo_app, modelo_liderP, modelo_ppp, modelo_liderR, modelo_rpp;
+
 
     public Ventana() {
         initGUI();
@@ -47,10 +41,12 @@ public class Ventana extends JFrame {
         configCentro();
         acciones();
         this.pack();
-        //this.setSize(new Dimension(1000, 800));
+        this.setTitle("Estadisticas de la NBA");
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        Image icon = new ImageIcon(getClass().getResource("recursos/nba.png")).getImage();
+        setIconImage(icon);
     }
 
     private void configContainer() {
@@ -60,13 +56,24 @@ public class Ventana extends JFrame {
     }
 
     private JPanel configSup() {
-        pSuperior.setLayout(new GridLayout(2, 3));
+        pSuperior.setLayout(new GridLayout(2, 7));
         pSuperior.add(lider_asist);
-        pSuperior.add(app);
+        pSuperior.add(combo_liderA);
+
         pSuperior.add(lider_punt);
-        pSuperior.add(ppp);
+        pSuperior.add(combo_liderP);
+
         pSuperior.add(lider_reb);
+        pSuperior.add(combo_liderR);
+
+        pSuperior.add(app);
+        pSuperior.add(combo_app);
+
+        pSuperior.add(ppp);
+        pSuperior.add(combo_ppp);
+
         pSuperior.add(rpp);
+        pSuperior.add(combo_rpp);
         return pSuperior;
     }
 
@@ -147,15 +154,28 @@ public class Ventana extends JFrame {
         equipo = new JLabel();
         pSuperior = new JPanel();
         pCentro = new JPanel();
-
-        lider_asist = new JLabel("Lider en Asistencias");
-        app = new JLabel("Asistencias por partido");
-
-        lider_punt = new JLabel("Lider en Anotacion");
-        ppp = new JLabel("Puntos por partido");
-
-        lider_reb = new JLabel("Lider en Rebotes");
-        rpp = new JLabel("Rebotes por partido");
+        pInf = new JPanel();
+        /*----------------------------------------------------------------------*/
+        lider_asist = new JLabel("Lider en Asistencias ");
+        app = new JLabel("Numero Asistencias ");
+        lider_punt = new JLabel(" Lider en Anotacion ");
+        ppp = new JLabel(" Numeros Anotacion ");
+        lider_reb = new JLabel(" Lider en Rebotes ");
+        rpp = new JLabel(" Rebotes por partido ");
+        /*----------------------------------------------------------------------*/
+        modelo_liderA = new DefaultComboBoxModel();
+        modelo_app = new DefaultComboBoxModel();
+        modelo_liderP = new DefaultComboBoxModel();
+        modelo_ppp = new DefaultComboBoxModel();
+        modelo_liderR = new DefaultComboBoxModel();
+        modelo_rpp = new DefaultComboBoxModel();
+        /*----------------------------------------------------------------------*/
+        combo_liderA = new JComboBox(modelo_liderA);
+        combo_app = new JComboBox(modelo_app);
+        combo_liderP = new JComboBox(modelo_liderP);
+        combo_ppp = new JComboBox(modelo_ppp);
+        combo_liderR = new JComboBox(modelo_liderR);
+        combo_rpp = new JComboBox(modelo_rpp);
 
     }
 
