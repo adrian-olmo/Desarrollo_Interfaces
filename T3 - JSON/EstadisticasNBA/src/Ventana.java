@@ -6,12 +6,7 @@ import org.json.JSONObject;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.*;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -96,15 +91,13 @@ public class Ventana extends JFrame {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 Equipo equiposeleccionado = (Equipo) modelolista.getElementAt(lista.getSelectedIndex());
-                //String ruta = String.format("%s%s", )
                 System.out.println(equiposeleccionado.getLogo());
             }
         });
     }
 
     class MiWorker extends SwingWorker<Boolean, Void> {
-        URL url;
-        HttpURLConnection connection;
+
         BufferedReader lector;
         StringBuilder builder = new StringBuilder();
 
@@ -115,30 +108,33 @@ public class Ventana extends JFrame {
             System.out.println("ejecutado");
 
             try {
-                url = new URL("\\recursos\\nba.json");
-                connection = (HttpURLConnection) url.openConnection();
-                lector = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                File archivo = new File("src/recursos/nba.json");
+                lector = new BufferedReader(new FileReader(archivo));
 
-            } catch (MalformedURLException e) {
+
+                String linea;
+                while ((linea = lector.readLine()) != null)
+                    builder.append(linea);
+            } catch (Exception e) {
                 e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+            } finally {
+                try {
+                    if (null != lector) {
+                        lector.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
-
-            String linea;
-            while ((linea = lector.readLine()) != null) {
-                builder.append(linea);
-            }
-
 
             JSONObject jsonEntero = new JSONObject(builder.toString());
             JSONArray jsonArrayResultados = jsonEntero.getJSONArray("results");
-            for (int i = 0; i < jsonArrayResultados.length(); i++) {
+            for (int i=0;i<jsonArrayResultados.length();i++){
 
                 JSONObject objeto = jsonArrayResultados.getJSONObject(i);
                 Gson gson = new Gson();
-                Equipo equipo = gson.fromJson(objeto.toString(), Equipo.class);
-                modelolista.addElement(equipo);
+                Equipo pelicula = gson.fromJson(objeto.toString(),Equipo.class);
+                modelolista.addElement(pelicula);
                 Thread.sleep(100);
             }
             return true;
