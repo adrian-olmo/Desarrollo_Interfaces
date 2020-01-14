@@ -1,5 +1,6 @@
 package controladora;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -23,18 +24,23 @@ public class ControladoraVetnanaUno implements Initializable {
     ToggleGroup gruporadios;
 
     @FXML
-    Button btnNormal, btnImagen;
+    Button btnNormal, btnImagen, btnSiguiente;
     @FXML
     Tab tab_botones, tab_textos, tab_tablas;
     @FXML
     CheckBox checkBox;
     @FXML
     RadioButton radio1, radio2, radio3;
-
+    @FXML
+    JFXTextField textomaterial;
+    @FXML
+    TextArea textoarea;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //textomaterial.setPromptText("aaaaaaaaa");
+        //textoarea.setWrapText(true);
         instancias();
         acciones();
         personalizarbotones();
@@ -44,9 +50,9 @@ public class ControladoraVetnanaUno implements Initializable {
     private void instancias() {
         gruporadios = new ToggleGroup();
         radio1.setUserData(new Persona("Adrian", "Soltero"));
-        radio1.setUserData(new Persona("Carlos", "Casado"));
-        radio1.setUserData(new Persona("Esther", "Casada"));
-        gruporadios.getToggles().addAll(radio1,radio2,radio3);
+        radio2.setUserData(new Persona("Carlos", "Casado"));
+        radio3.setUserData(new Persona("Esther", "Casada"));
+        gruporadios.getToggles().addAll(radio1, radio2, radio3);
     }
 
     private void personalizarbotones() {
@@ -63,7 +69,7 @@ public class ControladoraVetnanaUno implements Initializable {
         checkBox.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                if (newValue){
+                if (newValue) {
                     btnNormal.setDisable(true);
                 } else {
                     btnNormal.setDisable(false);
@@ -92,16 +98,16 @@ public class ControladoraVetnanaUno implements Initializable {
 
         @Override
         public void handle(MouseEvent event) {
-            if(event.getSource() == btnNormal){
-                if (event.getEventType() == MouseEvent.MOUSE_ENTERED){
+            if (event.getSource() == btnNormal) {
+                if (event.getEventType() == MouseEvent.MOUSE_ENTERED) {
                     btnNormal.setEffect(sombra);
-                } else if (event.getEventType() == MouseEvent.MOUSE_EXITED){
+                } else if (event.getEventType() == MouseEvent.MOUSE_EXITED) {
                     btnNormal.setEffect(null);
                 }
-            } else if (event.getSource() == btnImagen){
-                if (event.getEventType() == MouseEvent.MOUSE_PRESSED){
+            } else if (event.getSource() == btnImagen) {
+                if (event.getEventType() == MouseEvent.MOUSE_PRESSED) {
                     btnImagen.setEffect(sombra);
-                } else if (event.getEventType() == MouseEvent.MOUSE_RELEASED){
+                } else if (event.getEventType() == MouseEvent.MOUSE_RELEASED) {
                     btnImagen.setEffect(null);
                 }
 
