@@ -7,6 +7,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -42,38 +45,6 @@ public class Ventana extends JFrame {
         this.setVisible(true);
         Image icon = new ImageIcon(getClass().getResource("recursos/nba.png")).getImage();
         setIconImage(icon);
-    }
-    private void instancias() {
-        container = this.getContentPane();
-        btnequipos = new JButton("Listar Equipos");
-        modelolista = new DefaultListModel();
-        lista = new JList(modelolista);
-        equipo = new JLabel();
-        pSuperior = new JPanel();
-        pCentro = new JPanel();
-        pInf = new JPanel();
-        /*----------------------------------------------------------------------*/
-        lider_asist = new JLabel("Lider en Asistencias ");
-        app = new JLabel("Numero Asistencias ");
-        lider_punt = new JLabel(" Lider en Anotacion ");
-        ppp = new JLabel(" Numeros Anotacion ");
-        lider_reb = new JLabel(" Lider en Rebotes ");
-        rpp = new JLabel(" Rebotes por partido ");
-        /*----------------------------------------------------------------------*/
-        modelo_liderA = new DefaultComboBoxModel();
-        modelo_app = new DefaultComboBoxModel();
-        modelo_liderP = new DefaultComboBoxModel();
-        modelo_ppp = new DefaultComboBoxModel();
-        modelo_liderR = new DefaultComboBoxModel();
-        modelo_rpp = new DefaultComboBoxModel();
-        /*----------------------------------------------------------------------*/
-        combo_liderA = new JComboBox(modelo_liderA);
-        combo_app = new JComboBox(modelo_app);
-        combo_liderP = new JComboBox(modelo_liderP);
-        combo_ppp = new JComboBox(modelo_ppp);
-        combo_liderR = new JComboBox(modelo_liderR);
-        combo_rpp = new JComboBox(modelo_rpp);
-
     }
 
     private void configContainer() {
@@ -130,6 +101,9 @@ public class Ventana extends JFrame {
 
     class MiWorker extends SwingWorker<Boolean, Void> {
 
+        //https://adridominio.000webhostapp.com/nba.json
+        URL url;
+        HttpURLConnection connection;
         BufferedReader lector;
         StringBuilder builder = new StringBuilder();
 
@@ -140,42 +114,70 @@ public class Ventana extends JFrame {
             System.out.println("ejecutado");
 
             try {
-                File archivo = new File("src/recursos/nba.json");
-                lector = new BufferedReader(new FileReader(archivo));
+                url = new URL("https://adridominio.000webhostapp.com/nba.json");
+                connection = (HttpURLConnection) url.openConnection();
+                lector = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
-                String linea;
-                while ((linea = lector.readLine()) != null)
-                    builder.append(linea);
-                //System.out.println(builder);
-
-            } catch (Exception e) {
-                System.out.println("ERROR");
+            } catch (MalformedURLException e) {
                 e.printStackTrace();
-            } finally {
-                try {
-                    if (null != lector) {
-                        lector.close();
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-
-                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            //System.out.println(builder);
+
+            String linea;
+            while ((linea = lector.readLine())!=null){
+                builder.append(linea);
+            }
 
             JSONObject jsonEntero = new JSONObject(builder.toString());
-            System.out.println(jsonEntero); /**no llega hasta aqui*/
             JSONArray jsonArrayResultados = jsonEntero.getJSONArray("results");
-            for (int i = 0; i < jsonArrayResultados.length(); i++) {
+            for (int i=0;i<jsonArrayResultados.length();i++){
 
                 JSONObject objeto = jsonArrayResultados.getJSONObject(i);
                 Gson gson = new Gson();
-                Equipo equipo = gson.fromJson(objeto.toString(), Equipo.class);
+                Equipo equipo = gson.fromJson(objeto.toString(),Equipo.class);
                 modelolista.addElement(equipo);
                 Thread.sleep(100);
             }
+
+
+
             return true;
         }
+    }
+
+
+    private void instancias() {
+        container = this.getContentPane();
+        btnequipos = new JButton("Listar Equipos");
+        modelolista = new DefaultListModel();
+        lista = new JList(modelolista);
+        equipo = new JLabel();
+        pSuperior = new JPanel();
+        pCentro = new JPanel();
+        pInf = new JPanel();
+        /*----------------------------------------------------------------------*/
+        lider_asist = new JLabel("Lider en Asistencias ");
+        app = new JLabel("Numero Asistencias ");
+        lider_punt = new JLabel(" Lider en Anotacion ");
+        ppp = new JLabel(" Numeros Anotacion ");
+        lider_reb = new JLabel(" Lider en Rebotes ");
+        rpp = new JLabel(" Rebotes por partido ");
+        /*----------------------------------------------------------------------*/
+        modelo_liderA = new DefaultComboBoxModel();
+        modelo_app = new DefaultComboBoxModel();
+        modelo_liderP = new DefaultComboBoxModel();
+        modelo_ppp = new DefaultComboBoxModel();
+        modelo_liderR = new DefaultComboBoxModel();
+        modelo_rpp = new DefaultComboBoxModel();
+        /*----------------------------------------------------------------------*/
+        combo_liderA = new JComboBox(modelo_liderA);
+        combo_app = new JComboBox(modelo_app);
+        combo_liderP = new JComboBox(modelo_liderP);
+        combo_ppp = new JComboBox(modelo_ppp);
+        combo_liderR = new JComboBox(modelo_liderR);
+        combo_rpp = new JComboBox(modelo_rpp);
+
     }
 
 }
