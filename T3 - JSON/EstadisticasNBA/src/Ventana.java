@@ -43,6 +43,38 @@ public class Ventana extends JFrame {
         Image icon = new ImageIcon(getClass().getResource("recursos/nba.png")).getImage();
         setIconImage(icon);
     }
+    private void instancias() {
+        container = this.getContentPane();
+        btnequipos = new JButton("Listar Equipos");
+        modelolista = new DefaultListModel();
+        lista = new JList(modelolista);
+        equipo = new JLabel();
+        pSuperior = new JPanel();
+        pCentro = new JPanel();
+        pInf = new JPanel();
+        /*----------------------------------------------------------------------*/
+        lider_asist = new JLabel("Lider en Asistencias ");
+        app = new JLabel("Numero Asistencias ");
+        lider_punt = new JLabel(" Lider en Anotacion ");
+        ppp = new JLabel(" Numeros Anotacion ");
+        lider_reb = new JLabel(" Lider en Rebotes ");
+        rpp = new JLabel(" Rebotes por partido ");
+        /*----------------------------------------------------------------------*/
+        modelo_liderA = new DefaultComboBoxModel();
+        modelo_app = new DefaultComboBoxModel();
+        modelo_liderP = new DefaultComboBoxModel();
+        modelo_ppp = new DefaultComboBoxModel();
+        modelo_liderR = new DefaultComboBoxModel();
+        modelo_rpp = new DefaultComboBoxModel();
+        /*----------------------------------------------------------------------*/
+        combo_liderA = new JComboBox(modelo_liderA);
+        combo_app = new JComboBox(modelo_app);
+        combo_liderP = new JComboBox(modelo_liderP);
+        combo_ppp = new JComboBox(modelo_ppp);
+        combo_liderR = new JComboBox(modelo_liderR);
+        combo_rpp = new JComboBox(modelo_rpp);
+
+    }
 
     private void configContainer() {
         container.add(configSup(), BorderLayout.NORTH);
@@ -111,11 +143,13 @@ public class Ventana extends JFrame {
                 File archivo = new File("src/recursos/nba.json");
                 lector = new BufferedReader(new FileReader(archivo));
 
-
                 String linea;
                 while ((linea = lector.readLine()) != null)
                     builder.append(linea);
+                //System.out.println(builder);
+
             } catch (Exception e) {
+                System.out.println("ERROR");
                 e.printStackTrace();
             } finally {
                 try {
@@ -124,55 +158,24 @@ public class Ventana extends JFrame {
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
+
                 }
             }
+            //System.out.println(builder);
 
             JSONObject jsonEntero = new JSONObject(builder.toString());
+            System.out.println(jsonEntero); /**no llega hasta aqui*/
             JSONArray jsonArrayResultados = jsonEntero.getJSONArray("results");
-            for (int i=0;i<jsonArrayResultados.length();i++){
+            for (int i = 0; i < jsonArrayResultados.length(); i++) {
 
                 JSONObject objeto = jsonArrayResultados.getJSONObject(i);
                 Gson gson = new Gson();
-                Equipo pelicula = gson.fromJson(objeto.toString(),Equipo.class);
-                modelolista.addElement(pelicula);
+                Equipo equipo = gson.fromJson(objeto.toString(), Equipo.class);
+                modelolista.addElement(equipo);
                 Thread.sleep(100);
             }
             return true;
         }
-    }
-
-
-    private void instancias() {
-        container = this.getContentPane();
-        btnequipos = new JButton("Listar Equipos");
-        modelolista = new DefaultListModel();
-        lista = new JList(modelolista);
-        equipo = new JLabel();
-        pSuperior = new JPanel();
-        pCentro = new JPanel();
-        pInf = new JPanel();
-        /*----------------------------------------------------------------------*/
-        lider_asist = new JLabel("Lider en Asistencias ");
-        app = new JLabel("Numero Asistencias ");
-        lider_punt = new JLabel(" Lider en Anotacion ");
-        ppp = new JLabel(" Numeros Anotacion ");
-        lider_reb = new JLabel(" Lider en Rebotes ");
-        rpp = new JLabel(" Rebotes por partido ");
-        /*----------------------------------------------------------------------*/
-        modelo_liderA = new DefaultComboBoxModel();
-        modelo_app = new DefaultComboBoxModel();
-        modelo_liderP = new DefaultComboBoxModel();
-        modelo_ppp = new DefaultComboBoxModel();
-        modelo_liderR = new DefaultComboBoxModel();
-        modelo_rpp = new DefaultComboBoxModel();
-        /*----------------------------------------------------------------------*/
-        combo_liderA = new JComboBox(modelo_liderA);
-        combo_app = new JComboBox(modelo_app);
-        combo_liderP = new JComboBox(modelo_liderP);
-        combo_ppp = new JComboBox(modelo_ppp);
-        combo_liderR = new JComboBox(modelo_liderR);
-        combo_rpp = new JComboBox(modelo_rpp);
-
     }
 
 }

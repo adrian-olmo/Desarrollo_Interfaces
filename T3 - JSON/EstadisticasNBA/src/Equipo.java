@@ -13,16 +13,16 @@ public class Equipo {
     String logo;
 
     public Equipo(String nombre_equipo, int id_Equipo, int num_titulos, String lider_Puntos, double PPP_Lider, String lider_Rebotes, double RPP_Lider, String lider_Asistencias, double APP_Lider, String entrenador, String logo) {
-        Nombre_equipo = nombre_equipo;
-        Id_Equipo = id_Equipo;
-        Num_titulos = num_titulos;
-        Lider_Puntos = lider_Puntos;
+        this.Nombre_equipo = nombre_equipo;
+        this.Id_Equipo = id_Equipo;
+        this.Num_titulos = num_titulos;
+        this.Lider_Puntos = lider_Puntos;
         this.PPP_Lider = PPP_Lider;
-        Lider_Rebotes = lider_Rebotes;
+        this.Lider_Rebotes = lider_Rebotes;
         this.RPP_Lider = RPP_Lider;
-        Lider_Asistencias = lider_Asistencias;
+        this.Lider_Asistencias = lider_Asistencias;
         this.APP_Lider = APP_Lider;
-        Entrenador = entrenador;
+        this.Entrenador = entrenador;
         this.logo = logo;
     }
 
