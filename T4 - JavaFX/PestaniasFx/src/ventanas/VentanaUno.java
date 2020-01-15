@@ -7,18 +7,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class VentanaUno extends Application {
-    @Override
-    public void start(Stage primaryStage) throws Exception {
+import java.io.IOException;
 
-        Parent root = FXMLLoader.load(getClass().getResource("../layout/LayoutVentanaUno.fxml"));
-        Scene scene = new Scene(root,600,400);
-        primaryStage.setTitle("Pestanias JavaFx");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+public class VentanaUno extends Stage {
+
+    public VentanaUno() {
+
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("../layouts/LayoutVentanaUno.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(root, 600, 400);
+        this.setScene(scene);
+        this.show();
     }
 
-    public void lanzarVentana(){
-        launch();
-    }
 }

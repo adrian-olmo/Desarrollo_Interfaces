@@ -18,6 +18,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import utils.Persona;
+import ventanas.VentanaDos;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,52 +27,72 @@ import java.util.ResourceBundle;
 public class ControladoraVetnanaUno implements Initializable {
 
     DropShadow sombra = new DropShadow();
-    ToggleGroup gruporadios;
 
     @FXML
-    Button btnNormal, btnImagen, btnSiguiente;
-    @FXML
-    Tab tab_botones, tab_textos, tab_tablas;
-    @FXML
-    CheckBox checkBox;
-    @FXML
-    RadioButton radio1, radio2, radio3;
-    @FXML
-    JFXTextField textomaterial;
-    @FXML
-    TextArea textoarea;
+    Button btnNormal, btnImagen, botonPantalla;
 
+    @FXML
+    Tab tabBotones, tabTextos;
+
+    @FXML
+    CheckBox check;
+
+    @FXML
+    RadioButton radioUno, radioDos, radioTres;
+
+    @FXML
+    JFXTextField textoMaterial;
+
+    @FXML
+    TextArea textoArea;
+
+    ToggleGroup grupoRadios;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //textomaterial.setPromptText("aaaaaaaaa");
-        //textoarea.setWrapText(true);
-        instancias();
-        acciones();
-        personalizarbotones();
 
+        //textoArea.setWrapText(true);
+        instancias();
+        personalizarBoton();
+        acciones();
     }
 
     private void instancias() {
-        gruporadios = new ToggleGroup();
-        radio1.setUserData(new Persona("Adrian", "Soltero"));
-        radio2.setUserData(new Persona("Carlos", "Casado"));
-        radio3.setUserData(new Persona("Esther", "Casada"));
-        gruporadios.getToggles().addAll(radio1, radio2, radio3);
+        grupoRadios = new ToggleGroup();
+        radioUno.setUserData(new Persona("Borja", "casado"));
+        radioDos.setUserData(new Persona("Jose", "soltero"));
+        radioTres.setUserData(new Persona("Luis", "casado"));
+        grupoRadios.getToggles().addAll(radioUno, radioDos, radioTres);
     }
 
-    private void personalizarbotones() {
-        ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("../resources/button_ok.png")));
-        btnImagen.setGraphic(imageView);
+    private void personalizarBoton() {
+
+        btnImagen.setBackground(null);
+        btnImagen.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("../resources/button_ok.png"))));
     }
 
     private void acciones() {
 
+        botonPantalla.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                VentanaDos ventanaDos = new VentanaDos(textoMaterial.getText());
+
+            }
+        });
+
+        btnNormal.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println(check.isSelected());
+                //grupoRadios.getSelectedToggle();
+            }
+        });
         btnNormal.setOnMouseEntered(new ManejoRaton());
         btnNormal.setOnMouseExited(new ManejoRaton());
         btnImagen.setOnMousePressed(new ManejoRaton());
         btnImagen.setOnMouseReleased(new ManejoRaton());
-        checkBox.selectedProperty().addListener(new ChangeListener<Boolean>() {
+        check.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if (newValue) {
@@ -81,39 +102,14 @@ public class ControladoraVetnanaUno implements Initializable {
                 }
             }
         });
-
-        btnNormal.setOnAction(new EventHandler<ActionEvent>() {
+        grupoRadios.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
-            public void handle(ActionEvent event) {
-                System.out.println(checkBox.isSelected());
-                //gruporadios.getSelectedToggle();
-                gruporadios.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-                    @Override
-                    public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-                        Persona seleccionado = (Persona) newValue.getUserData();
-                        System.out.println(seleccionado.getEstado());
-                    }
-                });
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                Persona seleccionado = (Persona) newValue.getUserData();
+                System.out.println(seleccionado.getEstado()
+                );
             }
         });
-
-        btnSiguiente.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Stage ventanaAdicional =  new Stage();
-                Parent root = null;
-                try {
-                    root = FXMLLoader.load(getClass().getResource("../layout/LayoutVentanaDos.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                Scene scene = new Scene(root, 300, 300);
-                ventanaAdicional.setScene(scene);
-                ventanaAdicional.setTitle("Adicional");
-                ventanaAdicional.show();
-            }
-        });
-
     }
 
     class ManejoRaton implements EventHandler<MouseEvent> {
@@ -130,11 +126,10 @@ public class ControladoraVetnanaUno implements Initializable {
                 if (event.getEventType() == MouseEvent.MOUSE_PRESSED) {
                     btnImagen.setEffect(sombra);
                 } else if (event.getEventType() == MouseEvent.MOUSE_RELEASED) {
+                    System.out.println("soltado");
                     btnImagen.setEffect(null);
                 }
-
             }
-
         }
     }
 }
