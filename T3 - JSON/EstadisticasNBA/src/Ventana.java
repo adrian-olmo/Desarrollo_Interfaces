@@ -21,7 +21,7 @@ public class Ventana extends JFrame {
     JList lista;
     DefaultListModel modelolista;
     JPanel pSuperior, pCentro, pInf;
-    JLabel equipo;
+    JLabel imagenequipo;
     JLabel lider_asist, app, lider_punt, ppp, lider_reb, rpp; //Situados pSuperior
 
     JComboBox combo_liderA, combo_app, combo_liderP, combo_ppp, combo_liderR, combo_rpp;
@@ -78,7 +78,7 @@ public class Ventana extends JFrame {
     private JPanel configCentro() {
         pCentro.setLayout(new GridLayout(1, 2));
         pCentro.add(lista);
-        pCentro.add(equipo);
+        pCentro.add(imagenequipo);
         return pCentro;
     }
 
@@ -139,78 +139,44 @@ public class Ventana extends JFrame {
                 modelolista.addElement(equipo);
                 Thread.sleep(100);
             }
-
-
             return true;
-        }/*
-
-        BufferedReader lector;
-        StringBuilder builder = new StringBuilder();
-
-        @Override
-        protected Boolean doInBackground() throws Exception {
-
-            // TODO para leer la url
-            System.out.println("ejecutado");
-
-            try {
-                // Apertura del fichero y creacion de BufferedReader para poder
-                // hacer una lectura comoda (disponer del metodo readLine()).
-                File archivo = new File("");
-                lector = new BufferedReader(new FileReader(archivo));
-
-                // Lectura del fichero
-                String linea;
-                while ((linea = lector.readLine()) != null)
-                    builder.append(linea);
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                // En el finally cerramos el fichero, para asegurarnos
-                // que se cierra tanto si todo va bien como si salta
-                // una excepcion.
-                try {
-                    if (null != lector) {
-                        lector.close();
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }*/
         }
+    }
 
 
-        private void instancias() {
-            container = this.getContentPane();
-            btnequipos = new JButton("Listar Equipos");
-            modelolista = new DefaultListModel();
-            lista = new JList(modelolista);
-            equipo = new JLabel();
-            pSuperior = new JPanel();
-            pCentro = new JPanel();
-            pInf = new JPanel();
-            /*----------------------------------------------------------------------*/
-            lider_asist = new JLabel("Lider en Asistencias ");
-            app = new JLabel("Numero Asistencias ");
-            lider_punt = new JLabel(" Lider en Anotacion ");
-            ppp = new JLabel(" Numeros Anotacion ");
-            lider_reb = new JLabel(" Lider en Rebotes ");
-            rpp = new JLabel(" Rebotes por partido ");
-            /*----------------------------------------------------------------------*/
-            modelo_liderA = new DefaultComboBoxModel();
-            modelo_app = new DefaultComboBoxModel();
-            modelo_liderP = new DefaultComboBoxModel();
-            modelo_ppp = new DefaultComboBoxModel();
-            modelo_liderR = new DefaultComboBoxModel();
-            modelo_rpp = new DefaultComboBoxModel();
-            /*----------------------------------------------------------------------*/
-            combo_liderA = new JComboBox(modelo_liderA);
-            combo_app = new JComboBox(modelo_app);
-            combo_liderP = new JComboBox(modelo_liderP);
-            combo_ppp = new JComboBox(modelo_ppp);
-            combo_liderR = new JComboBox(modelo_liderR);
-            combo_rpp = new JComboBox(modelo_rpp);
+    private void instancias() {
+        container = this.getContentPane();
+        btnequipos = new JButton("Listar Equipos");
+        modelolista = new DefaultListModel();
+        lista = new JList(modelolista);
 
-        }
+        imagenequipo = new JLabel();
+
+        pSuperior = new JPanel();
+        pCentro = new JPanel();
+        pInf = new JPanel();
+        /*----------------------------------------------------------------------*/
+        lider_asist = new JLabel("Lider en Asistencias ");
+        app = new JLabel("Numero Asistencias ");
+        lider_punt = new JLabel(" Lider en Anotacion ");
+        ppp = new JLabel(" Numeros Anotacion ");
+        lider_reb = new JLabel(" Lider en Rebotes ");
+        rpp = new JLabel(" Rebotes por partido ");
+        /*----------------------------------------------------------------------*/
+        modelo_liderA = new DefaultComboBoxModel();
+        modelo_app = new DefaultComboBoxModel();
+        modelo_liderP = new DefaultComboBoxModel();
+        modelo_ppp = new DefaultComboBoxModel();
+        modelo_liderR = new DefaultComboBoxModel();
+        modelo_rpp = new DefaultComboBoxModel();
+        /*----------------------------------------------------------------------*/
+        combo_liderA = new JComboBox(modelo_liderA);
+        combo_app = new JComboBox(modelo_app);
+        combo_liderP = new JComboBox(modelo_liderP);
+        combo_ppp = new JComboBox(modelo_ppp);
+        combo_liderR = new JComboBox(modelo_liderR);
+        combo_rpp = new JComboBox(modelo_rpp);
 
     }
+
+}
