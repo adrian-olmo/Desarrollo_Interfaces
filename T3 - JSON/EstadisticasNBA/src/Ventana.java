@@ -6,10 +6,12 @@ import org.json.JSONObject;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -94,7 +96,20 @@ public class Ventana extends JFrame {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 Equipo equiposeleccionado = (Equipo) modelolista.getElementAt(lista.getSelectedIndex());
-                System.out.println(equiposeleccionado.getLogo());
+                String link = String.format("%s",equiposeleccionado.getLogo());
+                System.out.println(link);
+                URL urlImagen;
+                try {
+                    urlImagen = new URL(link);
+                    BufferedImage imagenInternet = ImageIO.read(urlImagen);
+                    BufferedImage resized = resize(imagenInternet, 300, 300);
+                    imagenequipo.setIcon(new ImageIcon(resized));
+                    pack();
+                } catch (MalformedURLException ex) {
+                    ex.printStackTrace();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
     }
@@ -141,6 +156,15 @@ public class Ventana extends JFrame {
             }
             return true;
         }
+    }
+
+    private BufferedImage resize(BufferedImage img, int height, int width) {
+        Image tmp = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        BufferedImage resized = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = resized.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        g2d.dispose();
+        return resized;
     }
 
 
