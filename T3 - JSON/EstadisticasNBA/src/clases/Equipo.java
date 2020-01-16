@@ -1,3 +1,5 @@
+package clases;
+
 public class Equipo {
 
     String Nombre_equipo;
