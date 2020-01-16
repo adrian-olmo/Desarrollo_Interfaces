@@ -103,7 +103,7 @@ public class Ventana extends JFrame {
             public void valueChanged(ListSelectionEvent e) {
                 Equipo equiposeleccionado = (Equipo) modelolista.getElementAt(lista.getSelectedIndex());
                 String link = String.format("%s", equiposeleccionado.getLogo());
-                System.out.println(link);
+                //System.out.println(link);
                 URL urlImagen;
                 try {
                     urlImagen = new URL(link);
