@@ -1,15 +1,11 @@
 package clases;
 
-import com.google.gson.Gson;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.imageio.ImageIO;
@@ -42,6 +38,7 @@ public class Ventana extends JFrame {
         configContainer();
         configSup();
         configCentro();
+        //rellenarLiderA();
         acciones();
         this.setSize(750, 660);
         //this.pack();
@@ -52,6 +49,10 @@ public class Ventana extends JFrame {
         Image nba = new ImageIcon(getClass().getResource("../recursos/nba.png")).getImage();
         setIconImage(nba);
     }
+
+    /*private void rellenarLiderA() {
+        Equipo[] equiposnba =
+    }*/
 
     private void configContainer() {
         container.add(configSup(), BorderLayout.NORTH);
@@ -85,8 +86,6 @@ public class Ventana extends JFrame {
         pCentro.setLayout(new GridLayout(1, 2));
         pCentro.add(new JScrollPane().add(lista));
         pCentro.add(imagenequipo);
-
-
         return pCentro;
     }
 
