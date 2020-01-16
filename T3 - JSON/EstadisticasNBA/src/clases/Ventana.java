@@ -49,8 +49,8 @@ public class Ventana extends JFrame {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        Image icon = new ImageIcon(getClass().getResource("recursos/nba.png")).getImage();
-        setIconImage(icon);
+        Image nba = new ImageIcon(getClass().getResource("../recursos/nba.png")).getImage();
+        setIconImage(nba);
     }
 
     private void configContainer() {

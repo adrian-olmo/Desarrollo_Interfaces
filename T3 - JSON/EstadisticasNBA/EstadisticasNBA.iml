@@ -10,7 +10,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/src/recursos/gson-2.6.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/recursos/Archivos JAR/commons-io-2.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -19,21 +19,21 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/src/recursos/java-json.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/recursos/Archivos JAR/gson-2.6.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/recursos/Archivos JAR/java-json.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/src/recursos/java-json.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/recursos/Archivos JAR/java-json.jar!/" />
         </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/src/recursos/commons-io-2.5.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
       </library>
     </orderEntry>
   </component>
