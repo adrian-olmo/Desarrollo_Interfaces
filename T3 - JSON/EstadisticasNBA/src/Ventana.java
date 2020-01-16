@@ -30,6 +30,8 @@ public class Ventana extends JFrame {
     DefaultComboBoxModel modelo_liderA, modelo_app, modelo_liderP, modelo_ppp, modelo_liderR, modelo_rpp;
 
 
+
+
     public Ventana() {
         initGUI();
     }
@@ -39,6 +41,7 @@ public class Ventana extends JFrame {
         configContainer();
         configSup();
         configCentro();
+        rellenarLiderA();
         acciones();
         this.pack();
         this.setTitle("Estadisticas de la NBA");
@@ -47,6 +50,10 @@ public class Ventana extends JFrame {
         this.setVisible(true);
         Image icon = new ImageIcon(getClass().getResource("recursos/nba.png")).getImage();
         setIconImage(icon);
+    }
+
+    private void rellenarLiderA() {
+
     }
 
     private void configContainer() {
