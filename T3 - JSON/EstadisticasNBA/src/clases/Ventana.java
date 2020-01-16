@@ -38,7 +38,7 @@ public class Ventana extends JFrame {
         configContainer();
         configSup();
         configCentro();
-        //rellenarLiderA();
+        //rellenarLiderA(); prueba
         acciones();
         this.setSize(750, 660);
         //this.pack();
