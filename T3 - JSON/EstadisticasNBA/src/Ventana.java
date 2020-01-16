@@ -16,6 +16,8 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import static javax.swing.SwingConstants.*;
+
 public class Ventana extends JFrame {
 
     Container container;
@@ -28,10 +30,7 @@ public class Ventana extends JFrame {
 
     JComboBox combo_liderA, combo_app, combo_liderP, combo_ppp, combo_liderR, combo_rpp;
     DefaultComboBoxModel modelo_liderA, modelo_app, modelo_liderP, modelo_ppp, modelo_liderR, modelo_rpp;
-
-
-
-
+    /*-----------------------------------------------------------------------------------------------------*/
     public Ventana() {
         initGUI();
     }
@@ -41,9 +40,9 @@ public class Ventana extends JFrame {
         configContainer();
         configSup();
         configCentro();
-        rellenarLiderA();
         acciones();
-        this.pack();
+        this.setSize(800, 700);
+        //this.pack();
         this.setTitle("Estadisticas de la NBA");
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -51,11 +50,6 @@ public class Ventana extends JFrame {
         Image icon = new ImageIcon(getClass().getResource("recursos/nba.png")).getImage();
         setIconImage(icon);
     }
-
-    private void rellenarLiderA() {
-
-    }
-
     private void configContainer() {
         container.add(configSup(), BorderLayout.NORTH);
         container.add(configCentro(), BorderLayout.CENTER);
@@ -86,8 +80,10 @@ public class Ventana extends JFrame {
 
     private JPanel configCentro() {
         pCentro.setLayout(new GridLayout(1, 2));
-        pCentro.add(lista);
+        pCentro.add(new JScrollPane().add(lista));
         pCentro.add(imagenequipo);
+
+
         return pCentro;
     }
 
@@ -171,6 +167,8 @@ public class Ventana extends JFrame {
         Graphics2D g2d = resized.createGraphics();
         g2d.drawImage(tmp, 0, 0, null);
         g2d.dispose();
+        imagenequipo.setHorizontalAlignment(CENTER);
+        imagenequipo.setVerticalAlignment(CENTER);
         return resized;
     }
 
