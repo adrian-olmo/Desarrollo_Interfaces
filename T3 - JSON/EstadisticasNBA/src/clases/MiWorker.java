@@ -17,6 +17,11 @@ import java.net.URL;
 import static javax.swing.SwingConstants.CENTER;
 
 class MiWorker extends SwingWorker<Boolean, Void> {
+    JButton jButton;
+
+    public MiWorker(JButton jButton) {
+        this.jButton = jButton;
+    }
 
     //https://adridominio.000webhostapp.com/nba.json
     URL url;
@@ -56,9 +61,9 @@ class MiWorker extends SwingWorker<Boolean, Void> {
             Ventana.modelolista.addElement(equipo);
             Thread.sleep(100);
         }
+        jButton.setEnabled(true);
         return true;
     }
-
 
 
 }

@@ -15,7 +15,7 @@ import javax.swing.event.ListSelectionListener;
 
 import static javax.swing.SwingConstants.*;
 
-public class Ventana extends JFrame {
+public class Ventana extends JFrame implements ListSelectionListener{
 
     Container container;
     JButton btnequipos;
@@ -24,9 +24,8 @@ public class Ventana extends JFrame {
     static JLabel imagenequipo;
     JPanel pSuperior, pCentro, pInf;
     JLabel lider_asist, app, lider_punt, ppp, lider_reb, rpp; //Situados pSuperior
+    JLabel combo_app, combo_liderP, combo_ppp, combo_liderR, combo_rpp, combo_liderA; //Rellenado por las estadisticas
 
-    JComboBox combo_liderA, combo_app, combo_liderP, combo_ppp, combo_liderR, combo_rpp;
-    DefaultComboBoxModel modelo_liderA, modelo_app, modelo_liderP, modelo_ppp, modelo_liderR, modelo_rpp;
 
     /*-----------------------------------------------------------------------------------------------------*/
     public Ventana() {
@@ -38,9 +37,8 @@ public class Ventana extends JFrame {
         configContainer();
         configSup();
         configCentro();
-        //rellenarLiderA(); prueba
         acciones();
-        this.setSize(750, 660);
+        this.setSize(760, 660);
         //this.pack();
         this.setTitle("Estadisticas de la NBA");
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -50,9 +48,6 @@ public class Ventana extends JFrame {
         setIconImage(nba);
     }
 
-    /*private void rellenarLiderA() {
-        Equipo[] equiposnba =
-    }*/
 
     private void configContainer() {
         container.add(configSup(), BorderLayout.NORTH);
@@ -93,30 +88,12 @@ public class Ventana extends JFrame {
         btnequipos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                btnequipos.setEnabled(false);
                 modelolista.clear();
-                new MiWorker().execute();
+                new MiWorker(btnequipos).execute();
             }
         });
-        lista.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                Equipo equiposeleccionado = (Equipo) modelolista.getElementAt(lista.getSelectedIndex());
-                String link = String.format("%s", equiposeleccionado.getLogo());
-                //System.out.println(link);
-                URL urlImagen;
-                try {
-                    urlImagen = new URL(link);
-                    BufferedImage imagenInternet = ImageIO.read(urlImagen);
-                    BufferedImage resized = resize(imagenInternet, 300, 300);
-                    imagenequipo.setIcon(new ImageIcon(resized));
-                    pack();
-                } catch (MalformedURLException ex) {
-                    ex.printStackTrace();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
-        });
+        lista.addListSelectionListener(this);
     }
 
 
@@ -132,26 +109,19 @@ public class Ventana extends JFrame {
         pCentro = new JPanel();
         pInf = new JPanel();
         /*----------------------------------------------------------------------*/
-        lider_asist = new JLabel("Lider en Asistencias ");
-        app = new JLabel("Numero Asistencias ");
-        lider_punt = new JLabel(" Lider en Anotacion ");
-        ppp = new JLabel(" Numeros Anotacion ");
-        lider_reb = new JLabel(" Lider en Rebotes ");
-        rpp = new JLabel(" Rebotes por partido ");
+        lider_asist = new JLabel("Lider en Asistencias: ");
+        app = new JLabel("Numero Asistencias: ");
+        lider_punt = new JLabel(" Lider en Anotacion: ");
+        ppp = new JLabel(" Numeros Anotacion: ");
+        lider_reb = new JLabel(" Lider en Rebotes: ");
+        rpp = new JLabel(" Rebotes por partido: ");
         /*----------------------------------------------------------------------*/
-        modelo_liderA = new DefaultComboBoxModel();
-        modelo_app = new DefaultComboBoxModel();
-        modelo_liderP = new DefaultComboBoxModel();
-        modelo_ppp = new DefaultComboBoxModel();
-        modelo_liderR = new DefaultComboBoxModel();
-        modelo_rpp = new DefaultComboBoxModel();
-        /*----------------------------------------------------------------------*/
-        combo_liderA = new JComboBox(modelo_liderA);
-        combo_app = new JComboBox(modelo_app);
-        combo_liderP = new JComboBox(modelo_liderP);
-        combo_ppp = new JComboBox(modelo_ppp);
-        combo_liderR = new JComboBox(modelo_liderR);
-        combo_rpp = new JComboBox(modelo_rpp);
+        combo_liderA = new JLabel();
+        combo_app = new JLabel();
+        combo_liderP = new JLabel();
+        combo_ppp = new JLabel();
+        combo_liderR = new JLabel();
+        combo_rpp = new JLabel();
 
     }
 
@@ -167,4 +137,38 @@ public class Ventana extends JFrame {
     }
 
 
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+        Equipo equiposeleccionado = (Equipo) modelolista.getElementAt(lista.getSelectedIndex());
+
+        String liderA = equiposeleccionado.getLider_Asistencias();
+        double App = equiposeleccionado.getAPP_Lider();
+        combo_liderA.setText(liderA);
+        combo_app.setText(String.valueOf(App));
+
+        String LiderP = equiposeleccionado.getLider_Puntos();
+        double Ppp = equiposeleccionado.getPPP_Lider();
+        combo_liderP.setText(LiderP);
+        combo_ppp.setText(String.valueOf(Ppp));
+
+        String LiderR = equiposeleccionado.getLider_Puntos();
+        double Rpp = equiposeleccionado.getPPP_Lider();
+        combo_liderR.setText(LiderR);
+        combo_rpp.setText(String.valueOf(Rpp));
+
+        String link = String.format("%s", equiposeleccionado.getLogo());
+        //System.out.println(link);
+        URL urlImagen;
+        try {
+            urlImagen = new URL(link);
+            BufferedImage imagenInternet = ImageIO.read(urlImagen);
+            BufferedImage resized = resize(imagenInternet, 300, 300);
+            imagenequipo.setIcon(new ImageIcon(resized));
+            pack();
+        } catch (MalformedURLException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
