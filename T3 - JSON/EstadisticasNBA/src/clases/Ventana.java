@@ -1,14 +1,11 @@
+package clases;
 
-import com.google.gson.Gson;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.imageio.ImageIO;
@@ -16,20 +13,22 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import static javax.swing.SwingConstants.*;
+
 public class Ventana extends JFrame {
 
     Container container;
     JButton btnequipos;
     JList lista;
-    DefaultListModel modelolista;
+    static DefaultListModel modelolista;
+    static JLabel imagenequipo;
     JPanel pSuperior, pCentro, pInf;
-    JLabel imagenequipo;
     JLabel lider_asist, app, lider_punt, ppp, lider_reb, rpp; //Situados pSuperior
 
     JComboBox combo_liderA, combo_app, combo_liderP, combo_ppp, combo_liderR, combo_rpp;
     DefaultComboBoxModel modelo_liderA, modelo_app, modelo_liderP, modelo_ppp, modelo_liderR, modelo_rpp;
 
-
+    /*-----------------------------------------------------------------------------------------------------*/
     public Ventana() {
         initGUI();
     }
@@ -39,15 +38,21 @@ public class Ventana extends JFrame {
         configContainer();
         configSup();
         configCentro();
+        //rellenarLiderA(); prueba
         acciones();
-        this.pack();
+        this.setSize(750, 660);
+        //this.pack();
         this.setTitle("Estadisticas de la NBA");
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        Image icon = new ImageIcon(getClass().getResource("recursos/nba.png")).getImage();
-        setIconImage(icon);
+        Image nba = new ImageIcon(getClass().getResource("../recursos/nba.png")).getImage();
+        setIconImage(nba);
     }
+
+    /*private void rellenarLiderA() {
+        Equipo[] equiposnba =
+    }*/
 
     private void configContainer() {
         container.add(configSup(), BorderLayout.NORTH);
@@ -79,7 +84,7 @@ public class Ventana extends JFrame {
 
     private JPanel configCentro() {
         pCentro.setLayout(new GridLayout(1, 2));
-        pCentro.add(lista);
+        pCentro.add(new JScrollPane().add(lista));
         pCentro.add(imagenequipo);
         return pCentro;
     }
@@ -96,8 +101,8 @@ public class Ventana extends JFrame {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 Equipo equiposeleccionado = (Equipo) modelolista.getElementAt(lista.getSelectedIndex());
-                String link = String.format("%s",equiposeleccionado.getLogo());
-                System.out.println(link);
+                String link = String.format("%s", equiposeleccionado.getLogo());
+                //System.out.println(link);
                 URL urlImagen;
                 try {
                     urlImagen = new URL(link);
@@ -112,59 +117,6 @@ public class Ventana extends JFrame {
                 }
             }
         });
-    }
-
-    class MiWorker extends SwingWorker<Boolean, Void> {
-
-        //https://adridominio.000webhostapp.com/nba.json
-        URL url;
-        HttpURLConnection connection;
-        BufferedReader lector;
-        StringBuilder builder = new StringBuilder();
-
-        @Override
-        protected Boolean doInBackground() throws Exception {
-
-            // TODO para leer la url
-            System.out.println("ejecutado");
-
-            try {
-                url = new URL("https://adridominio.000webhostapp.com/nba.json");
-                connection = (HttpURLConnection) url.openConnection();
-                lector = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            String linea;
-            while ((linea = lector.readLine()) != null) {
-                builder.append(linea);
-            }
-
-            JSONObject jsonEntero = new JSONObject(builder.toString());
-            JSONArray jsonArrayResultados = jsonEntero.getJSONArray("results");
-            for (int i = 0; i < jsonArrayResultados.length(); i++) {
-
-                JSONObject objeto = jsonArrayResultados.getJSONObject(i);
-                Gson gson = new Gson();
-                Equipo equipo = gson.fromJson(objeto.toString(), Equipo.class);
-                modelolista.addElement(equipo);
-                Thread.sleep(100);
-            }
-            return true;
-        }
-    }
-
-    private BufferedImage resize(BufferedImage img, int height, int width) {
-        Image tmp = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        BufferedImage resized = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2d = resized.createGraphics();
-        g2d.drawImage(tmp, 0, 0, null);
-        g2d.dispose();
-        return resized;
     }
 
 
@@ -202,5 +154,17 @@ public class Ventana extends JFrame {
         combo_rpp = new JComboBox(modelo_rpp);
 
     }
+
+    private BufferedImage resize(BufferedImage img, int height, int width) {
+        Image tmp = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        BufferedImage resized = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = resized.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        g2d.dispose();
+        imagenequipo.setHorizontalAlignment(CENTER);
+        imagenequipo.setVerticalAlignment(CENTER);
+        return resized;
+    }
+
 
 }

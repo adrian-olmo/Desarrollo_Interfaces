@@ -1,3 +1,5 @@
+package clases;
+
 public class Equipo {
 
     String Nombre_equipo;
@@ -12,18 +14,17 @@ public class Equipo {
     String Entrenador;
     String Logo;
 
-    public Equipo(String nombre_equipo, int id_Equipo, int num_titulos, String lider_Puntos, double PPP_Lider, String lider_Rebotes, double RPP_Lider, String lider_Asistencias, double APP_Lider, String entrenador, String Logo) {
-        this.Nombre_equipo = nombre_equipo;
-        this.Id_Equipo = id_Equipo;
-        this.Num_titulos = num_titulos;
-        this.Lider_Puntos = lider_Puntos;
+    public Equipo(String nombre_equipo, int id_Equipo, int num_titulos, String lider_Puntos, double PPP_Lider, String lider_Rebotes, double RPP_Lider, String lider_Asistencias, double APP_Lider, String logo) {
+        Nombre_equipo = nombre_equipo;
+        Id_Equipo = id_Equipo;
+        Num_titulos = num_titulos;
+        Lider_Puntos = lider_Puntos;
         this.PPP_Lider = PPP_Lider;
-        this.Lider_Rebotes = lider_Rebotes;
+        Lider_Rebotes = lider_Rebotes;
         this.RPP_Lider = RPP_Lider;
-        this.Lider_Asistencias = lider_Asistencias;
+        Lider_Asistencias = lider_Asistencias;
         this.APP_Lider = APP_Lider;
-        this.Entrenador = entrenador;
-        this.Logo = Logo;
+        Logo = logo;
     }
 
     public String getNombre_equipo() {
@@ -60,10 +61,6 @@ public class Equipo {
 
     public double getAPP_Lider() {
         return APP_Lider;
-    }
-
-    public String getEntrenador() {
-        return Entrenador;
     }
 
     public String getLogo() {

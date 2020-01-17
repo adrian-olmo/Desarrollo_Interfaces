@@ -1,3 +1,5 @@
+import clases.Ventana;
+
 import javax.swing.*;
 
 public class Entrada {
