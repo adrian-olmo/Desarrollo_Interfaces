@@ -58,6 +58,8 @@ public class ControladoraSplash implements Initializable {
                 VentanaUno ventanaUno = new VentanaUno();
                 Stage stage = (Stage) imagenFondo.getScene().getWindow();
                 stage.hide();
+                //stage.hide(); --> oculta
+                //stage.close();  --> cierra
             }
         });
 
@@ -75,7 +77,6 @@ public class ControladoraSplash implements Initializable {
                     updateMessage("cambiado");
                     Thread.sleep(100);
                 }
-
 
                 return null;
             }
