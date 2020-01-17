@@ -35,7 +35,6 @@ public class ControladoraSplash implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         instancias();
-
         progreso.progressProperty().bind(tareaSecundaria.progressProperty());
 
         FadeTransition transition = new FadeTransition(Duration.seconds(3),imagenFondo);
