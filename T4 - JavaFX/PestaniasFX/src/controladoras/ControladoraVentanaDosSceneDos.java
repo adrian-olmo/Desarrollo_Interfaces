@@ -10,31 +10,28 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControladoraVentanaDosEscenaUno implements Initializable {
+public class ControladoraVentanaDosSceneDos implements Initializable {
 
     @FXML
-    Button botonDos;
+    Button botonUno;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        botonDos.setOnAction(new EventHandler<ActionEvent>() {
+        botonUno.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //System.out.println("pulsado");
-                Stage stage = (Stage) botonDos.getScene().getWindow();
-                Parent root = null;
-                try {
-                     root = FXMLLoader.load(getClass().getResource("../layouts/layout_ventana_dos_scene_dos.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
 
-                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
+                Stage stage = (Stage) botonUno.getScene().getWindow();
+                Parent root = null;
+                try{
+                    root = FXMLLoader.load(getClass().getResource("/youts/layout_ventana_dos_scene_uno.fxml"));
+                }catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+                Scene scene =  new Scene(root,stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
             }
         });
