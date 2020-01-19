@@ -11,10 +11,10 @@ public class Equipo {
     double RPP_Lider;
     String Lider_Asistencias;
     double APP_Lider;
-    String Entrenador;
     String Logo;
+    String Entrenador;
 
-    public Equipo(String nombre_equipo, int id_Equipo, int num_titulos, String lider_Puntos, double PPP_Lider, String lider_Rebotes, double RPP_Lider, String lider_Asistencias, double APP_Lider, String logo) {
+    public Equipo(String nombre_equipo, int id_Equipo, int num_titulos, String lider_Puntos, double PPP_Lider, String lider_Rebotes, double RPP_Lider, String lider_Asistencias, double APP_Lider, String logo, String entrenador) {
         Nombre_equipo = nombre_equipo;
         Id_Equipo = id_Equipo;
         Num_titulos = num_titulos;
@@ -25,6 +25,7 @@ public class Equipo {
         Lider_Asistencias = lider_Asistencias;
         this.APP_Lider = APP_Lider;
         Logo = logo;
+        Entrenador = entrenador;
     }
 
     public String getNombre_equipo() {
@@ -65,6 +66,10 @@ public class Equipo {
 
     public String getLogo() {
         return Logo;
+    }
+
+    public String getEntrenador() {
+        return Entrenador;
     }
 
     @Override

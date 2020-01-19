@@ -23,8 +23,8 @@ public class Ventana extends JFrame implements ListSelectionListener{
     static DefaultListModel modelolista;
     static JLabel imagenequipo;
     JPanel pSuperior, pCentro, pInf;
-    JLabel lider_asist, app, lider_punt, ppp, lider_reb, rpp; //Situados pSuperior
-    JLabel combo_app, combo_liderP, combo_ppp, combo_liderR, combo_rpp, combo_liderA; //Rellenado por las estadisticas
+    JLabel lider_asist, app, lider_punt, ppp, lider_reb, rpp, numtitulos, entrenador; //Situados pSuperior
+    JLabel combo_app, combo_liderP, combo_ppp, combo_liderR, combo_rpp, combo_liderA, combo_numTitulos, combo_entrenador; //Rellenado por las estadisticas
 
 
     /*-----------------------------------------------------------------------------------------------------*/
@@ -56,24 +56,31 @@ public class Ventana extends JFrame implements ListSelectionListener{
     }
 
     private JPanel configSup() {
-        pSuperior.setLayout(new GridLayout(2, 7));
-        pSuperior.add(lider_asist);
+        pSuperior.setLayout(new GridLayout(2, 8));
+        pSuperior.add(lider_asist); //Nombre Lider Asistencias
         pSuperior.add(combo_liderA);
 
-        pSuperior.add(lider_punt);
+        pSuperior.add(lider_punt); //Nombre Lider Anotacion
         pSuperior.add(combo_liderP);
 
-        pSuperior.add(lider_reb);
+        pSuperior.add(lider_reb); //Nombre Loder Rebotes
         pSuperior.add(combo_liderR);
 
-        pSuperior.add(app);
+        pSuperior.add(numtitulos); //Numero campeonatos NBA
+        pSuperior.add(combo_numTitulos);
+
+        pSuperior.add(app); //Numeros en asistencias
         pSuperior.add(combo_app);
 
-        pSuperior.add(ppp);
+        pSuperior.add(ppp); //Numeros en anotaciones
         pSuperior.add(combo_ppp);
 
-        pSuperior.add(rpp);
+        pSuperior.add(rpp); //Numeros en rebotes
         pSuperior.add(combo_rpp);
+
+        pSuperior.add(entrenador); //Nombre entrenador
+        pSuperior.add(combo_entrenador);
+
         return pSuperior;
     }
 
@@ -115,6 +122,8 @@ public class Ventana extends JFrame implements ListSelectionListener{
         ppp = new JLabel(" Numeros Anotacion: ");
         lider_reb = new JLabel(" Lider en Rebotes: ");
         rpp = new JLabel(" Rebotes por partido: ");
+        numtitulos = new JLabel("Campeonatos NBA: ");
+        entrenador = new JLabel("Entrandor: ");
         /*----------------------------------------------------------------------*/
         combo_liderA = new JLabel();
         combo_app = new JLabel();
@@ -122,6 +131,8 @@ public class Ventana extends JFrame implements ListSelectionListener{
         combo_ppp = new JLabel();
         combo_liderR = new JLabel();
         combo_rpp = new JLabel();
+        combo_numTitulos = new JLabel();
+        combo_entrenador = new JLabel();
 
     }
 
@@ -155,6 +166,12 @@ public class Ventana extends JFrame implements ListSelectionListener{
         double Rpp = equiposeleccionado.getPPP_Lider();
         combo_liderR.setText(LiderR);
         combo_rpp.setText(String.valueOf(Rpp));
+
+        int Num_TitulosNBA = equiposeleccionado.getNum_titulos();
+        combo_numTitulos.setText(String.valueOf(Num_TitulosNBA));
+
+        String Entrenador_Equipo = equiposeleccionado.getEntrenador();
+        combo_entrenador.setText(Entrenador_Equipo);
 
         String link = String.format("%s", equiposeleccionado.getLogo());
         //System.out.println(link);

@@ -1,5 +1,4 @@
-﻿{
-    "results":[
+﻿[
 	{
 		"Nombre_equipo": "Boston Celtics",
 		"Id_Equipo": "1",
@@ -10,7 +9,8 @@
 		"RPP_Lider": "7.5",
 		"Lider_Asistencias": "Kemba Walker",
 		"APP_Lider": "5.3",
-		"Logo": "https://upload.wikimedia.org/wikipedia/an/0/04/Boston_Celtics_logo.png"
+		"Logo": "http://content.sportslogos.net/logos/6/213/full/slhg02hbef3j1ov4lsnwyol5o.png",
+		"Entrenador": "Brad Stevens"
 	},
 	{
 		"Nombre_equipo": "Brooklyn Nets",
@@ -22,7 +22,8 @@
 		"RPP_Lider": "10.4",
 		"Lider_Asistencias": "Kyrie Irving ",
 		"APP_Lider": "7.2",
-		"Logo": "https://www.stickpng.com/assets/images/58419c7ba6515b1e0ad75a62.png"
+		"Logo": "http://content.sportslogos.net/logos/6/3786/full/137_brooklyn-nets-primary-2013.png",
+		"Entrenador": "Kenny Atkinson"
 	},
 	{
 		"Nombre_equipo": "New York Knicks",
@@ -34,7 +35,8 @@
 		"RPP_Lider": "8.6",
 		"Lider_Asistencias": "Elfird Payton",
 		"APP_Lider": "5.8",
-		"Logo": "https://www.stickpng.com/assets/images/58419cc8a6515b1e0ad75a67.png"
+		"Logo": "http://content.sportslogos.net/logos/6/216/full/2nn48xofg0hms8k326cqdmuis.gif",
+		"Entrenador": "Mike Miller"
 	},
 	{
 		"Nombre_equipo": "Philadelphia Sixers",
@@ -46,7 +48,8 @@
 		"RPP_Lider": "12.5",
 		"Lider_Asistencias": "Ben Simmons ",
 		"APP_Lider": "8.6",
-		"Logo": "https://www.stickpng.com/assets/images/58419ca3a6515b1e0ad75a64.png"
+		"Logo": "http://content.sportslogos.net/logos/6/218/full/7034_philadelphia_76ers-primary-2016.png",
+		"Entrenador": "Brett Brown"
 	},
 	{
 		"Nombre_equipo": "Toronto Raptors",
@@ -58,7 +61,8 @@
 		"RPP_Lider": "8",
 		"Lider_Asistencias": "Kyle Lowry ",
 		"APP_Lider": "7.6",
-		"Logo": "https://cdn.freelogovectors.net/wp-content/uploads/2012/03/toronto_raptors_new_logo.png"
+		"Logo": "http://content.sportslogos.net/logos/6/227/full/4578_toronto_raptors-primary-2016.png",
+		"Entrenador": "Nick Nurse"
 	},
 	{
 		"Nombre_equipo": "Chicago Bulls",
@@ -70,7 +74,8 @@
 		"RPP_Lider": "9.8",
 		"Lider_Asistencias": "Tomas Satoransky",
 		"APP_Lider": "5.3",
-		"Logo": "https://img.pngio.com/chicago-bulls-logo-png-transparent-svg-vector-freebie-supply-bulls-logo-png-2400_2400.png"
+		"Logo": "http://content.sportslogos.net/logos/6/221/full/hj3gmh82w9hffmeh3fjm5h874.png",
+		"Entrenador": "Jim Boylen"
 	},
 	{
 		"Nombre_equipo": "Cleveland Cavaliers",
@@ -82,7 +87,8 @@
 		"RPP_Lider": "10.6",
 		"Lider_Asistencias": "Darius Garland ",
 		"APP_Lider": "2.9",
-		"Logo": "https://www.pikpng.com/pngl/m/6-64124_cleveland-cavaliers-cleveland-cavaliers-logo-png-transparent-png.png"
+		"Logo": "http://content.sportslogos.net/logos/6/222/full/6921_cleveland_cavaliers-primary-2018.png",
+		"Entrenador": "John Beilein"
 	},
 	{
 		"Nombre_equipo": "Detroit Pistons",
@@ -94,7 +100,8 @@
 		"RPP_Lider": "15.9",
 		"Lider_Asistencias": "Derrick Rose",
 		"APP_Lider": "6",
-		"Logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Pistons_logo17.svg/1024px-Pistons_logo17.svg.png"
+		"Logo": "http://content.sportslogos.net/logos/6/223/full/2164_detroit_pistons-primary-2018.png",
+		"Entrenador": "Dwane Casey"
 	},
 	{
 		"Nombre_equipo": "Indiana Pacers",
@@ -106,7 +113,8 @@
 		"RPP_Lider": "13.3",
 		"Lider_Asistencias": "Malcolm Brogdon",
 		"APP_Lider": "7.6",
-		"Logo": "https://upload.wikimedia.org/wikipedia/commons/9/97/Indiana_Pacers_logo.svg"
+		"Logo": "http://content.sportslogos.net/logos/6/224/full/4812_indiana_pacers-primary-2018.png",
+		"Entrenador": "Nate McMillan"
 	},
 	{
 		"Nombre_equipo": "Milwaukee Bucks",
@@ -118,7 +126,8 @@
 		"RPP_Lider": "12.9",
 		"Lider_Asistencias": "Giannis Antetokounmpo",
 		"APP_Lider": "5.7",
-		"Logo": "https://images.vexels.com/media/users/3/131482/isolated/preview/3f6d4be7c1bc644af57510722bbae1bb-milwaukee-bucks-logo-by-vexels.png"
+		"Logo": "http://content.sportslogos.net/logos/6/225/full/8275_milwaukee_bucks-primary-2016.png",
+		"Entrenador": "Mike Bundenholzer"
 	},
 	{
 		"Nombre_equipo": "Atlanta Hawks",
@@ -130,7 +139,8 @@
 		"RPP_Lider": "10",
 		"Lider_Asistencias": "Trae Young",
 		"APP_Lider": "8.3",
-		"Logo": "https://www.stickpng.com/assets/images/58419be4a6515b1e0ad75a58.png"
+		"Logo": "http://content.sportslogos.net/logos/6/220/full/9168_atlanta_hawks-primary-2016.png",
+		"Entrenador": "Lloyd Pierce"
 	},
 	{
 		"Nombre_equipo": "Charlotte Hornets",
@@ -142,7 +152,8 @@
 		"RPP_Lider": "7.8",
 		"Lider_Asistencias": "Devonte' Graham ",
 		"APP_Lider": "7.6",
-		"Logo": "https://www.stickpng.com/assets/images/58419bd7a6515b1e0ad75a57.png"
+		"Logo": "http://content.sportslogos.net/logos/6/5120/full/1926_charlotte__hornets_-primary-2015.png",
+		"Entrenador": "James Borrego"
 	},
 	{
 		"Nombre_equipo": "Miami Heat",
@@ -154,7 +165,8 @@
 		"RPP_Lider": "10.8",
 		"Lider_Asistencias": "Jimmy Butler",
 		"APP_Lider": "6.6",
-		"Logo": "https://images.vexels.com/media/users/3/131475/isolated/preview/0f01e14fca8d63ccb19f35955de2c3bb-logo-de-miami-heat-by-vexels.png"
+		"Logo": "http://content.sportslogos.net/logos/6/214/full/burm5gh2wvjti3xhei5h16k8e.gif",
+		"Entrenador": "Erik Spoelstra"
 	},
 	{
 		"Nombre_equipo": "Orlando Magic",
@@ -166,7 +178,8 @@
 		"RPP_Lider": "11",
 		"Lider_Asistencias": "D.J. Augustin",
 		"APP_Lider": "4.6",
-		"Logo": "https://www.stickpng.com/assets/images/58419b7da6515b1e0ad75a51.png"
+		"Logo": "http://content.sportslogos.net/logos/6/217/full/wd9ic7qafgfb0yxs7tem7n5g4.gif",
+		"Entrenador": "Steve Clifford"
 	},
 	{
 		"Nombre_equipo": "Washington Wizards",
@@ -178,7 +191,8 @@
 		"RPP_Lider": "8.5",
 		"Lider_Asistencias": "Bradley Beal",
 		"APP_Lider": "6.7",
-		"Logo": "https://www.stickpng.com/assets/images/58419c12a6515b1e0ad75a5b.png"
+		"Logo": "http://content.sportslogos.net/logos/6/219/full/5671_washington_wizards-primary-2016.png",
+		"Entrenador": "Scott Brooks"
 	},
 	{
 		"Nombre_equipo": "Denver Nuggets",
@@ -190,7 +204,8 @@
 		"RPP_Lider": "10",
 		"Lider_Asistencias": "Nikola Jokic",
 		"APP_Lider": "6.8",
-		"Logo": "https://cdn.freelogovectors.net/svg04/denver-nuggets-logo.svg"
+		"Logo": "http://content.sportslogos.net/logos/6/229/full/8926_denver_nuggets-primary-2019.png",
+		"Entrenador": "Michael Malone"
 	},
 	{
 		"Nombre_equipo": "Minnesota Timberwolves",
@@ -202,7 +217,8 @@
 		"RPP_Lider": "11.7",
 		"Lider_Asistencias": "Jeff Teague",
 		"APP_Lider": "6.5",
-		"Logo": "https://worldsportlogos.com/wp-content/uploads/2019/06/Minnesota-Timberwolves-logo.png"
+		"Logo": "http://content.sportslogos.net/logos/6/232/full/9669_minnesota_timberwolves-primary-2018.png",
+		"Entrenador": "Ryan Saunders"
 	},
 	{
 		"Nombre_equipo": "Oklahoma City Thunder",
@@ -214,7 +230,8 @@
 		"RPP_Lider": "9.8",
 		"Lider_Asistencias": "Chris Paul",
 		"APP_Lider": "6.5",
-		"Logo": "https://www.stickpng.com/assets/images/58419c20a6515b1e0ad75a5c.png"
+		"Logo": "http://content.sportslogos.net/logos/6/2687/full/khmovcnezy06c3nm05ccn0oj2.png",
+		"Entrenador": "Billy Donovan"
 	},
 	{
 		"Nombre_equipo": "Portland Trail Blazers",
@@ -226,7 +243,8 @@
 		"RPP_Lider": "13.3",
 		"Lider_Asistencias": "Damian Lillard",
 		"APP_Lider": "7.5",
-		"Logo": "https://i.pinimg.com/originals/7d/07/ea/7d07eaa72e74a2def63540ac7d55ba0f.png"
+		"Logo": "http://content.sportslogos.net/logos/6/239/full/9725_portland_trail_blazers-primary-2018.png",
+		"Entrenador": "Terry Stotts"
 	},
 	{
 		"Nombre_equipo": "Utah Jazz",
@@ -238,7 +256,8 @@
 		"RPP_Lider": "14.3",
 		"Lider_Asistencias": "Mike Conley",
 		"APP_Lider": "4.6",
-		"Logo": "https://www.stickpng.com/assets/images/58419bb6a6515b1e0ad75a55.png"
+		"Logo": "http://content.sportslogos.net/logos/6/234/full/6749_utah_jazz-primary-2017.png",
+		"Entrenador": "Quin Snyder"
 	},
 	{
 		"Nombre_equipo": "Golden State Warriors",
@@ -250,7 +269,8 @@
 		"RPP_Lider": "6.4",
 		"Lider_Asistencias": "Stephen Curry",
 		"APP_Lider": "6.5",
-		"Logo": "https://www.stickpng.com/assets/images/58419ce2a6515b1e0ad75a69.png"
+		"Logo": "http://content.sportslogos.net/logos/6/235/full/3152_golden_state_warriors-primary-2020.png",
+		"Entrenador": "Steve Kerr"
 	},
 	{
 		"Nombre_equipo": "LA Clippers",
@@ -262,7 +282,8 @@
 		"RPP_Lider": "8",
 		"Lider_Asistencias": "Lou Williams",
 		"APP_Lider": "6.2",
-		"Logo": "https://a.espncdn.com/combiner/i?img=%2Fi%2Fteamlogos%2Fnba%2F500%2Flac.png"
+		"Logo": "http://content.sportslogos.net/logos/6/236/full/5462_los_angeles_clippers-primary-2016.png",
+		"Entrenador": "Doc Rivers"
 	},
 	{
 		"Nombre_equipo": "Los Angeles Lakers",
@@ -274,7 +295,8 @@
 		"RPP_Lider": "9.3",
 		"Lider_Asistencias": "LeBron James",
 		"APP_Lider": "10.6",
-		"Logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Los_Angeles_Lakers_logo.svg/291px-Los_Angeles_Lakers_logo.svg.png"
+		"Logo": "http://content.sportslogos.net/logos/6/237/full/uig7aiht8jnpl1szbi57zzlsh.png",
+		"Entrenador": "Frank Vogel"
 	},
 	{
 		"Nombre_equipo": "Phoenix Suns ",
@@ -286,7 +308,8 @@
 		"RPP_Lider": "11.5",
 		"Lider_Asistencias": "Ricky Rubio",
 		"APP_Lider": "9.2",
-		"Logo": "https://www.stickpng.com/assets/images/58419d52a6515b1e0ad75a6d.png"
+		"Logo": "http://content.sportslogos.net/logos/6/238/full/4370_phoenix_suns-primary-2014.png",
+		"Entrenador": "Monty Williams"
 	},
 	{
 		"Nombre_equipo": "Sacramento Kings",
@@ -298,7 +321,8 @@
 		"RPP_Lider": "8.8",
 		"Lider_Asistencias": "De'Aaron Fox",
 		"APP_Lider": "6.4",
-		"Logo": "https://vectorlogoseek.com/wp-content/uploads/2018/12/sacramento-kings-vector-logo.png"
+		"Logo": "http://content.sportslogos.net/logos/6/240/full/4043_sacramento_kings-primary-2017.png",
+		"Entrenador": "Luke Walton"
 	},
 	{
 		"Nombre_equipo": "Dallas Mavericks",
@@ -310,7 +334,8 @@
 		"RPP_Lider": "9.6",
 		"Lider_Asistencias": "Luka Doncic",
 		"APP_Lider": "8.8",
-		"Logo": "https://www.stickpng.com/assets/images/58419cd6a6515b1e0ad75a68.png"
+		"Logo": "http://content.sportslogos.net/logos/6/228/full/3463_dallas_mavericks-primary-2018.png",
+		"Entrenador": "Rick Carlisle"
 	},
 	{
 		"Nombre_equipo": "Houston Rockets",
@@ -322,7 +347,8 @@
 		"RPP_Lider": "14.4",
 		"Lider_Asistencias": "James Harden",
 		"APP_Lider": "7.5",
-		"Logo": "https://logodownload.org/wp-content/uploads/2019/06/houston-rockets-logo.png"
+		"Logo": "http://content.sportslogos.net/logos/6/230/full/6830_houston_rockets-primary-2020.png",
+		"Entrenador": "Mike D'Antoni"
 	},
 	{
 		"Nombre_equipo": "Memphis Grizzlies",
@@ -334,7 +360,8 @@
 		"RPP_Lider": "9.7",
 		"Lider_Asistencias": "Ja Mornat",
 		"APP_Lider": "6.4",
-		"Logo": "https://www.stickpng.com/assets/images/58419c00a6515b1e0ad75a5a.png"
+		"Logo": "http://content.sportslogos.net/logos/6/231/full/4373_memphis_grizzlies-primary-2019.png",
+		"Entrenador": "Taylor Jenkins"
 	},
 	{
 		"Nombre_equipo": "New Orleans Pelicans",
@@ -346,7 +373,8 @@
 		"RPP_Lider": "9.4",
 		"Lider_Asistencias": "Jrue Holiday",
 		"APP_Lider": "6.5",
-		"Logo": "https://az1.hatstoremedia.com/hatstore/images/image-new-orleans-pelicans-kepsar-2017-02-21-125548850/555/555/0/new-orleans-pelicans-kepsar.png"
+		"Logo": "http://content.sportslogos.net/logos/6/4962/full/2681_new_orleans_pelicans-primary-2014.png",
+		"Entrenador": "Alvin Gentry"
 	},
 	{
 		"Nombre_equipo": "San Antonio Spurs",
@@ -358,10 +386,10 @@
 		"RPP_Lider": "7.4",
 		"Lider_Asistencias": "DeMar DeRozan",
 		"APP_Lider": "4.9",
-		"Logo": "https://images.vexels.com/media/users/3/132006/isolated/preview/cb8990f888a45561c9d33a73b8c2c801-san-antonio-spurs-logo-by-vexels.png"
+		"Logo": "http://content.sportslogos.net/logos/6/233/full/2547_san_antonio_spurs-primary-2018.png",
+		"Entrenador": "Gregg Popovich"
 	},
 	{
 		"Nombre_equipo": ""
 	}
 ]
-}
