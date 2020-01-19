@@ -1,0 +1,125 @@
+{
+  "name": "Primera División 2019/20",
+  "clubs": [
+    {
+      "key": "barcelona",
+      "name": "FC Barcelona",
+      "code": "BAR",
+      "logo": "/barsa.png"
+    },
+    {
+      "key": "espanyol",
+      "name": "RCD Espanyol",
+      "code": "ESP",
+      "logo": "/espanyol.png"
+    },
+    {
+      "key": "madrid",
+      "name": "Real Madrid",
+      "code": "RMD",
+      "logo": "/madrid.png"
+    },
+    {
+      "key": "atletico",
+      "name": "Atlético Madrid",
+      "code": "ATL",
+      "logo": "/atleti.png"
+    },
+    {
+      "key": "getafe",
+      "name": "Getafe CF",
+      "code": "GET"
+    },
+    {
+      "key": "sevilla",
+      "name": "Sevilla FC",
+      "code": "SEV",
+      "logo": "/sevilla.png"
+    },
+    {
+      "key": "valencia",
+      "name": "Valencia CF",
+      "code": "VAL",
+      "logo": "/valencia.png"
+    },
+    {
+      "key": "levante",
+      "name": "Levante UD",
+      "code": "LEV",
+      "logo": "/levante.png"
+    },
+    {
+      "key": "athletic",
+      "name": "Athletic Club Bilbao",
+      "code": "ATH",
+      "logo": "/atlethic.png"
+    },
+    {
+      "key": "granada",
+      "name": "Granada CF",
+      "code": "GRA",
+      "logo": "/granada.png"
+    },
+    {
+      "key": "celta",
+      "name": "RC Celta Vigo",
+      "code": "CEL",
+      "logo": "/celta.png",
+
+    },
+    {
+      "key": "realsociedad",
+      "name": "Real Sociedad",
+      "code": "RSO",
+      "logo": "/sociedad.png"
+    },
+    {
+      "key": "valladolid",
+      "name": "Real Valladolid CF",
+      "code": "VID",
+      "logo": "/valladolid.png"
+    },
+    {
+      "key": "eibar",
+      "name": "SD Eibar",
+      "code": "EIB",
+      "logo": "/eibar.png"
+    },
+    {
+      "key": "betis",
+      "name": "Real Betis",
+      "code": "BET",
+      "logo": "/betis.png"
+    },
+    {
+      "key": "osasuna",
+      "name": "CA Osasuna",
+      "code": "OSA",
+      "logo": "/osasuna.png"
+    },
+    {
+      "key": "villareal",
+      "name": "Villarreal CF",
+      "code": "VLL",
+      "logo": "/villareal.png"
+    },
+    {
+      "key": "alaves",
+      "name": "Deportivo Alavés",
+      "code": "ALV",
+      "logo": "/alaves.png"
+    },
+    {
+      "key": "mallorca",
+      "name": "RCD Mallorca",
+      "code": "MLL",
+      "logo": "/mallorca.png"
+    },
+    {
+      "key": "leganes",
+      "name": "CD Leganés",
+      "code": "LEG",
+      "logo": "/leganes.png"
+    }
+  ]
+}
