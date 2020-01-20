@@ -15,7 +15,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1WAa24jOD8U8VS8RDL3XMMAnovi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -27,7 +27,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/NetBeansProjects/Archivos Jar/DI/Json/java-json.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -98,22 +98,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="620" y="109" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1579465552779" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1579466732574">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1579507926343">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579466732574" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1579466732574">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579507926343" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1579507926342">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1579466732574" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1579466732574">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1579507926342" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1579507926342">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1579466732574" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1579466732574">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1579507926342" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1579507926342">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1579466732574" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1579507926342" />
     <state x="163" y="0" key="SettingsEditor" timestamp="1579465554099">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
