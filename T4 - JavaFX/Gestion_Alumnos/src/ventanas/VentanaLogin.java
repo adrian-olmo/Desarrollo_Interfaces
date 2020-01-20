@@ -14,7 +14,7 @@ public class VentanaLogin extends Stage {
 
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("../layouts/layout_ventana_uno.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../layouts/layout_ventana_login.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
