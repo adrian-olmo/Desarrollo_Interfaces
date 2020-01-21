@@ -6,7 +6,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladoras.ControladoraVentanaDosSceneUno">
+<BorderPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controladoras.ControladoraVentanaDosSceneUno">
 
     <top>
         <FlowPane>
@@ -15,6 +17,7 @@
                <Button fx:id="botonDos" text="Ir escena 2" />
            </children>
         </FlowPane>
+
     </top>
    <center>
       <Label text="Escena Uno" BorderPane.alignment="CENTER" />

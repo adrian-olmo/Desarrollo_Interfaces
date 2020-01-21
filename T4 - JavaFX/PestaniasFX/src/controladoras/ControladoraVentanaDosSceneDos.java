@@ -20,20 +20,24 @@ public class ControladoraVentanaDosSceneDos implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         botonUno.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
 
-                Stage stage = (Stage) botonUno.getScene().getWindow();
-                Parent root = null;
+                Scene sceneActual = botonUno.getScene();
+                Stage stage = (Stage) sceneActual.getWindow();
+                Parent root =null;
                 try{
-                    root = FXMLLoader.load(getClass().getResource("/youts/layout_ventana_dos_scene_uno.fxml"));
+                    root = FXMLLoader.load(getClass()
+                            .getResource("../layouts/layout_ventana_dos_scene_uno.fxml"));
                 }catch (Exception e){
                     System.out.println(e.getMessage());
                 }
-                Scene scene =  new Scene(root,stage.getWidth(), stage.getHeight());
+                Scene scene = new Scene(root,sceneActual.getWidth(), sceneActual.getHeight());
                 stage.setScene(scene);
             }
         });
+
     }
 }

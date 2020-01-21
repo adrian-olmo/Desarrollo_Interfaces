@@ -35,6 +35,7 @@ public class ControladoraSplash implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         instancias();
+
         progreso.progressProperty().bind(tareaSecundaria.progressProperty());
 
         FadeTransition transition = new FadeTransition(Duration.seconds(3),imagenFondo);
@@ -58,8 +59,6 @@ public class ControladoraSplash implements Initializable {
                 VentanaUno ventanaUno = new VentanaUno();
                 Stage stage = (Stage) imagenFondo.getScene().getWindow();
                 stage.hide();
-                //stage.hide(); --> oculta
-                //stage.close();  --> cierra
             }
         });
 
@@ -82,6 +81,4 @@ public class ControladoraSplash implements Initializable {
             }
         };
     }
-
-
 }

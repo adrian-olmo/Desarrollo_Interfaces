@@ -26,17 +26,20 @@ public class ControladoraVentanaDosSceneUno implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 //System.out.println("pulsado");
-                Stage stage = (Stage) botonDos.getScene().getWindow();
+                Scene sceneActual= botonDos.getScene();
+                Stage stage = (Stage) sceneActual.getWindow();
                 Parent root = null;
                 try {
-                     root = FXMLLoader.load(getClass().getResource("../layouts/layout_ventana_dos_scene_dos.fxml"));
+                    root = FXMLLoader.load(getClass()
+                            .getResource("../layouts/layout_ventana_dos_scene_dos.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
-                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
+                Scene scene = new Scene(root, sceneActual.getWidth(),sceneActual.getHeight());
                 stage.setScene(scene);
             }
         });
+
     }
 }
