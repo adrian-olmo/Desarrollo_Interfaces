@@ -8,37 +8,32 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-          prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
-        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <Button fx:id="btnolvidado" mnemonicParsing="false" text="He olvidado la contraseña" GridPane.rowIndex="6"/>
-        <Button fx:id="btnregistro" mnemonicParsing="false" text="Registrarse" GridPane.columnIndex="2"
-                GridPane.rowIndex="6"/>
-        <Button fx:id="btnInicioSesion" mnemonicParsing="false" text="Iniciar Sesion" GridPane.columnIndex="1"
-                GridPane.rowIndex="6"/>
-        <CheckBox fx:id="checkRecordar" mnemonicParsing="false" text="Recordar Sesion" GridPane.rowIndex="5"/>
-        <TextField fx:id="txtnombre" promptText="Intoduce nombre" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-        <ImageView fx:id="imagenLogin" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
-                   GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <Button fx:id="btnolvidado" mnemonicParsing="false" text="He olvidado la contraseña" GridPane.rowIndex="6" />
+        <Button fx:id="btnregistro" mnemonicParsing="false" text="Registrarse" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+        <Button fx:id="btnInicioSesion" mnemonicParsing="false" text="Iniciar Sesion" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <CheckBox fx:id="checkRecordar" mnemonicParsing="false" text="Recordar Sesion" GridPane.rowIndex="5" />
+        <TextField fx:id="txtnombre" promptText="Intoduce nombre" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <ImageView fx:id="imagenLogin" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <image>
-                <Image url="@../resources/login.png"/>
+                <Image url="@../resources/login.png" />
             </image>
         </ImageView>
-        <PasswordField fx:id="txtpassword" promptText="Introduce password" GridPane.columnIndex="1"
-                       GridPane.rowIndex="4"/>
+        <PasswordField fx:id="txtpassword" promptText="Introduce password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
     </children>
 </GridPane>

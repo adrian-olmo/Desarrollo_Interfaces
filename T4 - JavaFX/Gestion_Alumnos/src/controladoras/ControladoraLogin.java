@@ -40,8 +40,9 @@ public class ControladoraLogin implements Initializable {
         btnInicioSesion.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //VentanaInicio  ventanaInicio = new VentanaInicio();
                 System.out.println("Has Iniciado Sesion");
+                //VentanaInicio  ventanaInicio = new VentanaInicio();
+
             }
         });
 
