@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -28,12 +29,12 @@
         <Button fx:id="btnregistro" mnemonicParsing="false" text="Registrarse" GridPane.columnIndex="2" GridPane.rowIndex="6" />
         <Button fx:id="btnInicioSesion" mnemonicParsing="false" text="Iniciar Sesion" GridPane.columnIndex="1" GridPane.rowIndex="6" />
         <CheckBox fx:id="checkRecordar" mnemonicParsing="false" text="Recordar Sesion" GridPane.rowIndex="5" />
-        <TextField fx:id="txtnombre" promptText="Intoduce nombre" GridPane.columnIndex="1" GridPane.rowIndex="3" />
         <ImageView fx:id="imagenLogin" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <image>
                 <Image url="@../resources/login.png" />
             </image>
         </ImageView>
-        <PasswordField fx:id="txtpassword" promptText="Introduce password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <JFXTextField fx:id="txtnombre" labelFloat="true" promptText="Introduce nombre" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <JFXPasswordField fx:id="txtpassword" labelFloat="true" promptText="Introduce password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
     </children>
 </GridPane>
