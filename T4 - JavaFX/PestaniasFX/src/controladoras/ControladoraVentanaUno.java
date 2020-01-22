@@ -17,6 +17,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import utils.Persona;
 import ventanas.VentanaDos;
@@ -152,6 +153,7 @@ public class ControladoraVentanaUno implements Initializable {
         bDialogoBotones.setOnAction(new ManejoPulsaciones());
         bDialogoInput.setOnAction(new ManejoPulsaciones());
         bDialogoChoice.setOnAction(new ManejoPulsaciones());
+        bDialogoPerso.setOnAction(new ManejoPulsaciones());
 
 
         check.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -279,7 +281,26 @@ public class ControladoraVentanaUno implements Initializable {
 
 
             } else if (event.getSource() == bDialogoPerso) {
+                    Dialog dialogo = new Dialog();
+                dialogo.setTitle("Titulo Perso");
+                dialogo.setHeaderText("Header Perso");
+                GridPane gridContaint = new GridPane();
+                gridContaint.add(new Label("Nombre"), 0, 0);
+                gridContaint.add(new TextField("Prompt"), 1, 0);
 
+                gridContaint.add(new Label("Apellido"), 0, 1);
+                gridContaint.add(new TextField("Prompt"), 1, 1);
+
+                dialogo.getDialogPane().getButtonTypes().setAll(ButtonType.APPLY, ButtonType.CANCEL);
+
+                dialogo.getDialogPane().setContent(gridContaint);
+                Optional<ButtonType> resultado = dialogo.showAndWait();
+
+                if (resultado.get() == ButtonType.OK) {
+                    System.out.println();
+                } else if (resultado.get() == ButtonType.CANCEL) {
+                    System.out.println();
+                }
             }
         }
     }
