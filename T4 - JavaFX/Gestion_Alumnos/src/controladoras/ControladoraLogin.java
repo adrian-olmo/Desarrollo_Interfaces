@@ -1,5 +1,7 @@
 package controladoras;
 
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -9,11 +11,14 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import ventanas.VentanaSecundaria;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControladoraLogin implements Initializable {
+
+    String titulo = "Registro";
 
     @FXML
     Button btnolvidado, btnInicioSesion, btnregistro;
@@ -22,10 +27,10 @@ public class ControladoraLogin implements Initializable {
     CheckBox checkRecordar;
 
     @FXML
-    TextField txtnombre;
+    JFXTextField  txtnombre;
 
     @FXML
-    PasswordField txtpassword;
+    JFXPasswordField txtpassword;
 
     @FXML
     ImageView imagenLogin;
@@ -49,8 +54,8 @@ public class ControladoraLogin implements Initializable {
         btnregistro.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //VentanaRegistro ventanaRegistro = new VentanaRegistro();
-                System.out.println("Accedes a la ventana de Registro");
+                VentanaSecundaria ventanaSecundaria = new VentanaSecundaria(titulo);
+                //System.out.println("Accedes a la ventana de Registro");
             }
         });
     }

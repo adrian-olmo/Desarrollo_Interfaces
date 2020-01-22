@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label text="REGISTRO" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="29.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <FlowPane alignment="CENTER" hgap="20.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" rowValignment="TOP" vgap="20.0">
+         <children>
+            <JFXTextField fx:id="txtnombreregistro" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="500.0" promptText="Introduce Nombre" />
+            <JFXTextField fx:id="txtapellidoregistro" promptText="Introduce Apellidos" />
+            <JFXTextField fx:id="txtcorreoregistro" nodeOrientation="LEFT_TO_RIGHT" promptText="Introduce Correo" />
+            <JFXTextField fx:id="txtconfirmarcorreo" promptText="Confirmar Correo" />
+            <JFXPasswordField fx:id="txtpasswordregistro" promptText="Introduce Password" />
+            <ChoiceBox fx:id="choiceregistro" prefWidth="550.0" />
+            <JFXCheckBox fx:id="checkregistro" checkedColor="#00ff95" text="Conocimientos Previos" />
+         </children>
+      </FlowPane>
+   </center>
+   <bottom>
+      <JFXButton fx:id="btnregistrar" text="Registrar" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </JFXButton>
+   </bottom>
+</BorderPane>
