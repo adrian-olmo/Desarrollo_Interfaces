@@ -62,6 +62,12 @@ public class ControladoraVentanaUno implements Initializable {
     @FXML
     ListView lista;
 
+    @FXML
+    TableView tabla;
+
+    @FXML
+    TableColumn columnanombre, columnapellido, columnaedad, columnadisponibilidad;
+
     ToggleGroup grupoRadios;
 
 

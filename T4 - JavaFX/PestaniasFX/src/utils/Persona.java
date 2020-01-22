@@ -3,6 +3,7 @@ package utils;
 public class Persona {
 
     String nombre, estado;
+    
 
     public Persona(String nombre, String estado) {
         this.nombre = nombre;
