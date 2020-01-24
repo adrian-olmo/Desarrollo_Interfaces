@@ -1,5 +1,7 @@
 package controladoras;
 
+
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXTextField;
@@ -9,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 

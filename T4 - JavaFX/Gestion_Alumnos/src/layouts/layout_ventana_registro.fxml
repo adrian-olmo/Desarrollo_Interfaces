@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladoras.ControladoraRegistro">
    <top>
       <Label text="REGISTRO" textAlignment="CENTER" BorderPane.alignment="CENTER">
          <font>
@@ -27,7 +27,7 @@
             <JFXTextField fx:id="txtapellidoregistro" promptText="Introduce Apellidos" />
             <JFXTextField fx:id="txtcorreoregistro" nodeOrientation="LEFT_TO_RIGHT" promptText="Introduce Correo" />
             <JFXTextField fx:id="txtconfirmarcorreo" promptText="Confirmar Correo" />
-            <JFXPasswordField fx:id="txtpasswordregistro" promptText="Introduce Password" />
+            <JFXPasswordField fx:id="passwordregistro" promptText="Introduce Password" />
             <ChoiceBox fx:id="choiceregistro" prefWidth="550.0" />
             <JFXCheckBox fx:id="checkregistro" checkedColor="#00ff95" text="Conocimientos Previos" />
          </children>
