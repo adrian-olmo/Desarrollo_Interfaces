@@ -156,6 +156,11 @@
                   </BorderPane>
                </content>
             </Tab>
+            <Tab text="Estilos">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
    </center>
