@@ -8,11 +8,11 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-public class VentanaSecundaria extends Stage {
+public class VentanaRegistro extends Stage {
 
     private String titulo;
 
-    public VentanaSecundaria(String titulo) {
+    public VentanaRegistro(String titulo) {
         this.titulo = titulo;
         initGUI();
     }
