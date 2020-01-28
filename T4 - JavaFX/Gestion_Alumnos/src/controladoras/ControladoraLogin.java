@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.ImageView;
+import ventanas.VentanaPassword;
 import ventanas.VentanaRegistro;
 
 import java.net.URL;
@@ -16,7 +17,8 @@ import java.util.ResourceBundle;
 
 public class ControladoraLogin implements Initializable {
 
-    String titulo = "Registro";
+    String tituloregistro = "Registro";
+    String titulopassword = "He olvidado mi contraseña";
 
     @FXML
     Button btnolvidado, btnInicioSesion, btnregistro;
@@ -52,8 +54,15 @@ public class ControladoraLogin implements Initializable {
         btnregistro.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                VentanaRegistro ventanaRegistro = new VentanaRegistro(titulo);
+                VentanaRegistro ventanaRegistro = new VentanaRegistro(tituloregistro);
                 //System.out.println("Accedes a la ventana de Registro");
+            }
+        });
+
+        btnolvidado.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                VentanaPassword ventanaPassword = new VentanaPassword(titulopassword);
             }
         });
     }

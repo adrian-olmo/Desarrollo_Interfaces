@@ -8,21 +8,21 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-public class VentanaRegistro extends Stage {
+public class VentanaPassword extends Stage {
 
-    private String tituloregistro;
+    private String titulopassword = "He olvidado mi contraseña";
 
-    public VentanaRegistro(String titulo) {
-        this.tituloregistro = titulo;
+    public VentanaPassword(String titulo) {
+        this.titulopassword = titulo;
         initGUI();
     }
 
     private void initGUI() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../layouts/layout_ventana_registro.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../layouts/layout_ventana_password.fxml"));
             Scene scene = new Scene(root, 600, 500);
             this.setScene(scene);
-            this.setTitle(tituloregistro);
+            this.setTitle(titulopassword);
             this.initStyle(StageStyle.DECORATED);
             this.show();
         } catch (IOException e) {
@@ -30,5 +30,4 @@ public class VentanaRegistro extends Stage {
         }
 
     }
-
 }
