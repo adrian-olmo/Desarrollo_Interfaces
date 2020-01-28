@@ -37,7 +37,7 @@ public class ControladoraRegistro implements Initializable {
         btnregistrar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Alumno Registrado");
+
             }
         });
     }
