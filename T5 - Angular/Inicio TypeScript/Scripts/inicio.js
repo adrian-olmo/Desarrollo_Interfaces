@@ -71,11 +71,25 @@ function funcionParamertrosMultiples(nombre) {
         });
     }
     else {
-        console.log("NO han pasado parametros multiples");
+        console.log("No han pasado parametros multiples");
     }
 }
-funcionInicial("MiNombre");
-funcionInicialParametros("Adrian", "Olmo", 20);
-console.log(funcionRetorno(44, 53));
-funcionCualquierParametro(false);
-funcionParamertrosMultiples('Adri', 'Negro');
+function funcionParametrosOptativos(nombre, apellido, edad) {
+    if (edad == null) {
+        console.log(nombre + " " + apellido);
+    }
+    else {
+        console.log(nombre + " " + apellido + " " + edad);
+    }
+}
+function funcionValoresDefecto(nombre, apellido) {
+    if (apellido === void 0) { apellido = "defecto"; }
+    console.log(nombre + ", " + apellido);
+}
+funcionInicial("MiNombre"); //Saca lo que le pongas entre ()
+funcionInicialParametros("Adrian", "Olmo", 20); //Acepta los parametros definidos
+console.log(funcionRetorno(44, 53)); //Devuelve el retorno definido en la funcion
+funcionCualquierParametro(false); //Acepta cualquier tipo de parametro
+funcionParamertrosMultiples('Adri', 'Negro'); //Saca los parametros que le pases, en este caso si hay un parametro saca un mensaje
+funcionParametrosOptativos('Adri', 'Negro', 20); //Parametros Optativos
+funcionValoresDefecto("Adri"); //Si no estableces el 2º valor saca el defecto
