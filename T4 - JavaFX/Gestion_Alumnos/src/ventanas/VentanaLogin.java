@@ -18,7 +18,8 @@ public class VentanaLogin extends Stage {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene scene = new Scene(root,600,400);
+        Scene scene = new Scene(root,1000,600);
+        this.setTitle("Gestion de Alumnos");
         this.setScene(scene);
         this.show();
     }
