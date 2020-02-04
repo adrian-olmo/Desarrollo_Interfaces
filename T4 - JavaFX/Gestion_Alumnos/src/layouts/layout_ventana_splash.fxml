@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,15 +8,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladoras.ControladoraSplash">
+<BorderPane prefHeight="600.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladoras.ControladoraSplash">
    <center>
-      <ImageView fx:id="imagenFondo" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+      <ImageView fx:id="imagenFondo" fitHeight="700.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
             <Image url="@../resources/carga.jpg" />
          </image>
       </ImageView>
    </center>
    <bottom>
-      <ProgressBar fx:id="progreso" prefWidth="600.0" progress="0.5" BorderPane.alignment="CENTER" />
+      <ProgressBar fx:id="progreso" prefWidth="500.0" progress="0.7" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

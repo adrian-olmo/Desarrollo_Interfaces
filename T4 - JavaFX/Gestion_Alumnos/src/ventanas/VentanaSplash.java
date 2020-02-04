@@ -12,7 +12,7 @@ public class VentanaSplash extends Application{
     public void start(Stage primaryStage) throws Exception {
 
         Parent root = FXMLLoader.load(getClass().getResource("../layouts/layout_ventana_splash.fxml"));
-        Scene scene = new Scene(root,600,400);
+        Scene scene = new Scene(root,800,715);
         primaryStage.setScene(scene);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
