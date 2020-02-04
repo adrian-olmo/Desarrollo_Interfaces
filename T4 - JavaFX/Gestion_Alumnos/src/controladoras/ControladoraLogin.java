@@ -11,6 +11,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.image.ImageView;
 import ventanas.VentanaPassword;
 import ventanas.VentanaRegistro;
+import ventanas.VentanaTablas;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -46,7 +47,7 @@ public class ControladoraLogin implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Has Iniciado Sesion");
-                //VentanaInicio  ventanaInicio = new VentanaInicio();
+                VentanaTablas ventanaTablas = new VentanaTablas();
 
             }
         });
@@ -55,7 +56,7 @@ public class ControladoraLogin implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 VentanaRegistro ventanaRegistro = new VentanaRegistro(tituloregistro);
-                //System.out.println("Accedes a la ventana de Registro");
+
             }
         });
 

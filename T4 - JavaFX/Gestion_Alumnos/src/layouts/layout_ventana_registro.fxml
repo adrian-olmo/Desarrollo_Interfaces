@@ -9,11 +9,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladoras.ControladoraRegistro">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url(resources/fondo.jpg);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladoras.ControladoraRegistro">
    <top>
       <Label text="REGISTRO" textAlignment="CENTER" BorderPane.alignment="CENTER">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="29.0" />
+            <Font name="Broadway" size="29.0" />
          </font>
          <BorderPane.margin>
             <Insets top="20.0" />
