@@ -1,12 +1,52 @@
 <div>
   <h1>APP Web realizada por {{ nombre }}</h1>
-  <img [src]=rutaimagen class="img-fluid" alt="Responsive image">
+
   <div class="jumbotron">
-    <h1 class="display-4">Hello, world!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <h1 class="display-4">Vení Wacho</h1>
+    <p class="lead">
+      This is a simple hero unit, a simple jumbotron-style component for calling
+      extra attention to featured content or information.
+    </p>
+    <hr class="my-4" />
+    <p>Esto es un ejemplo de aplicacion con Angular 8 +Jumbo</p>
     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
   </div>
-  
+
+  <div class="row">
+      <div class="card" style="width: 18rem;">
+          <img [src]="rutaimagen" class="img-fluid" alt="Responsive image" />
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+
+    <div class="card" style="width: 18rem;">
+      <img [src]="rutaimagen" class="img-fluid" alt="Responsive image" />
+      <div class="card-body">
+        <h5 class="card-title">Python</h5>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <img [src]="rutaimagen" class="img-fluid" alt="Responsive image" />
+      <div class="card-body">
+        <h5 class="card-title">Java</h5>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
 </div>
