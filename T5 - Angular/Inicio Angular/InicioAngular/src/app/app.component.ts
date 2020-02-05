@@ -11,23 +11,13 @@ export class AppComponent implements OnInit{
   title = 'CARACHANCLA  ';
   nombre = 'Adrian Olmo';
   rutaimagenpython = '../assets/images/python.jpg'
-  
-  /*rutaimagenjava = '../assets/images/java.jpg';
-  rutaimagenjs = '../assets/images/js.jpg'
-  rutaimagenmysql = '../assets/images/mysql.jpg'
-  rutaimagenphp = '../assets/images/php.jpg'
-  rutaimagenpowershell = '../assets/images/powershell.jpg'
-  rutaimagenhtml = '../assets/images/html.jpg'
-  rutaimagenxml = '../assets/images/xml.jpg'*/
+  rutaimagenjava ='../assets/images/java.png'
 
   objetopython:Tecnologia = new Tecnologia ("Python", "Python.....", this.rutaimagenpython)
-  /*objetojava:Tecnologia = new Tecnologia ("Python", "Python.....", this.rutaimagenpython)
-  objetojava:Tecnologia = new Tecnologia ("Python", "Python.....", this.rutaimagenpython)
-  objetojava:Tecnologia = new Tecnologia ("Python", "Python.....", this.rutaimagenpython)
-  objetojava:Tecnologia = new Tecnologia ("Python", "Python.....", this.rutaimagenpython)
-  objetojava:Tecnologia = new Tecnologia ("Python", "Python.....", this.rutaimagenpython)
-  objetojava:Tecnologia = new Tecnologia ("Python", "Python.....", this.rutaimagenpython)
-  objetojava:Tecnologia = new Tecnologia ("Python", "Python.....", this.rutaimagenpython)*/
+  objetojava:Tecnologia = new Tecnologia ("Java", "Java.....", this.rutaimagenjava)
+
+  elementos:Tecnologia[] = [this.objetojava, this.objetopython];
+
  
   ngOnInit(): void {
     throw new Error("Method not implemented.");
