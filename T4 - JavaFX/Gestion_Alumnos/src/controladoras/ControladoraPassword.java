@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 public class ControladoraPassword implements Initializable {
 
     @FXML
-    JFXTextField txtemail, txtnewpasswd,confirmpasswd;
+    JFXTextField txtemail, txtnewpasswd;
     @FXML
     JFXButton btnconfirmar;
     @Override

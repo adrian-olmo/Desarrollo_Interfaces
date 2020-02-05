@@ -20,7 +20,7 @@ public class VentanaPassword extends Stage {
     private void initGUI() {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../layouts/layout_ventana_password.fxml"));
-            Scene scene = new Scene(root, 600, 500);
+            Scene scene = new Scene(root, 600, 400);
             this.setScene(scene);
             this.setTitle(titulopassword);
             this.initStyle(StageStyle.DECORATED);
