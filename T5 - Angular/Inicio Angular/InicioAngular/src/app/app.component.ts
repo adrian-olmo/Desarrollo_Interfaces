@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'CARACHANCLA  ';
   nombre = 'Adrian Olmo';
+  rutaimagen = '../assets/images/ferrari.jpg';
 }
