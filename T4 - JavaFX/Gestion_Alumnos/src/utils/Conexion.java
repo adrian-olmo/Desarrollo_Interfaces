@@ -1,18 +1,22 @@
 package utils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import java.sql.*;
 
-public class Conexion {
 
-    private Connection conexion = null;
-    public Conexion() throws SQLException {
+public class Conexion{
 
-        conexion = DriverManager.getConnection("jdbc:mysql://localhost/bd_gestion", "admin", "admin");
+    Connection conexion = null;
 
+    public static Connection conexionBD() throws SQLException {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/bd_gestion", "admin", "admin");
+            return connection;
+        } catch (ClassNotFoundException e) {
+            return null;
+        }
     }
+
+
+
 }
