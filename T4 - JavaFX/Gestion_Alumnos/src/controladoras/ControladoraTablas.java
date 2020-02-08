@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 import java.net.URL;
@@ -19,6 +20,9 @@ public class ControladoraTablas implements Initializable {
 
     @FXML
     TableView tabla;
+
+    @FXML
+    TableColumn tablaidAlu, tablanombreAlu, tablapellidoAlu, tablacorreoAlu;
 
 
     @Override

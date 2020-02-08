@@ -9,11 +9,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.ImageView;
+import utils.Conexion;
+import utils.Usuario;
 import ventanas.VentanaPassword;
 import ventanas.VentanaRegistro;
 import ventanas.VentanaTablas;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ControladoraLogin implements Initializable {
@@ -46,8 +49,23 @@ public class ControladoraLogin implements Initializable {
         btnInicioSesion.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Has Iniciado Sesion");
-                VentanaTablas ventanaTablas = new VentanaTablas();
+                Conexion conexion = null;
+                Usuario alumno = null;
+
+                try {
+                    conexion = new Conexion();
+                } catch (SQLException e) {
+                    System.err.println("Error al abrir la base de datos " + e.getMessage());
+                    System.exit(1);
+                }
+
+
+                if  ((txtnombre.getText() == alumno.getNombre_usuario())&& (txtpassword.getText()    == alumno.getPassword())){
+                    System.out.println("Conexion Satisfactoria");
+                    VentanaTablas ventanaTablas = new VentanaTablas();
+                }
+
+
 
             }
         });
