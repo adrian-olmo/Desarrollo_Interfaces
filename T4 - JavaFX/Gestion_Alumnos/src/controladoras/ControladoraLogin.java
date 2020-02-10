@@ -59,17 +59,7 @@ public class ControladoraLogin implements Initializable {
         btnInicioSesion.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println(txtnombre.getText());
-                System.out.println(txtpassword.getText());
-                System.out.println(alumno.getNombre_usuario());
-                System.out.println(alumno.getPassword());
-
-                Usuario usuario = InicioSesion();
-                if (txtnombre.getText().equals(usuario.getNombre_usuario()) && (txtpassword.getText().equals(usuario.getPassword()))) {
-                    VentanaTablas ventanaTablas = new VentanaTablas();
-                } else {
-                    System.out.println("ERROR");
-                }
+                VentanaTablas ventanaTablas = new VentanaTablas();
             }
         });
 
@@ -90,26 +80,5 @@ public class ControladoraLogin implements Initializable {
         });
     }
 
-    private Usuario InicioSesion() {
 
-        Connection conexion = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        String nombreUsuario = txtnombre.getText().toString();
-        String passwordUsuario = txtpassword.getText().toString();
-
-        //Sentencia
-        String sql = "SELECT * FROM usuario WHERE nombre_usuario = ? and password = ?";
-        try {
-            ps = conexion.prepareStatement(sql);
-            ps.setString(1, nombreUsuario);
-            ps.setString(2, passwordUsuario);
-            rs = ps.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return alumno;
-    }
 }
