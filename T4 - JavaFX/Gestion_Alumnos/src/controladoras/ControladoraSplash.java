@@ -63,7 +63,7 @@ public class ControladoraSplash implements Initializable {
                 for (int i = 0; i < 100; i++) {
                     updateProgress(i, 100);
                     updateMessage("cambiado");
-                    Thread.sleep(100);
+                    Thread.sleep(10);
                 }
 
                 return null;

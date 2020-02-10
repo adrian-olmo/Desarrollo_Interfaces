@@ -59,14 +59,16 @@ public class ControladoraLogin implements Initializable {
         btnInicioSesion.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if (txtnombre.getText() == alumno.getNombre_usuario() && (txtpassword.getText() == alumno.getPassword())){
-                    InicioSesion();
+                System.out.println(txtnombre.getText());
+                System.out.println(txtpassword.getText());
+                System.out.println(alumno.getNombre_usuario());
+                System.out.println(alumno.getPassword());
+
+                Usuario usuario = InicioSesion();
+                if (txtnombre.getText().equals(usuario.getNombre_usuario()) && (txtpassword.getText().equals(usuario.getPassword()))) {
                     VentanaTablas ventanaTablas = new VentanaTablas();
                 } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Inicio de Sesion Incorrecto");
-                    alert.setHeaderText("Look, an Error Dialog");
-                    alert.setContentText("Ooops, there was an error!");
+                    System.out.println("ERROR");
                 }
             }
         });
@@ -88,7 +90,7 @@ public class ControladoraLogin implements Initializable {
         });
     }
 
-    private void InicioSesion() {
+    private Usuario InicioSesion() {
 
         Connection conexion = null;
         PreparedStatement ps = null;
@@ -98,7 +100,7 @@ public class ControladoraLogin implements Initializable {
         String passwordUsuario = txtpassword.getText().toString();
 
         //Sentencia
-        String sql =  "SELECT * FROM usuario WHERE nombre_usuario = ? and password = ?";
+        String sql = "SELECT * FROM usuario WHERE nombre_usuario = ? and password = ?";
         try {
             ps = conexion.prepareStatement(sql);
             ps.setString(1, nombreUsuario);
@@ -108,9 +110,6 @@ public class ControladoraLogin implements Initializable {
             e.printStackTrace();
         }
 
-
+        return alumno;
     }
-
-
-
 }
