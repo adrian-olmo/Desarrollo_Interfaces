@@ -29,7 +29,6 @@
         <Button fx:id="btnolvidado" mnemonicParsing="false" text="He olvidado la contraseña" GridPane.rowIndex="6" />
         <Button fx:id="btnregistro" mnemonicParsing="false" text="Registrarse" GridPane.columnIndex="2" GridPane.rowIndex="6" />
         <Button fx:id="btnInicioSesion" mnemonicParsing="false" text="Iniciar Sesion" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-        <CheckBox fx:id="checkRecordar" mnemonicParsing="false" text="Recordar Sesion" textFill="WHITE" GridPane.rowIndex="5" />
         <ImageView fx:id="imagenLogin" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <image>
                 <Image url="@../resources/login.png" />

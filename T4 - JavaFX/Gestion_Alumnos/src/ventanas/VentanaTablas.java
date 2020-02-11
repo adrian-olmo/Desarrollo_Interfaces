@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class VentanaTablas extends Stage {
 
-    public VentanaTablas() {
+    public VentanaTablas(String titulotablas) {
 
         Parent root = null;
         try {
