@@ -14,10 +14,10 @@ import utils.Usuario;
 import ventanas.VentanaPassword;
 import ventanas.VentanaRegistro;
 import ventanas.VentanaTablas;
+
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class ControladoraLogin implements Initializable {
 
@@ -54,21 +54,25 @@ public class ControladoraLogin implements Initializable {
                 Usuario usuario = InicioSesion();
                 if ((txtnombre.getText().isEmpty()) || (txtpassword.getText().isEmpty())) {
                     Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Warning Dialog");
-                    alert.setHeaderText("Look, a Warning Dialog");
-                    alert.setContentText("Careful with the next step!");
+                    alert.setTitle("Advertencia");
+                    alert.setHeaderText("");
+                    alert.setContentText("Campo Vacio");
                     alert.showAndWait();
 
-                } else if ((txtnombre.getText().equals(usuario.getNombre_usuario())) || !(txtpassword.getText().equals(usuario.getPassword()))){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error Dialog");
-                    alert.setHeaderText("Look, an Error Dialog");
-                    alert.setContentText("Ooops, there was an error!");
-                    alert.showAndWait();
-                } else {
+
+                } else if (((txtnombre.getText().equals(usuario.getNombre_usuario())) && (txtpassword.getText().equals(usuario.getPassword())))) {
                     VentanaTablas ventanaTablas = new VentanaTablas(titulotablas);
-                }
+                    //
 
+                } else if ((txtnombre.getText() != "") || (txtpassword.getText() != "")) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error de Credenciales");
+                    alert.setHeaderText("");
+                    alert.setContentText("Datos introducidos incorrectos");
+
+                    alert.showAndWait();
+
+                }
             }
         });
 
@@ -112,7 +116,7 @@ public class ControladoraLogin implements Initializable {
             ps.setString(2, passwordUsuario);
             rs = ps.executeQuery();
 
-            while (rs.next()){
+            while (rs.next()) {
                 String nombreInicio = rs.getString("nombre_usuario"); //Nombre de la columna de la BBDD
                 String passwordInicio = rs.getString("password"); //Password de la columna de la BBDD
                 usuarioInicio = new Usuario(nombreInicio, passwordInicio);
