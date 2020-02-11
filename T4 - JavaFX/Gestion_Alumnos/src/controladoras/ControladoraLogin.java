@@ -52,6 +52,7 @@ public class ControladoraLogin implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Usuario usuario = InicioSesion();
+                System.out.println(txtnombre.getText());
                 if ((txtnombre.getText().isEmpty()) || (txtpassword.getText().isEmpty())) {
                     Alert alert = new Alert(Alert.AlertType.WARNING);
                     alert.setTitle("Advertencia");
@@ -60,19 +61,27 @@ public class ControladoraLogin implements Initializable {
                     alert.showAndWait();
 
 
-                } else if (((txtnombre.getText().equals(usuario.getNombre_usuario())) && (txtpassword.getText().equals(usuario.getPassword())))) {
-                    VentanaTablas ventanaTablas = new VentanaTablas(titulotablas);
-                    //
+                } else {
+                    boolean nombre_correcto = false;
 
-                } else if ((txtnombre.getText() != "") || (txtpassword.getText() != "")) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error de Credenciales");
-                    alert.setHeaderText("");
-                    alert.setContentText("Datos introducidos incorrectos");
-
-                    alert.showAndWait();
-
+                    try {
+                        if ((txtnombre.getText().equals(usuario.getNombre_usuario())) && (txtpassword.getText().equals(usuario.getPassword()))) {
+                            nombre_correcto=false;
+                        }
+                    } catch (NullPointerException e) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("");
+                        alert.setContentText("Campo Erroneo");
+                        alert.showAndWait();
+                        nombre_correcto = true;
+                    }
+                    if(!nombre_correcto){
+                        VentanaTablas ventanaTablas = new VentanaTablas(titulotablas);
+                    }
                 }
+
+
             }
         });
 
