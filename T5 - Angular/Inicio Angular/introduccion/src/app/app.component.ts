@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tecnologia } from './utils/tecnologia';
 import { TecnologiaInt } from './utils/tecnologia_dos';
+import { Asignatura } from './utils/asignatura';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ export class AppComponent {
 
   title = 'introduccion';
   nombre: string = 'Adrian Olmo';
-  mostrartecnologias:boolean = false;
+  mostrartecnologias:boolean = true;
+  mostrarCurso:string
   /*-------------------------------------------*/
   rutaImagen: string = '../assets/images/java.png';
   objetoJava: Tecnologia = new Tecnologia('Java', 'Multiplataforma desarrollado por Oracle', '../assets/images/java.png');
@@ -25,6 +27,53 @@ export class AppComponent {
   elementos: Tecnologia[] = [this.objetoJava, this.objetoPs, this.objetoHtml, this.objetoMysql, this.objetoPhp, this.objetoPy, 
     this.objetoAn, this.objetoJs];
 
+    asignaturasDAM1:Asignatura[] = [
+      {
+        nombre: "Lenguaje de Marcas",
+        ciclo: "DAM1",
+        siglas: "LM",
+        tecnologias:[this.objetoHtml, this.objetoJs],
+        conocimientos:["Wordpress", "XML", "CSS"]
+      
+      },
+      {
+        nombre: "Base de datos",
+        ciclo: "DAM1",
+        siglas: "BBDD",
+        tecnologias:[this.objetoJava, this.objetoMysql],
+        conocimientos:["Relaciones", "SQL", "Tuplas"]
+      
+      }
+    ]
+    asignaturasDAM2:Asignatura[] = [
+      {
+        nombre: "Desarrollo de Interfaces",
+        ciclo: "DAM2",
+        siglas: "DI",
+        tecnologias:[this.objetoJava, this.objetoAn],
+        conocimientos:["Utilidad", "Interfaces", "Multiplataforma"]
+      
+      },
+
+      {
+        nombre: "Programacion Multimedia y Dispositivos Moviles",
+        ciclo: "DAM2",
+        siglas: "PMDM",
+        tecnologias:[this.objetoJava, this.objetoJs],
+        conocimientos:["Utilidad", "Android", "Multiplataforma"]
+      
+      },
+
+      {
+        nombre: "Programacion Servicios y Procesos",
+        ciclo: "DAM2",
+        siglas: "PSP",
+        tecnologias:[this.objetoJava],
+        conocimientos:["Hilos", "Procesos", "Seguridad"]
+      
+      }
+    ]
+
 
     mandarmensaje(elemento:Tecnologia){
       console.log(elemento.getDescripcion());
@@ -35,6 +84,9 @@ export class AppComponent {
       console.log(this.mostrartecnologias);
       this.mostrartecnologias = !this.mostrartecnologias;
       
+    }
+    cambiarCurso(elemento:string){
+      this.mostrarCurso = elemento;
     }
 
 }
