@@ -52,7 +52,6 @@ public class ControladoraLogin implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Usuario usuario = InicioSesion();
-                System.out.println(txtnombre.getText());
                 if ((txtnombre.getText().isEmpty()) || (txtpassword.getText().isEmpty())) {
                     Alert alert = new Alert(Alert.AlertType.WARNING);
                     alert.setTitle("Advertencia");

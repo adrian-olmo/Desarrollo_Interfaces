@@ -2,16 +2,15 @@ package utils;
 
 public class Usuario {
 
-    int id_usuario, id_moduloUsu;
-    String nombre_usuario, apellido_usuario, email_usuario, password;
+   String DNI_usuario, nombre_usuario, apellido_usuario, email_usuario, password, nombre_modulo;
 
-    public Usuario() {
-        this.id_usuario = id_usuario;
-        this.id_moduloUsu = id_moduloUsu;
+    public Usuario(String DNI_usuario, String nombre_usuario, String apellido_usuario, String email_usuario, String password, String nombre_modulo) {
+        this.DNI_usuario = DNI_usuario;
         this.nombre_usuario = nombre_usuario;
         this.apellido_usuario = apellido_usuario;
         this.email_usuario = email_usuario;
         this.password = password;
+        this.nombre_modulo = nombre_modulo;
     }
 
     public Usuario(String nombre_usuario, String password) {
@@ -19,12 +18,12 @@ public class Usuario {
         this.password = password;
     }
 
-    public int getId_usuario() {
-        return id_usuario;
+    public Usuario() {
+
     }
 
-    public int getId_moduloUsu() {
-        return id_moduloUsu;
+    public String getDNI_usuario() {
+        return DNI_usuario;
     }
 
     public String getNombre_usuario() {
@@ -41,5 +40,9 @@ public class Usuario {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getNombre_modulo() {
+        return nombre_modulo;
     }
 }

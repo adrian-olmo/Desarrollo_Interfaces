@@ -44,26 +44,5 @@ public class ControladoraTablas implements Initializable {
         });
     }
 
-    private Usuario AgregarUsuario() throws SQLException {
-        Usuario usuarioAgregado = new Usuario();
-        Connection conexion = null;
-        try {
-            conexion = Conexion.conexionBD();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        PreparedStatement ps = null;
-        int rs;
-        String sql = "INSERT INTO usuario VALUES (?, ?, ?, ?, ?)";
 
-        ps.setInt(1, usuarioAgregado.getId_usuario());
-        ps.setString(2, usuarioAgregado.getNombre_usuario());
-        ps.setString(3, usuarioAgregado.getApellido_usuario());
-        ps.setString(4, usuarioAgregado.getEmail_usuario());
-        ps.setInt(5, usuarioAgregado.getId_moduloUsu());
-
-        rs = ps.executeUpdate();
-
-        return null;
-    }
 }
