@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "GestionComponentes": {
+    "gestioncomponentes": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/GestionComponentes",
+            "outputPath": "dist/gestioncomponentes",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "GestionComponentes:build"
+            "browserTarget": "gestioncomponentes:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "GestionComponentes:build:production"
+              "browserTarget": "gestioncomponentes:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "GestionComponentes:build"
+            "browserTarget": "gestioncomponentes:build"
           }
         },
         "test": {
@@ -111,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "GestionComponentes:serve"
+            "devServerTarget": "gestioncomponentes:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "GestionComponentes:serve:production"
+              "devServerTarget": "gestioncomponentes:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "GestionComponentes"
+  "defaultProject": "gestioncomponentes"
 }
