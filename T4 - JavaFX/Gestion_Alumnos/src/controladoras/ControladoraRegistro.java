@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import utils.Conexion;
@@ -32,9 +33,7 @@ public class ControladoraRegistro implements Initializable {
     @FXML
     ComboBox comboModulo;
 
-    ObservableList <String> modulos = FXCollections.observableArrayList("1ºDAM", "2ºDAM");
-
-
+    ObservableList<String> modulos = FXCollections.observableArrayList("1ºDAM", "2ºDAM");
 
 
     @Override
@@ -49,29 +48,54 @@ public class ControladoraRegistro implements Initializable {
             @Override
             public void handle(ActionEvent event) {
 
+                String valorDNI, valorNombre, valorApellido, valorCorreo, valorPasswd,valoModulo;
+
+                valorDNI = DNIRegistro.getText();
+                valorNombre = txtnombreregistro.getText();
+                valorApellido = txtapellidoregistro.getText();
+                valorCorreo = txtcorreoregistro.getText();
+                valorPasswd = passwordregistro.getText();
+                valoModulo = (String) comboModulo.getValue();
+
+
+                try {
+                    Usuario usuarioRegistro = new Usuario(valorDNI, valorNombre, valorApellido, valorCorreo, valorPasswd,valoModulo);
+                    SqlCLientes sqlCLientes = new SqlCLientes();
+                    sqlCLientes.RegistroClientes(usuarioRegistro);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
     }
 
-   /* private Usuario AgregarUsuario() throws SQLException {
-        Usuario usuarioAgregado = new Usuario();
-        Connection conexion = null;
-        try {
-            conexion = Conexion.conexionBD();
-        } catch (SQLException e) {
-            e.printStackTrace();
+    public class SqlCLientes extends Conexion {
+        public boolean RegistroClientes(Usuario cliente) throws SQLException {
+            PreparedStatement ps = null;
+            Connection conexion = conexionBD();
+
+
+            String query = "Insert into %s (%s,%s,%s,%s,%s, %s) VALUES ('%s','%s','%s','%s','%s','%s')";
+
+            try {
+                Statement statement = conexion.createStatement();
+                statement.execute(String.format(query, "usuario", "DNI_usuario", "nombre_usuario", "apellido_usuario", "email_usuario", "password", "nombre_modulo",
+                        cliente.getDNI_usuario(), cliente.getNombre_usuario(), cliente.getApellido_usuario(), cliente.getEmail_usuario(), cliente.getPassword(), cliente.getNombre_modulo())); //"" campos de la BBDD
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Usuario Dado de Alta");
+                alert.setHeaderText("");
+                alert.setContentText("../resourceso/okay.png");
+                alert.showAndWait();
+
+                return true;
+            } catch (SQLException e) {
+                SQLException ex;
+                return false;
+            }
+
+
         }
-        String query = "Insert into %s (%s,%s,%s,%s,%s) VALUES (%d,'%s','%s','%s','%s')";
-
-        try {
-            Statement statement = conexion.createStatement();
-            statement.execute(String.format(query, "usuario", "Id", "Nombre", "Apellido", "Correo", "Password",
-                    0, cliente.getNombre(), cliente.getApellido(), cliente.getCorreo(), cliente.getPassword()));
-            System.out.println(query + "Los valores han sido agregados a la base de datos!");
-            return true;
-        } catch (SQLException e) {
-            SQLException ex;
-            return false;
-        }*/
-
     }
+}
