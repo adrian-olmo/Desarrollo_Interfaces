@@ -12,6 +12,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import utils.Conexion;
 import utils.Usuario;
 
@@ -29,32 +30,30 @@ public class ControladoraRegistro implements Initializable {
 
 
     @FXML
-    ChoiceBox comboModulo;
+    ComboBox comboModulo;
 
     ObservableList <String> modulos = FXCollections.observableArrayList("1ºDAM", "2ºDAM");
-    comboModulo.setItems(modulos);
+
 
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        comboModulo.setItems(modulos);
         acciones();
+
     }
 
     private void acciones() {
         btnregistrar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                try {
-                    Usuario usuario = AgregarUsuario();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+
             }
         });
     }
 
-    private Usuario AgregarUsuario() throws SQLException {
+   /* private Usuario AgregarUsuario() throws SQLException {
         Usuario usuarioAgregado = new Usuario();
         Connection conexion = null;
         try {
@@ -73,6 +72,6 @@ public class ControladoraRegistro implements Initializable {
         } catch (SQLException e) {
             SQLException ex;
             return false;
-        }
+        }*/
 
     }
