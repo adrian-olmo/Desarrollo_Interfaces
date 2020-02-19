@@ -5,6 +5,8 @@ package controladoras;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -14,10 +16,7 @@ import utils.Conexion;
 import utils.Usuario;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class ControladoraRegistro implements Initializable {
@@ -26,13 +25,16 @@ public class ControladoraRegistro implements Initializable {
     JFXButton btnregistrar;
 
     @FXML
-    JFXTextField txtnombreregistro, txtapellidoregistro, txtcorreoregistro, txtconfirmarcorreo, txtpasswordregistro;
+    JFXTextField DNIRegistro, txtnombreregistro, txtapellidoregistro, txtcorreoregistro, passwordregistro;
+
 
     @FXML
-    JFXCheckBox checkregistro;
+    ChoiceBox comboModulo;
 
-    @FXML
-    ChoiceBox choiceregistro;
+    ObservableList <String> modulos = FXCollections.observableArrayList("1ºDAM", "2ºDAM");
+    comboModulo.setItems(modulos);
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -60,21 +62,17 @@ public class ControladoraRegistro implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        PreparedStatement ps = null;
-        ResultSet rs;
-        String sql = "INSERT INTO usuario VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "Insert into %s (%s,%s,%s,%s,%s) VALUES (%d,'%s','%s','%s','%s')";
 
-        ps.setString(1, usuarioAgregado.getDNI_usuario());
-        ps.setString(2, usuarioAgregado.getNombre_usuario());
-        ps.setString(3, usuarioAgregado.getApellido_usuario());
-        ps.setString(4, usuarioAgregado.getEmail_usuario());
-        ps.setString(5, usuarioAgregado.getPassword());
-        ps.setString(6, usuarioAgregado.getNombre_modulo());
+        try {
+            Statement statement = conexion.createStatement();
+            statement.execute(String.format(query, "usuario", "Id", "Nombre", "Apellido", "Correo", "Password",
+                    0, cliente.getNombre(), cliente.getApellido(), cliente.getCorreo(), cliente.getPassword()));
+            System.out.println(query + "Los valores han sido agregados a la base de datos!");
+            return true;
+        } catch (SQLException e) {
+            SQLException ex;
+            return false;
+        }
 
-        rs = ps.executeQuery(sql);
-
-
-
-        return usuarioAgregado;
     }
-}
