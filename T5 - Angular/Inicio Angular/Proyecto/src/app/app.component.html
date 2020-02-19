@@ -1,8 +1,23 @@
 <div class="container-fluid">
-
   <app-barra-superior></app-barra-superior>
-  <p>Aplicación modular</p>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Listado de Tecnologias</h1>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="mostrarTecnologias">
+
+      <div class="card" style="width: 18rem;" *ngFor="let item of tecnologias">
+          <img [src]="item.getImagen()" class="card-img-top" alt="...">
+          <div class="card-body">
+              <h5 class="card-title">{{item.getTitulo()}}</h5>
+              <p class="card-text">{{item.getDescripcion()}}</p>
+              <button #elemento class="btn btn-primary btn-block" (click)="mandarMensaje(item)">ver detalle</button>
+          </div>
+      </div>
+
+  </div>
+
   <router-outlet></router-outlet>
-
-
 </div>
