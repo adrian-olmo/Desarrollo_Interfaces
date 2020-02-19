@@ -11,6 +11,8 @@ export class AsignaturaComponent implements OnInit {
   constructor(private servicio:DatosService) { }
 
   ngOnInit() {
+
+    this.servicio.getAsignaturaDAM
   }
 
 }
