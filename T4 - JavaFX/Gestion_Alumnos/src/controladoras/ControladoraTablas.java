@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import utils.Conexion;
 import utils.Usuario;
+import ventanas.VentanaRegistro;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -33,10 +34,19 @@ public class ControladoraTablas implements Initializable {
     TableColumn tablaidAlu, tablanombreAlu, tablapellidoAlu, tablacorreoAlu;
 
 
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         btnAgregar.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                VentanaRegistro ventanaRegistro = new VentanaRegistro("Ventana Registro");
+            }
+        });
+
+        btnDesconocido.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
 

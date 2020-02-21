@@ -26,8 +26,10 @@ public class ControladoraPassword implements Initializable {
             @Override
             public void handle(ActionEvent event) {
 
-                System.out.println("Contraseña restablecida");
+
             }
         });
     }
+
+
 }

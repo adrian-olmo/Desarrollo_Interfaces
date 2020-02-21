@@ -84,11 +84,10 @@ public class ControladoraRegistro implements Initializable {
                         cliente.getDNI_usuario(), cliente.getNombre_usuario(), cliente.getApellido_usuario(), cliente.getEmail_usuario(), cliente.getPassword(), cliente.getNombre_modulo())); //"" campos de la BBDD
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Usuario Dado de Alta");
+                alert.setTitle("Confirmado");
                 alert.setHeaderText("");
-                alert.setContentText("../resourceso/okay.png");
+                alert.setContentText("Usuario Completamente registrado");
                 alert.showAndWait();
-
                 return true;
             } catch (SQLException e) {
                 SQLException ex;
