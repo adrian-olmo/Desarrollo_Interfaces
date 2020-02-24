@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicioService } from 'src/app/services/servicio.service';
 
 @Component({
   selector: 'app-central',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CentralComponent implements OnInit {
 
-  constructor() { }
+
+  miArray: string[]
+
+  constructor(private servicio:ServicioService) { }
 
   ngOnInit() {
+
+    this.miArray = this.servicio.getArrayUno()
   }
 
 }

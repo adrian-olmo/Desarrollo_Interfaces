@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tecnologia-hijo',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tecnologia-hijo.component.css']
 })
 export class TecnologiaHijoComponent implements OnInit {
+
+  @Input() miArray:string[]
 
   constructor() { }
 
