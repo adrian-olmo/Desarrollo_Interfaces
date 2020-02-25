@@ -18,6 +18,14 @@ public class Usuario {
         this.password = password;
     }
 
+    public Usuario(String DNI_usuario, String nombre_usuario, String apellido_usuario, String email_usuario, String nombre_modulo) {
+        this.DNI_usuario = DNI_usuario;
+        this.nombre_usuario = nombre_usuario;
+        this.apellido_usuario = apellido_usuario;
+        this.email_usuario = email_usuario;
+        this.nombre_modulo = nombre_modulo;
+    }
+
     public Usuario() {
     }
 

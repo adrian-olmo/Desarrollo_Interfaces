@@ -57,7 +57,7 @@ public class ControladoraTablas implements Initializable {
             e.printStackTrace();
         }
         rellenarDatos();
-        CargarUsuarios();
+        cargarUsuarios();
 
         btnAgregar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -86,17 +86,23 @@ public class ControladoraTablas implements Initializable {
         tabla.setItems(datosUsuario);
     }
 
-    private void CargarUsuarios() {
+    private void cargarUsuarios() {
 
-        PreparedStatement pst = null;
-        Connection connection = null;
+        Connection conexion = null;
+        try {
+            conexion = Conexion.conexionBD();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        PreparedStatement ps;
         ResultSet rs;
 
+
         try {
-            pst = connection.prepareStatement("Select * from alumnos");
-            rs = pst.executeQuery();
+            ps = conexion.prepareStatement("SELECT DNI_usuario, nombre_usuario, apellido_usuario, email_usuario, nombre_modulo FROM usuario");
+            rs = ps.executeQuery();
             while(rs.next()){
-                datosUsuario.add(new Usuario(rs.getString(1),rs.getString(2), rs.getString(3), ""+rs.getString(4), ""+rs.getString(5), ""+rs.getDate(6)));
+                datosUsuario.add(new Usuario(rs.getString("DNI_usuario"),rs.getString("nombre_usuario"),rs.getString("apellido_usuario"), rs.getString("email_usuario"),rs.getString("nombre_modulo")));
             }
         }catch (SQLException ex) {
             Logger.getLogger(ControladoraTablas.class.getName()).log(Level.SEVERE, null, ex);
