@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import utils.Conexion;
+import utils.Usuario;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -32,7 +33,8 @@ public class ControladoraPassword implements Initializable {
         btnconfirmar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                actualizarPassword();
+
+                //actualizarPassword(Usuario usuario);
 
             }
         });
@@ -40,7 +42,7 @@ public class ControladoraPassword implements Initializable {
 
     }
 
-    public void actualizarPassword(ActionEvent event) {
+    public void actualizarPassword(Usuario usuario) throws SQLException {
 
         Connection conexion = null;
         try {
@@ -49,8 +51,19 @@ public class ControladoraPassword implements Initializable {
             e.printStackTrace();
         }
 
-        PreparedStatement ps;
-        ResultSet rs;
+        PreparedStatement ps = null;
+        //ResultSet rs;
+        String sql = "UPDATE usuario SET password = ? WHERE email_usuario = ?";
+        try {
+            ps = conexion.prepareStatement(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        ps.setString(1, usuario.getEmail_usuario());
+        ps.setString(2, usuario.getPassword());
+
+        ResultSet rs = ps.executeQuery();
 
 
     }
