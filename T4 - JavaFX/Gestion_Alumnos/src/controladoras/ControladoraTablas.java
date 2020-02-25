@@ -70,6 +70,8 @@ public class ControladoraTablas implements Initializable {
             @Override
             public void handle(ActionEvent event) {
 
+                tabla.refresh();
+
             }
         });
     }
