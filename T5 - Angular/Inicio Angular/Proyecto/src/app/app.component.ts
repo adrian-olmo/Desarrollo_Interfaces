@@ -8,21 +8,8 @@ import { Asignatura } from './utils/asinatura';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   
   title = 'Proyecto';
-  mostrarTecnologias: boolean = true;
-  mostrarAsignaturas: boolean = true;
-  tecnologias: Tecnologia[];
-  asignaturas: Asignatura[];
-
-
-  constructor(private servicios:DatosService){
-  }
-
-  ngOnInit(): void {
-    this.tecnologias = this.servicios.getAllTecnologias()
-    this.asignaturas = this.servicios.getAllAsignaturas()
-    
-  }
+  
 }

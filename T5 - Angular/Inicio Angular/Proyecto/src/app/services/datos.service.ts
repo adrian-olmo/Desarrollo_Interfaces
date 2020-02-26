@@ -29,6 +29,10 @@ export class DatosService {
 
   constructor() { }
 
+  cartasTecnologias:Tecnologia[]
+  cartasDAM:Asignatura[]
+  //cartasDAM2:string[] = ["once",  "doce", "trece", "catorce", "quince"]
+
   getAllAsignaturas(): Asignatura[] {
     return this.asignaturasDAM;
   }
@@ -46,5 +50,13 @@ export class DatosService {
     })
     return this.asignaturasDAM;
 
+  }
+
+  getArrayTecnologias():Tecnologia[]{
+    return this.cartasTecnologias
+  }
+
+  getArrayAsignaturas():Asignatura[]{
+    return this.cartasDAM
   }
 }

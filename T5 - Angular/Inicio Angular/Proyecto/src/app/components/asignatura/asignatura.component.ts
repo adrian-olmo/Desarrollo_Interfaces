@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 import { Tecnologia } from 'src/app/utils/tecnologia';
 import { Asignatura } from 'src/app/utils/asinatura';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-asignatura',
@@ -10,17 +11,20 @@ import { Asignatura } from 'src/app/utils/asinatura';
 })
 export class AsignaturaComponent implements OnInit {
 
-  mostrarTecnologias: boolean = true;
-  mostrarCurso: string;
-  tecnologias: Tecnologia[];
-  asignaturas: Asignatura[];
 
-  constructor(private servicio:DatosService) { }
+  asignaturas: Asignatura[];
+  parametro: string[]
+
+  constructor(private servicio:DatosService, private rutas:ActivatedRoute) { }
 
   ngOnInit() {
+    this.asignaturas = this.servicio.getAllAsignaturas()
+    this.rutas.params.subscribe(param =>{
+      console.log(param);
+      
+    });
 
-    this.servicio.getAllAsignaturas
-   // this.servicio.getAllTecnologias
+    //this.asignaturas = this.servicio.getArrayAsignaturas()
   }
 
 }

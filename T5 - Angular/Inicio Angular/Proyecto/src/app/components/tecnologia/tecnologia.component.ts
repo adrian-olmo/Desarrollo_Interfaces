@@ -9,13 +9,16 @@ import { DatosService } from 'src/app/services/datos.service';
 })
 export class TecnologiaComponent implements OnInit {
 
-  
+  tecnologias: Tecnologia[]
 
-  constructor() { }
-
-  ngOnInit() {
-
-   
+  constructor(private servicios:DatosService){
   }
+
+  ngOnInit(): void {
+    this.tecnologias = this.servicios.getAllTecnologias()
+    //this.asignaturas = this.servicios.getAllAsignaturas()
+    
+  }
+  
 
 }

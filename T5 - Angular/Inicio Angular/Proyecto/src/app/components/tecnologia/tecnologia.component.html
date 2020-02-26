@@ -1,1 +1,17 @@
-<p>tecnologia works!</p>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Listado de Tecnologias</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="card" style="width: 18rem;" *ngFor="let item of tecnologias">
+        <img [src]="item.imagen" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{item.titulo}}</h5>
+            <p class="card-text">{{item.descripcion}}</p>
+            <button #elemento class="btn btn-primary btn-block" (click)="mandarMensaje(item)">ver detalle</button>
+        </div>
+    </div>
+
+</div>
