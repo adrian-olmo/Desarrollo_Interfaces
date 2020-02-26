@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Tecnologia } from 'src/app/utils/tecnologia';
+import { DatosService } from 'src/app/services/datos.service';
 
 @Component({
   selector: 'app-tecnologia',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TecnologiaComponent implements OnInit {
 
+  
+
   constructor() { }
 
   ngOnInit() {
+
+   
   }
 
 }

@@ -10,12 +10,12 @@ export class DatosService {
 
   objJava:Tecnologia = {titulo:"Java", descripcion:"JavaFx, JavaSwing", imagen:"../assets/images/java.png"}
   objPowerShell:Tecnologia = {titulo:"PowerShell", descripcion:"PowerShell", imagen:"../assets/images/powershell.png"}
-  objAngular:Tecnologia = {titulo:"Angular", descripcion:"Angular", imagen:"../assets/images/angular.png"}
-  objJS:Tecnologia = {titulo:"JS", descripcion:"JavaScript", imagen:"../assets/images/js.png"}
-  objHTML:Tecnologia = {titulo:"HTML", descripcion:"HTML, CSS", imagen:"../assets/images/html.png"}
+  objAngular:Tecnologia = {titulo:"Angular", descripcion:"Angular", imagen:"../assets/images/anguar.jpeg"}
+  objJS:Tecnologia = {titulo:"JS", descripcion:"JavaScript", imagen:"../assets/images/js.jpg"}
+  objHTML:Tecnologia = {titulo:"HTML", descripcion:"HTML, CSS", imagen:"../assets/images/html.jpeg"}
   objXML:Tecnologia = {titulo:"XML", descripcion:"XML", imagen:"../assets/images/xml.png"}
-  objSQL:Tecnologia = {titulo:"SQL", descripcion:"SQL", imagen:"../assets/images/mysql.png"}
-  objPython:Tecnologia = {titulo:"Python", descripcion:"Python", imagen:"../assets/images/python.png"}
+  objSQL:Tecnologia = {titulo:"SQL", descripcion:"SQL", imagen:"../assets/images/mysql.jpg"}
+  objPython:Tecnologia = {titulo:"Python", descripcion:"Python", imagen:"../assets/images/python.jpg"}
   tecnologias:Tecnologia[] = [this.objJava, this.objPowerShell, this.objAngular,this.objJS, this.objHTML, this.objXML, this.objSQL, this.objPython]
 
   asignaturasDAM: Asignatura[] = [
@@ -26,9 +26,6 @@ export class DatosService {
     {nombre: "Programación multimedia",ciclo: "DAM2",siglas: "PMDM",tecnologias: [this.objJava, this.objAngular],conocimientos: ['Android', 'Moviles', 'XML']}, 
     {nombre: "Programación de proceses",ciclo: "DAM2",siglas: "PSP",tecnologias: [this.objJava, this.objAngular],conocimientos: ['Hilos', 'Procesos', 'Comunicaciones']}
   ];
-
-
-
 
   constructor() { }
 

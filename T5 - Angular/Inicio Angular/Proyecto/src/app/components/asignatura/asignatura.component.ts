@@ -20,7 +20,7 @@ export class AsignaturaComponent implements OnInit {
   ngOnInit() {
 
     this.servicio.getAllAsignaturas
-    this.servicio.getAllTecnologias
+   // this.servicio.getAllTecnologias
   }
 
 }

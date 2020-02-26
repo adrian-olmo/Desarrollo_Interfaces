@@ -9,15 +9,21 @@
   <div class="row" *ngIf="mostrarTecnologias">
 
       <div class="card" style="width: 18rem;" *ngFor="let item of tecnologias">
-          <img [src]="item.getImagen()" class="card-img-top" alt="...">
+          <img [src]="item.imagen" class="card-img-top" alt="...">
           <div class="card-body">
-              <h5 class="card-title">{{item.getTitulo()}}</h5>
-              <p class="card-text">{{item.getDescripcion()}}</p>
+              <h5 class="card-title">TTitulo Tecnologia</h5>
+              <p class="card-text">Descripcion Tecnologia</p>
               <button #elemento class="btn btn-primary btn-block" (click)="mandarMensaje(item)">ver detalle</button>
           </div>
       </div>
 
   </div>
+
+  <div class="row" *ngIf="mostrarAsignaturas">
+
+    
+
+</div>
 
   <router-outlet></router-outlet>
 </div>
