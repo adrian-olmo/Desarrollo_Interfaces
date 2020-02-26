@@ -40,7 +40,6 @@ public class ControladoraRegistro implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         comboModulo.setItems(modulos);
         acciones();
-
     }
 
     private void acciones() {
@@ -49,7 +48,6 @@ public class ControladoraRegistro implements Initializable {
             public void handle(ActionEvent event) {
 
                 String valorDNI, valorNombre, valorApellido, valorCorreo, valorPasswd,valoModulo;
-
                 valorDNI = DNIRegistro.getText();
                 valorNombre = txtnombreregistro.getText();
                 valorApellido = txtapellidoregistro.getText();
