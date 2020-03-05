@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import utils.Conexion;
 import utils.Usuario;
 import ventanas.VentanaRegistro;
@@ -63,13 +64,14 @@ public class ControladoraTablas implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 VentanaRegistro ventanaRegistro = new VentanaRegistro("Ventana Registro");
+                Stage stage = (Stage) btnAgregar.getScene().getWindow();
+                stage.close();
             }
         });
 
         btnDesconocido.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
                 tabla.refresh();
 
             }
