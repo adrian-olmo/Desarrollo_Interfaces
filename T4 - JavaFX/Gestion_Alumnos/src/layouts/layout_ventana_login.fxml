@@ -26,9 +26,8 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <Button fx:id="btnolvidado" mnemonicParsing="false" text="He olvidado la contraseña" GridPane.rowIndex="6" />
         <Button fx:id="btnregistro" mnemonicParsing="false" text="Registrarse" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-        <Button fx:id="btnInicioSesion" mnemonicParsing="false" text="Iniciar Sesion" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <Button fx:id="btnInicioSesion" mnemonicParsing="false" text="Iniciar Sesion" GridPane.rowIndex="6" />
         <ImageView fx:id="imagenLogin" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <image>
                 <Image url="@../resources/login.png" />

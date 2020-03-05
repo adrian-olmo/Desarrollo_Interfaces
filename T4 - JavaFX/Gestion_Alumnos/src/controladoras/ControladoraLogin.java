@@ -11,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import utils.Conexion;
 import utils.Usuario;
-import ventanas.VentanaPassword;
 import ventanas.VentanaRegistro;
 import ventanas.VentanaTablas;
 
@@ -22,13 +21,12 @@ import java.util.ResourceBundle;
 public class ControladoraLogin implements Initializable {
 
     String tituloregistro = "Registro";
-    String titulopassword = "He olvidado mi contraseña";
     String titulotablas = "Bienvenido";
 
     Usuario alumno = new Usuario();
 
     @FXML
-    Button btnolvidado, btnInicioSesion, btnregistro;
+    Button btnInicioSesion, btnregistro;
 
 
     @FXML
@@ -90,13 +88,6 @@ public class ControladoraLogin implements Initializable {
 
                 VentanaRegistro ventanaRegistro = new VentanaRegistro(tituloregistro);
 
-            }
-        });
-
-        btnolvidado.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                VentanaPassword ventanaPassword = new VentanaPassword(titulopassword);
             }
         });
     }
