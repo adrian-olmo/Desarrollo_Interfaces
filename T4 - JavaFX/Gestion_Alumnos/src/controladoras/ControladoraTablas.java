@@ -1,8 +1,11 @@
 package controladoras;
 
 import com.jfoenix.controls.JFXComboBox;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import utils.Conexion;
@@ -22,6 +26,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,10 +34,10 @@ import java.util.logging.Logger;
 public class ControladoraTablas implements Initializable {
 
     @FXML
-    Button btnCalific, btnDesconocido, btnAgregar;
+    Button btnDesconocido, btnAgregar;
 
     @FXML
-    JFXComboBox seleccionasignatura, seleccionmodulo;
+    TextField nombrealumno;
 
     @FXML
     TableView tabla;
@@ -40,10 +45,8 @@ public class ControladoraTablas implements Initializable {
     @FXML
     TableColumn <Usuario, String>tablaidAlu, tablanombreAlu, tablapellidoAlu, tablacorreoAlu, tablaModulo;
 
-
-
-
     ObservableList<Usuario> datosUsuario;
+    FilteredList<Usuario> usuarioFiltrado;
 
 
 
@@ -59,6 +62,18 @@ public class ControladoraTablas implements Initializable {
         }
         rellenarDatos();
         cargarUsuarios();
+
+        nombrealumno.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                usuarioFiltrado.setPredicate(new Predicate<Usuario>() {
+                    @Override
+                    public boolean test(Usuario usuariofiltro) {
+                        return usuariofiltro.getNombre_usuario().contains(newValue);
+                    }
+                });
+            }
+        });
 
         btnAgregar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -76,6 +91,9 @@ public class ControladoraTablas implements Initializable {
 
             }
         });
+
+
+
     }
 
     private void rellenarDatos(){
